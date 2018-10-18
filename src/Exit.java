@@ -33,7 +33,7 @@ public class Exit {
         String srcTitle = s.nextLine();
         if (srcTitle.equals(Dungeon.TOP_LEVEL_DELIM)) {
             throw new NoExitException();
-        }
+    }
         src = d.getRoom(srcTitle);
         dir = s.nextLine();
         dest = d.getRoom(s.nextLine());
@@ -41,7 +41,7 @@ public class Exit {
         // I'm an Exit object. Add me as an exit to my source Room.
         src.addExit(this);
 
-        // throw away delimiter
+        //throw away delimiter
         if (!s.nextLine().equals(Dungeon.SECOND_LEVEL_DELIM)) {
             throw new Dungeon.IllegalDungeonFormatException("No '" +
                 Dungeon.SECOND_LEVEL_DELIM + "' after exit.");

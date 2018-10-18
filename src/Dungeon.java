@@ -55,14 +55,14 @@ public class Dungeon {
         s.nextLine();   // Throw away version indicator.
 
         // Throw away delimiter.
-        if (!s.nextLine().equals(TOP_LEVEL_DELIM)) {
+       if (!s.nextLine().equals(TOP_LEVEL_DELIM)) {
             throw new IllegalDungeonFormatException("No '" +
                 TOP_LEVEL_DELIM + "' after version indicator.");
         }
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
-            throw new IllegalDungeonFormatException("No '" +
+           throw new IllegalDungeonFormatException("No '" +
                 ROOMS_MARKER + "' line where expected.");
         }
 
@@ -78,9 +78,9 @@ public class Dungeon {
             }
         } catch (Room.NoRoomException e) {  /* end of rooms */ }
 
-        // Throw away Exits starter.
+         //Throw away Exits starter.
         if (!s.nextLine().equals(EXITS_MARKER)) {
-            throw new IllegalDungeonFormatException("No '" +
+           throw new IllegalDungeonFormatException("No '" +
                 EXITS_MARKER + "' line where expected.");
         }
 
