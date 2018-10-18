@@ -46,6 +46,7 @@ public class Item{
 			}
 			//adding message to ht, setting verb as reference to message
 			messages.put(verb,message);
+
 			//resetting message
 			message = "";
 			currLine = s.nextLine();
