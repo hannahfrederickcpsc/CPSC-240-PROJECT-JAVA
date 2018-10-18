@@ -20,11 +20,13 @@ public class CommandFactory {
 
     public Command parse(String command) {
         if (MOVEMENT_COMMANDS.contains(command)) {
-            return new Command(command);
-        } else {
+            return new MovementCommand(command);
+        } else if (command.equals("save")){
             // For now, only one type of command object, to move and to save.
-            return new Command(command);
+            return new SaveCommand(command);
         }
+	return new UnknownCommand(command);
+	
     }
 
 }
