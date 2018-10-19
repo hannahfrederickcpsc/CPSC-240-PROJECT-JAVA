@@ -21,7 +21,8 @@ public class Dungeon {
     // Variables relating to dungeon file (.zork) storage.
     public static String ROOMS_MARKER = "Rooms:";
     public static String EXITS_MARKER = "Exits:";
-    
+    public static String ITEMS_MARKER = "Items:";
+
     // Variables relating to game state (.sav) storage.
     static String FILENAME_LEADER = "Dungeon file: ";
     static String ROOM_STATES_MARKER = "Room states:";
@@ -29,6 +30,7 @@ public class Dungeon {
     private String name;
     private Room entry;
     private Hashtable<String,Room> rooms;
+    private Hashtable<String,Item> items;
     private String filename;
 
     Dungeon(String name, Room entry) {
@@ -60,12 +62,24 @@ public class Dungeon {
                 TOP_LEVEL_DELIM + "' after version indicator.");
         }
 
+        // Throw away Items starter.
+       if (!s.nextLine().equals(ITEMS_MARKER)) {
+	    throw new IllegalDungeonFormatException("No '" + 
+		ITEMS_MARKER + "' line where expected.");
+	}
+
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
            throw new IllegalDungeonFormatException("No '" +
                 ROOMS_MARKER + "' line where expected.");
         }
 
+	try {
+	    // Instantiate and add items
+	    while (true){
+		add(new item(s));
+	    }
+	} catch (Item.NoItemException e) { /* end of items */
 
         try {
             // Instantiate and add first room (the entry).
@@ -142,5 +156,9 @@ public class Dungeon {
 
     public Room getRoom(String roomTitle) {
         return rooms.get(roomTitle);
+    }
+
+    public add(Item item){
+	items.put(item.getPrimaryName(),item);
     }
 }
