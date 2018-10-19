@@ -65,6 +65,9 @@ public class Item{
 	}//end goesBy()
 
 	public String getPrimaryName(){
+		String name = this.primaryName;
+		String [] nameSplit = name.split(",");
+		this.primaryName = nameSplit[0];
 		return this.primaryName;
 	}//end getPrimaryName()
 
