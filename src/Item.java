@@ -67,8 +67,7 @@ public class Item{
 	public String getPrimaryName(){
 		String name = this.primaryName;
 		String [] nameSplit = name.split(",");
-		this.primaryName = nameSplit[0];
-		return this.primaryName;
+		return nameSplit[0];
 	}//end getPrimaryName()
 
 	public String getMessageForVerb(String verb){
