@@ -54,7 +54,8 @@ public class Room {
     // Common object initialization tasks.
     private void init() {
         exits = new ArrayList<Exit>();
-        beenHere = false;
+        contents = new ArrayList<Item>();
+	beenHere = false;
     }
 
     String getTitle() { return title; }

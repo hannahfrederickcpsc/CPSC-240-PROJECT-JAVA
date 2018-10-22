@@ -12,7 +12,7 @@ class SaveCommand extends Command{
 			return "Data saved to " + GameState.DEFAULT_SAVE_FILE + GameState.SAVE_FILE_EXTENSION + ".\n";
 		}
 		catch (Exception e) {
-			System.out.println("Culdn't save!");
+			System.out.println("Couldn't save!");
 			e.printStackTrace();
 			return "";
 		}

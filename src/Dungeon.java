@@ -39,6 +39,7 @@ public class Dungeon {
         this.name = name;
         this.entry = entry;
         rooms = new Hashtable<String,Room>();
+	items = new Hashtable<String,Item>();
     }
 
     /**
@@ -114,6 +115,7 @@ public class Dungeon {
     // is used.
     private void init() {
         rooms = new Hashtable<String,Room>();
+	items = new Hashtable<String,Item>();
     }
 
     /*
@@ -158,7 +160,7 @@ public class Dungeon {
         return rooms.get(roomTitle);
     }
 
-    public add(Item item){
+    public void add(Item item){
 	items.put(item.getPrimaryName(),item);
     }
 }
