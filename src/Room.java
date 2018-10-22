@@ -12,6 +12,7 @@ public class Room {
     private String desc;
     private boolean beenHere;
     private ArrayList<Exit> exits;
+    private ArrayList<Item> contents;
 
     Room(String title) {
         init();
@@ -50,6 +51,10 @@ public class Room {
         }
     }
 
+    Room(Scanner s, Dungeon d, boolean initState) throws NoRoomException, Dugeon.IllegalDugeonFormatException{
+	    this(s, d, true);
+    }
+
     // Common object initialization tasks.
     private void init() {
         exits = new ArrayList<Exit>();
@@ -84,6 +89,8 @@ public class Room {
 
         s.nextLine();   // consume end-of-room delimiter
     }
+    void restoreState(Scanner s, Dungeon d){
+    }
 
     public String describe() {
         String description;
@@ -110,5 +117,28 @@ public class Room {
 
     void addExit(Exit exit) {
         exits.add(exit);
+    }
+
+    void add(Item item){
+	contents.add(item);
+    }
+
+    void remove(Item item){
+	contents.remove(item);
+    }
+
+    Item getItemNamed(String name){
+   	for (Item item:contents)
+	{
+		if(item.getPrimaryName().equals(name))
+		{
+			return item;
+		}
+	}
+	return null;
+    }
+
+    ArrayList<Item> getContents(){
+	    return contents;
     }
 }

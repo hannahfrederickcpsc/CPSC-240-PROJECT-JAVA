@@ -68,18 +68,18 @@ public class Dungeon {
 		ITEMS_MARKER + "' line where expected.");
 	}
 
+       try {
+            // Instantiate and add items
+            while (true){
+                add(new Item(s));
+            }
+        } catch (Item.NoItemException e) { /* end of items */
+
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
            throw new IllegalDungeonFormatException("No '" +
                 ROOMS_MARKER + "' line where expected.");
         }
-
-	try {
-	    // Instantiate and add items
-	    while (true){
-		add(new item(s));
-	    }
-	} catch (Item.NoItemException e) { /* end of items */
 
         try {
             // Instantiate and add first room (the entry).
