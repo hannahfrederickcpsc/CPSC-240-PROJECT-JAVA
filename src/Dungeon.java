@@ -74,7 +74,9 @@ public class Dungeon {
             while (true){
                 add(new Item(s));
             }
-        } catch (Item.NoItemException e) { /* end of items */
+        } 
+       catch (NoItemException e) { /* end of items */
+       }
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
@@ -109,7 +111,7 @@ public class Dungeon {
         } catch (Exit.NoExitException e) {  /* end of exits */ }
 
         s.close();
-    }
+    
 }
     
     // Common object initialization tasks, regardless of which constructor
