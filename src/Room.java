@@ -51,10 +51,6 @@ public class Room {
         }
     }
 
-    Room(Scanner s, Dungeon d, boolean initState) throws NoRoomException, Dugeon.IllegalDugeonFormatException{
-	    this(s, d, true);
-    }
-
     // Common object initialization tasks.
     private void init() {
         exits = new ArrayList<Exit>();
