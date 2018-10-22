@@ -110,6 +110,7 @@ public class Dungeon {
 
         s.close();
     }
+}
     
     // Common object initialization tasks, regardless of which constructor
     // is used.
