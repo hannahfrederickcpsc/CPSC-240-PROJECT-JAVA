@@ -82,9 +82,9 @@ public class Room {
     void storeState(PrintWriter w) throws IOException {
         // At this point, nothing to save for this room if the user hasn't
         // visited it.
-        if (beenHere) {
+        if (!contents.isEmpty() || beenHere) {
             w.println(title + ":");
-            w.println("beenHere=true");
+            w.println("beenHere=" + beenHere);
 	    if (!contents.isEmpty()){
 		    w.print("Contents: ");
 		    String contentLine = "";
@@ -98,6 +98,7 @@ public class Room {
             w.println(Dungeon.SECOND_LEVEL_DELIM);
         }
     }
+  
 
     void restoreState(Scanner s, Dungeon d) throws GameState.IllegalSaveFormatException {
 
@@ -107,7 +108,15 @@ public class Room {
         }
         beenHere = Boolean.valueOf(line.substring(line.indexOf("=")+1));
 	line = s.nextLine();
+	if(line.startsWith("Contents:")){
+		String replaceLine = line.replace("Contents: ","");
+		String [] lineSplit = replaceLine.split(",");
+		for(String itemName: lineSplit){
+			this.add(d.getItem(itemName));
+		}
+		line = s.nextLine();
 	}
+    }
 
     public String describe() {
         String description;
