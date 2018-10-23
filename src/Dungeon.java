@@ -46,7 +46,7 @@ public class Dungeon {
      * Read from the .zork filename passed, and instantiate a Dungeon object
      * based on it.
      */
-    public Dungeon(String filename) throws FileNotFoundException,
+    public Dungeon(String filename, boolean initState) throws FileNotFoundException,
         IllegalDungeonFormatException {
 
         init();
