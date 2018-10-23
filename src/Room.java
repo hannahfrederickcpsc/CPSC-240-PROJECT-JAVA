@@ -27,7 +27,7 @@ public class Room {
         @throws IllegalDungeonFormatException A structural problem with the
         dungeon file itself, detected when trying to read this room.
      */
-    Room(Scanner s) throws NoRoomException,
+    Room(Scanner s, Dungeon d) throws NoRoomException,
         Dungeon.IllegalDungeonFormatException {
 
         init();
@@ -38,8 +38,19 @@ public class Room {
         }
         
         String lineOfDesc = s.nextLine();
-        while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
-               !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
+	
+	//adding contents	
+	if(lineOfDesc.startsWith("Contents:")){
+			String contentLine = lineOfDesc.replace("Contents: ","");
+			String [] contentSplit = contentLine.split(",");
+			for (int i = 0; i < contentSplit.length; ++i){
+				this.add(d.getItem(contentSplit[i]));
+				}
+				lineOfDesc = s.nextLine();
+			}
+        
+	while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
+            !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
             desc += lineOfDesc + "\n";
             lineOfDesc = s.nextLine();
         }
@@ -66,28 +77,37 @@ public class Room {
      * Store the current (changeable) state of this room to the writer
      * passed.
      */
+    
+    //now adds 'Contents:' line for room in .sav file
     void storeState(PrintWriter w) throws IOException {
         // At this point, nothing to save for this room if the user hasn't
         // visited it.
         if (beenHere) {
             w.println(title + ":");
             w.println("beenHere=true");
+	    if (!contents.isEmpty()){
+		    w.print("Contents: ");
+		    String contentLine = "";
+		    for(Item item: contents){
+			    contentLine += item.getPrimaryName() + ",";
+		    }
+		    String realContentLine = contentLine.substring(0, contentLine.length() - 1);
+		    w.println(realContentLine);
+	    }
+
             w.println(Dungeon.SECOND_LEVEL_DELIM);
         }
     }
 
-    void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
+    void restoreState(Scanner s, Dungeon d) throws GameState.IllegalSaveFormatException {
 
         String line = s.nextLine();
         if (!line.startsWith("beenHere")) {
             throw new GameState.IllegalSaveFormatException("No beenHere.");
         }
         beenHere = Boolean.valueOf(line.substring(line.indexOf("=")+1));
-
-        s.nextLine();   // consume end-of-room delimiter
-    }
-    void restoreState(Scanner s, Dungeon d){
-    }
+	line = s.nextLine();
+	}
 
     public String describe() {
         String description;
@@ -96,6 +116,9 @@ public class Room {
         } else {
             description = title + "\n" + desc;
         }
+	for (Item item: contents){
+		description += "There is a(n) " + item.getPrimaryName() + " here.\n";
+	}
         for (Exit exit : exits) {
             description += "\n" + exit.describe();
         }
