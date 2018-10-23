@@ -27,20 +27,20 @@ public class Room {
         @throws IllegalDungeonFormatException A structural problem with the
         dungeon file itself, detected when trying to read this room.
      */
-    Room(Scanner s, Dungeon d) throws NoRoomException,
+    Room(Scanner s, Dungeon d, boolean initState) throws NoRoomException,
         Dungeon.IllegalDungeonFormatException {
-
-        init();
-        title = s.nextLine();
-        desc = "";
-        if (title.equals(Dungeon.TOP_LEVEL_DELIM)) {
-            throw new NoRoomException();
-        }
+	if(initState==true){
+        	init();
+        	title = s.nextLine();
+        	desc = "";
+        	if (title.equals(Dungeon.TOP_LEVEL_DELIM)) {
+        	    throw new NoRoomException();
+        	}
         
-        String lineOfDesc = s.nextLine();
+        	String lineOfDesc = s.nextLine();
 	
-	//adding contents	
-	if(lineOfDesc.startsWith("Contents:")){
+		//adding contents	
+		if(lineOfDesc.startsWith("Contents:")){
 			String contentLine = lineOfDesc.replace("Contents: ","");
 			String [] contentSplit = contentLine.split(",");
 			for (int i = 0; i < contentSplit.length; ++i){
@@ -49,17 +49,41 @@ public class Room {
 				lineOfDesc = s.nextLine();
 			}
         
-	while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
-            !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
-            desc += lineOfDesc + "\n";
-            lineOfDesc = s.nextLine();
-        }
+		while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
+        	    !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
+        	    desc += lineOfDesc + "\n";
+        	    lineOfDesc = s.nextLine();
+        	}
 
-        // throw away delimiter
-        if (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM)) {
-            throw new Dungeon.IllegalDungeonFormatException("No '" +
-                Dungeon.SECOND_LEVEL_DELIM + "' after room.");
-        }
+        	// throw away delimiter
+        	if (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM)) {
+        	    throw new Dungeon.IllegalDungeonFormatException("No '" +
+        	        Dungeon.SECOND_LEVEL_DELIM + "' after room.");
+        	}
+	}
+	else{
+		init();
+                title = s.nextLine();
+                desc = "";
+                if (title.equals(Dungeon.TOP_LEVEL_DELIM)) {
+                    throw new NoRoomException();
+                }
+                String lineOfDesc = s.nextLine();
+                //throw away contents
+                if(lineOfDesc.startsWith("Contents:")){
+                                lineOfDesc = s.nextLine();
+                }
+                while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
+                    !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
+                    desc += lineOfDesc + "\n";
+                    lineOfDesc = s.nextLine();
+                }
+                // throw away delimiter
+                if (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM)) {
+                    throw new Dungeon.IllegalDungeonFormatException("No '" +
+                        Dungeon.SECOND_LEVEL_DELIM + "' after room.");
+		}
+	}
     }
 
     // Common object initialization tasks.
@@ -121,7 +145,7 @@ public class Room {
     public String describe() {
         String description;
         if (beenHere) {
-            description = title;
+            description = title + "\n";
         } else {
             description = title + "\n" + desc;
         }

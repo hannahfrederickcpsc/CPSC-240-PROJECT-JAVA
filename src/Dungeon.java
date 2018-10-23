@@ -46,7 +46,7 @@ public class Dungeon {
      * Read from the .zork filename passed, and instantiate a Dungeon object
      * based on it.
      */
-    public Dungeon(String filename) throws FileNotFoundException,
+    public Dungeon(String filename, boolean initState) throws FileNotFoundException,
         IllegalDungeonFormatException {
 
         init();
@@ -86,12 +86,12 @@ public class Dungeon {
 
         try {
             // Instantiate and add first room (the entry).
-            entry = new Room(s,this);
+            entry = new Room(s,this,initState);
             add(entry);
 
             // Instantiate and add other rooms.
             while (true) {
-		    Room room = new Room(s,this);
+		    Room room = new Room(s,this,initState);
 		    add(room);
             }
         } catch (Room.NoRoomException e) {  /* end of rooms */ }
