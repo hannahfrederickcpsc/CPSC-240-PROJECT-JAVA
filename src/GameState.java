@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class GameState {
 
@@ -16,13 +17,16 @@ public class GameState {
 
     static String DEFAULT_SAVE_FILE = "zork_save";
     static String SAVE_FILE_EXTENSION = ".sav";
-    static String SAVE_FILE_VERSION = "Zork II save data";
+    static String SAVE_FILE_VERSION = "Zork III save data";
 
     static String CURRENT_ROOM_LEADER = "Current room: ";
+    static String ADVENTURER_LEADER = "Adventurer: ";
+    static String INVENTORY_LEADER = "Inventory: ";
 
     private static GameState theInstance;
     private Dungeon dungeon;
     private Room adventurersCurrentRoom;
+    private ArrayList<Item> inventory;
 
     static synchronized GameState instance() {
         if (theInstance == null) {
@@ -32,6 +36,7 @@ public class GameState {
     }
 
     private GameState() {
+	    inventory = new ArrayList<Item>();
     }
 
     void restore(String filename) throws FileNotFoundException,
@@ -69,8 +74,10 @@ public class GameState {
         PrintWriter w = new PrintWriter(new FileWriter(filename));
         w.println(SAVE_FILE_VERSION);
         dungeon.storeState(w);
-        w.println(CURRENT_ROOM_LEADER + 
+        w.println(ADVENTURER_LEADER);
+	w.println(CURRENT_ROOM_LEADER + 
             getAdventurersCurrentRoom().getTitle());
+	w.println(INVENTORY_LEADER + this.getInventoryList() );
         w.close();
     }
 
@@ -89,5 +96,53 @@ public class GameState {
 
     Dungeon getDungeon() {
         return dungeon;
+    }
+
+    ArrayList<Item> getInventory()
+    {
+	    return inventory;
+    }
+
+    void  addToInventory(Item item)
+    {
+	    inventory.add(item);
+    }
+
+    void removeFromInventory(Item item)
+    {
+	    int index = inventory.indexOf(item);
+	    inventory.remove(index);
+    }
+
+    Item getItemInVicinityNamed(String name)
+    {
+	    return adventurersCurrentRoom.getItemNamed(name);
+    }
+
+    Item getItemFromInventoryNamed(String name)
+    {
+	    int index = inventory.indexOf(dungeon.getItem(name));
+            return inventory.get(index);
+    }
+
+    String getInventoryList()
+    {
+	    String inventoryList = "";
+ 	    if (inventory.isEmpty())
+	    {
+		return "";
+	    }
+	    else 
+	    {
+           	    for (Item  item: inventory)
+                    {
+                   	 inventoryList += item.getPrimaryName() + ",";
+           	    }
+           		 inventoryList = inventoryList.substring(inventoryList.length() - 1);
+   
+	    }
+
+	    return inventoryList;
+
     }
 }
