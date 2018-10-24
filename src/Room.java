@@ -101,7 +101,11 @@ public class Room {
      * Store the current (changeable) state of this room to the writer
      * passed.
      */
-    
+   String getDesc()
+   {
+	return desc;
+   }
+ 
     //now adds 'Contents:' line for room in .sav file
     void storeState(PrintWriter w) throws IOException {
         // At this point, nothing to save for this room if the user hasn't
