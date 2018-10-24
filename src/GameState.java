@@ -77,8 +77,10 @@ public class GameState {
         w.println(ADVENTURER_LEADER);
 	w.println(CURRENT_ROOM_LEADER + 
             getAdventurersCurrentRoom().getTitle());
-	w.println(INVENTORY_LEADER + this.getInventoryList() );
-        w.close();
+	if(!inventory.isEmpty()){
+		w.println(INVENTORY_LEADER + this.getInventoryList() );
+	}
+	w.close();
     }
 
     void initialize(Dungeon dungeon) {
@@ -128,19 +130,11 @@ public class GameState {
     String getInventoryList()
     {
 	    String inventoryList = "";
- 	    if (inventory.isEmpty())
-	    {
-		return "";
-	    }
-	    else 
-	    {
-           	    for (Item  item: inventory)
-                    {
-                   	 inventoryList += item.getPrimaryName() + ",";
-           	    }
-           		 inventoryList = inventoryList.substring(inventoryList.length() - 1);
-   
-	    }
+            for (Item  item: inventory)
+            {
+            inventoryList += item.getPrimaryName() + ",";
+            }
+            inventoryList = inventoryList.substring(inventoryList.length() - 1);
 
 	    return inventoryList;
 
