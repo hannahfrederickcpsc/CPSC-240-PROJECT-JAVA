@@ -103,7 +103,8 @@ public class Room {
      */
    String getDesc()
    {
-	return desc;
+	   beenHere = false;
+	   return this.describe() + "\n";
    }
  
     //now adds 'Contents:' line for room in .sav file

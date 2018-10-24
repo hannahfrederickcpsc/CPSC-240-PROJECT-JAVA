@@ -118,13 +118,23 @@ public class GameState {
 
     Item getItemInVicinityNamed(String name)
     {
-	    return adventurersCurrentRoom.getItemNamed(name);
+
+	    if(adventurersCurrentRoom.getContents().contains(dungeon.getItem(name)))
+	    {
+	    	return adventurersCurrentRoom.getItemNamed(name);
+	    }
+	    	return null;
     }
 
-    Item getItemFromInventoryNamed(String name)
+    Item getItemFromInventoryNamed(String name) 
     {
-	    int index = inventory.indexOf(dungeon.getItem(name));
-            return inventory.get(index);
+	    if (inventory.contains(dungeon.getItem(name)))
+	    {
+	    	int index = inventory.indexOf(dungeon.getItem(name));
+            	return inventory.get(index);
+	    }
+	    
+	    return null;
     }
 
     String getInventoryList()

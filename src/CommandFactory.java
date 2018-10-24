@@ -25,6 +25,14 @@ public class CommandFactory {
             // For now, only one type of command object, to move and to save.
             return new SaveCommand(command);
         }
+	else if (command.equals("look")){
+		return new LookCommand(command);
+	}
+	else if(command.startsWith("take ")){
+		String takeReplace = command.replace("take ","");
+		return new TakeCommand(takeReplace);
+	}
+
 	return new UnknownCommand(command);
 	
     }
