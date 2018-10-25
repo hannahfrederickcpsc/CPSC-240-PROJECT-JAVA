@@ -63,7 +63,7 @@ public class GameState {
 	String currentRoomLine = s.nextLine();
         adventurersCurrentRoom = dungeon.getRoom(
             currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
-	String lastLine = s.nextLine().replace("Inventory ","");
+	String lastLine = s.nextLine().replace("Inventory: ","");
 	String [] inventorySplit = lastLine.split(",");
 	for (String items: inventorySplit){
 		this.addToInventory(dungeon.getItem(items));

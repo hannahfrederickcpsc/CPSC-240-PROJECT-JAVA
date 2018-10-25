@@ -35,6 +35,10 @@ public class CommandFactory {
 	else if(command.equals("i")){
 		return new InventoryCommand(command);
 	}
+	else if(command.startsWith("drop")){
+		String dropReplace = command.replace("drop ","");
+		return new DropCommand(dropReplace);
+	}
 
 	return new UnknownCommand(command);
 	
