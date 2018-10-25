@@ -25,6 +25,9 @@ class DropCommand extends Command{
 		}
 
 		if(itemName.equals("all")){
+			if(g.getInventory().isEmpty()){
+				return "No contents to be dropped.\n";
+			}
 			for(int i = 0; i < g.getInventory().size(); ++i){
 				retValue += g.getInventory().get(i).getPrimaryName() + " dropped.\n";
 				itemsToBeDropped.add(g.getInventory().get(i));

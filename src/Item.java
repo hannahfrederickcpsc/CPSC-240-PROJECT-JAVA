@@ -81,4 +81,11 @@ public class Item{
 	public int getWeight(){
 		return this.weight;
 	}
+	public Hashtable<String,String> getMessages(){
+		return this.messages;
+	}
+			
+		
+
+
 }//end Item class

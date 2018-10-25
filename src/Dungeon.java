@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
-
+import java.util.ArrayList;
 public class Dungeon {
 
     public static class IllegalDungeonFormatException extends Exception {
@@ -177,6 +177,13 @@ public class Dungeon {
 	}
 		return null;
 }
+public Hashtable<String,Item> getItems(){
+	return this.items;
+}
+					
+			
+
+
 
 
 
