@@ -113,8 +113,7 @@ public class GameState {
 	    inventory.add(item);
     }
 
-    void removeFromInventory(Item item)
-    {
+    void removeFromInventory(Item item){
 	    int index = inventory.indexOf(item);
 	    inventory.remove(index);
     }
@@ -141,13 +140,15 @@ public class GameState {
     }
 
     String getInventoryList()
-    {
+    {	
 	    String inventoryList = "";
-            for (Item  item: inventory)
+            if(!inventory.isEmpty()){
+	    for (Item  item: inventory)
             {
             inventoryList += item.getPrimaryName() + ",";
             }
 	    inventoryList = inventoryList.substring(0,inventoryList.length() - 1);
+	    }
 
 	    return inventoryList;
 
