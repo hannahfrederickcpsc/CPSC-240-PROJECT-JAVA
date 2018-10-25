@@ -168,15 +168,16 @@ public class Dungeon {
 	items.put(item.getPrimaryName(),item);
     }
 
-	public Item getItem(String primaryName){
-		Set<String> keys = items.keySet();
-		for (String key: keys){
-			if(items.get(key).goesBy(primaryName)){
-				return items.get(key);
-			}
+    public Item getItem(String primaryName){
+	Set<String> keys = items.keySet();
+	for (String key: keys){
+		if(items.get(key).goesBy(primaryName)){
+			return items.get(key);
 		}
-		return null;
 	}
+		return null;
+}
+
 
 
 }

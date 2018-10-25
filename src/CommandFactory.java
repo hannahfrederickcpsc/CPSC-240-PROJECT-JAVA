@@ -19,7 +19,8 @@ public class CommandFactory {
     }
 
     public Command parse(String command) {
-        if (MOVEMENT_COMMANDS.contains(command)) {
+        String [] specificCommand = command.split(" ");
+	if (MOVEMENT_COMMANDS.contains(command)) {
             return new MovementCommand(command);
         } else if (command.equals("save")){
             // For now, only one type of command object, to move and to save.
@@ -39,7 +40,12 @@ public class CommandFactory {
 		String dropReplace = command.replace("drop ","");
 		return new DropCommand(dropReplace);
 	}
-
+	else if(specificCommand.length==2){
+		return new ItemSpecificCommand(specificCommand[0], specificCommand[1]);
+	}
+	else if(specificCommand.length==1){
+		return new ItemSpecificCommand(specificCommand[0], "");
+	}
 	return new UnknownCommand(command);
 	
     }
