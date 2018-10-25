@@ -28,9 +28,12 @@ public class CommandFactory {
 	else if (command.equals("look")){
 		return new LookCommand(command);
 	}
-	else if(command.startsWith("take ")){
+	else if(command.startsWith("take")){
 		String takeReplace = command.replace("take ","");
 		return new TakeCommand(takeReplace);
+	}
+	else if(command.equals("i")){
+		return new InventoryCommand(command);
 	}
 
 	return new UnknownCommand(command);

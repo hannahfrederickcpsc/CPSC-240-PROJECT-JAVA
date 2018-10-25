@@ -78,4 +78,7 @@ public class Item{
 		return "Primary names: " + this.primaryName +
 			"\nWeight: " + this.weight;
 	}//end toString();
+	public int getWeight(){
+		return this.weight;
+	}
 }//end Item class

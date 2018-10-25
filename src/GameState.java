@@ -59,10 +59,15 @@ public class GameState {
         dungeon = new Dungeon(dungeonFileLine.substring(
             Dungeon.FILENAME_LEADER.length()),false);
         dungeon.restoreState(s);
-
-        String currentRoomLine = s.nextLine();
+	String adventurerLine = s.nextLine();
+	String currentRoomLine = s.nextLine();
         adventurersCurrentRoom = dungeon.getRoom(
             currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
+	String lastLine = s.nextLine().replace("Inventory ","");
+	String [] inventorySplit = lastLine.split(",");
+	for (String items: inventorySplit){
+		this.addToInventory(dungeon.getItem(items));
+	}
     }
 
     void store() throws IOException {
@@ -76,10 +81,8 @@ public class GameState {
         dungeon.storeState(w);
         w.println(ADVENTURER_LEADER);
 	w.println(CURRENT_ROOM_LEADER + 
-            getAdventurersCurrentRoom().getTitle());
-	if(!inventory.isEmpty()){
-		w.println(INVENTORY_LEADER + this.getInventoryList() );
-	}
+        getAdventurersCurrentRoom().getTitle());
+	w.println(INVENTORY_LEADER + this.getInventoryList() );
 	w.close();
     }
 
@@ -144,7 +147,7 @@ public class GameState {
             {
             inventoryList += item.getPrimaryName() + ",";
             }
-            inventoryList = inventoryList.substring(inventoryList.length() - 1);
+	    inventoryList = inventoryList.substring(0,inventoryList.length() - 1);
 
 	    return inventoryList;
 

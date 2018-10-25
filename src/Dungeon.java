@@ -1,4 +1,4 @@
-
+import java.util.Set;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.IOException;
@@ -169,7 +169,13 @@ public class Dungeon {
     }
 
 	public Item getItem(String primaryName){
-		return items.get(primaryName);
+		Set<String> keys = items.keySet();
+		for (String key: keys){
+			if(items.get(key).goesBy(primaryName)){
+				return items.get(key);
+			}
+		}
+		return null;
 	}
 
 
