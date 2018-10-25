@@ -62,11 +62,13 @@ public class GameState {
 	String adventurerLine = s.nextLine();
 	String currentRoomLine = s.nextLine();
         adventurersCurrentRoom = dungeon.getRoom(
-            currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
+        currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
+	if(s.hasNext()){
 	String lastLine = s.nextLine().replace("Inventory: ","");
 	String [] inventorySplit = lastLine.split(",");
 	for (String items: inventorySplit){
 		this.addToInventory(dungeon.getItem(items));
+		}
 	}
     }
 
@@ -82,7 +84,9 @@ public class GameState {
         w.println(ADVENTURER_LEADER);
 	w.println(CURRENT_ROOM_LEADER + 
         getAdventurersCurrentRoom().getTitle());
-	w.println(INVENTORY_LEADER + this.getInventoryList() );
+	if(!inventory.isEmpty()){
+		w.println(INVENTORY_LEADER + this.getInventoryList() );
+	}
 	w.close();
     }
 
