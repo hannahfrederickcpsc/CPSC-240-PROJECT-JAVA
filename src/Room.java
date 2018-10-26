@@ -195,8 +195,8 @@ public class Room {
 	}
 	return null;
     }
-
-    ArrayList<Item> getContents(){
-	    return contents;
+    public ArrayList<Item> getContents()
+    {
+	return contents;
     }
 }

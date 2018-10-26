@@ -31,6 +31,7 @@ public class Dungeon {
     private Room entry;
     private Hashtable<String,Room> rooms;
     private Hashtable<String,Item> items;
+    private ArrayList<Item> itemList;
     private String filename;
 
     Dungeon(String name, Room entry) {
@@ -120,6 +121,7 @@ public class Dungeon {
     private void init() {
         rooms = new Hashtable<String,Room>();
 	items = new Hashtable<String,Item>();
+	itemList = new ArrayList<Item>();
     }
 
     /*
@@ -176,10 +178,16 @@ public class Dungeon {
 		}
 	}
 		return null;
-}
-public Hashtable<String,Item> getItems(){
-	return this.items;
-}
+    }
+    public ArrayList<Item> getItemList(){
+	Set<String> tableKeys = items.keySet();
+	for(String key: tableKeys)
+	{
+		itemList.add(items.get(key));
+	} 
+
+	return itemList;
+    }
 					
 			
 

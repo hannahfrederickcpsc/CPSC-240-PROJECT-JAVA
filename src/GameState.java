@@ -27,6 +27,7 @@ public class GameState {
     private Dungeon dungeon;
     private Room adventurersCurrentRoom;
     private ArrayList<Item> inventory;
+    private ArrayList<String> verbs;
 
     static synchronized GameState instance() {
         if (theInstance == null) {
@@ -37,6 +38,7 @@ public class GameState {
 
     private GameState() {
 	    inventory = new ArrayList<Item>();
+	    verbs = new ArrayList<String>();
     }
 
     void restore(String filename) throws FileNotFoundException,
@@ -105,6 +107,16 @@ public class GameState {
 
     Dungeon getDungeon() {
         return dungeon;
+    }
+    
+    public ArrayList<String> getVerbs(){
+   	for(Item item: dungeon.getItemList()){
+		for(String verb: item.getVerbs())
+		{
+			verbs.add(verb);
+		}
+	}
+	return verbs;
     }
 
     ArrayList<Item> getInventory()

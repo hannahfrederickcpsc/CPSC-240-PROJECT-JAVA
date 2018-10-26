@@ -1,6 +1,4 @@
-
-import java.util.List;
-import java.util.Arrays;
+import java.util.*;
 
 public class CommandFactory {
 
@@ -19,7 +17,6 @@ public class CommandFactory {
     }
 
     public Command parse(String command) {
-        String [] specificCommand = command.split(" ");
 	if (MOVEMENT_COMMANDS.contains(command)) {
             return new MovementCommand(command);
         } else if (command.equals("save")){
@@ -40,11 +37,16 @@ public class CommandFactory {
 		String dropReplace = command.replace("drop ","");
 		return new DropCommand(dropReplace);
 	}
-	else if(specificCommand.length==2){
+	else if(command.contains(" ")){
+		String[] specificCommand = command.split(" ");
 		return new ItemSpecificCommand(specificCommand[0], specificCommand[1]);
+	}
+	else if(!command.contains(" ")){
+                return new ItemSpecificCommand(command, "");
 	}
 	return new UnknownCommand(command);
 	
     }
 
 }
+

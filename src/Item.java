@@ -1,6 +1,7 @@
 import java.util.Hashtable;
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.Set;
 class NoItemException extends Exception{
 }
 
@@ -10,10 +11,11 @@ public class Item{
 
 	//hashtable <verb,messageOfThatVerb> 
 	private Hashtable <String,String> messages;
-	
+	private ArrayList<String> verbs;	
 	//constructor to read items from .zork file
 	public Item(Scanner s)throws NoItemException{
 		messages = new Hashtable<String,String>();
+		verbs =  new ArrayList<String>();
 		this.primaryName = s.nextLine();
 		if(primaryName.equals("===")){
 			throw new NoItemException();
@@ -81,10 +83,14 @@ public class Item{
 	public int getWeight(){
 		return this.weight;
 	}
-	public Hashtable<String,String> getMessages(){
-		return this.messages;
-	}
-			
+	public ArrayList<String> getVerbs(){
+		Set<String> verbSet  = messages.keySet();
+		for(String verb: verbSet)
+		{
+			verbs.add(verb);
+		}
+		return verbs;
+	}		
 		
 
 
