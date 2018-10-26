@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.io.File;
 import java.util.ArrayList;
 public class Dungeon {
 
@@ -129,7 +130,7 @@ public class Dungeon {
      * passed.
      */
     void storeState(PrintWriter w) throws IOException {
-        w.println(FILENAME_LEADER + getFilename());
+        w.println(FILENAME_LEADER + getFileObject().getAbsolutePath());
         w.println(ROOM_STATES_MARKER);
         for (Room room : rooms.values()) {
             room.storeState(w);
@@ -160,6 +161,11 @@ public class Dungeon {
     public Room getEntry() { return entry; }
     public String getName() { return name; }
     public String getFilename() { return filename; }
+    public File getFileObject()
+    {
+	File dungeonFile =  new File(getFilename());
+	return dungeonFile;
+    }
     public void add(Room room) { rooms.put(room.getTitle(),room); }
 
     public Room getRoom(String roomTitle) {

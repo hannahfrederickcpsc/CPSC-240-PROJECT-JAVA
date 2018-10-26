@@ -44,7 +44,7 @@ class ItemSpecificCommand extends Command{
 	        
                 }	
 	}
-		return "";
+		return "I don't understand the command '" + verb + "'.\n";
 	}
 
 }

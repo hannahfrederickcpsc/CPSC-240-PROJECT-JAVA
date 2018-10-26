@@ -39,7 +39,12 @@ public class CommandFactory {
 	}
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
+		if(specificCommand.length == 2){
 		return new ItemSpecificCommand(specificCommand[0], specificCommand[1]);
+		}
+		else{
+		return new ItemSpecificCommand(command, "");
+		}
 	}
 	else if(!command.contains(" ")){
                 return new ItemSpecificCommand(command, "");
