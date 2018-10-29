@@ -26,7 +26,7 @@ class TakeCommand extends Command{
 		if(d.getItem(itemName) == null && !itemName.equals("all")){
 			return "Take what?\n";
 		}
-		else if(!currRoom.getContents().contains(d.getItem(itemName)) && !itemName.equals("all")){
+		else if(!currRoom.getContents().contains(d.getItem(itemName)) && !g.getInventory().contains(d.getItem(itemName)) && !itemName.equals("all")){
 			return "Take what?\n";
 		}
 

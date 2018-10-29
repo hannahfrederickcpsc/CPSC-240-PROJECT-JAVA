@@ -39,10 +39,11 @@ public class Interpreter {
                 state.getAdventurersCurrentRoom().describe() + "\n");
 
             command = promptUser(commandLine);
+	    Scanner stdin = new Scanner(System.in);
 
             while (!command.equals("q")) {
 
-                System.out.print(
+		    System.out.print(
                     CommandFactory.instance().parse(command).execute());
 
                 command = promptUser(commandLine);

@@ -42,8 +42,9 @@ public class CommandFactory {
 		if(specificCommand.length == 2){
 		return new ItemSpecificCommand(specificCommand[0], specificCommand[1]);
 		}
+
 		else{
-		return new ItemSpecificCommand(command, "");
+		return new ItemSpecificCommand(specificCommand[0], "");
 		}
 	}
 	else if(!command.contains(" ")){

@@ -1,0 +1,226 @@
+The Mountains
+Zork II
+===
+Items:
+knife,stabbingMachine
+2
+swing:WOOSH! You hit nothing...
+jab:Good form! Too bad nothing happened.
+throw:The knife flies into the ground.. two feet away. Pathetic.
+---
+treeBranch,branch,stick
+15
+break:SNAP!
+swing:You swung the branch. 
+---
+pebble,smallRock
+1
+throw:The pebble zooms through the air.
+---
+brick,houseMaterial
+7
+throw:The brick hums through the air, making a loud thump as it hits the ground.
+---
+flashlight
+4
+use:The light shines on nothing.
+swing:Flashlight swung.
+---
+handgun
+8
+shoot:Oops! No ammo.
+throw:Well that was useless.
+reload:You have no ammo dummy!
+---
+fireworks
+20
+light: Wow! The colors!
+eat: Yuck. That's disgusting!
+---
+sodaCan,can
+1
+melt:You need a fire to melt this.
+bend:That didn't do much...
+crush:The can is now crushed.
+---
+snorkel
+2
+wear:You put on the snorkel.
+use:You are breathing through the snorkel mask.
+---
+rope
+5
+tie:You tied the rope into a knot.
+cut:You cut the rope into sections.
+---
+tent
+7
+pitch:The tent now protects you from the elements!
+unpitch:You have taken down the tent.
+---
+climbingGear
+35
+wear:You put on the climbing gear.
+---
+iceAxe
+12
+swing:You have swung the ice axe.
+---
+backpack
+5
+use:Wow! So much more room for items!
+---
+===
+Rooms:
+Trail Head
+You are at the beginning of a long trail that 
+branches off in many ways. The trees have seemingly 
+all died, creating some bad vibes...
+---
+Stream
+Contents: pebble,knife,tent
+You have found a beautiful stream down the trail. 
+The wind blows as the silent stream flows down 
+farther into the valley.
+---
+Cliff
+Contents: snorkel
+You are on top of a cliff where you can see rolling 
+mountains off in the distance, as far as your eyes can see.
+---
+Woods
+Contents: treeBranch,flashlight,tent
+At first glance, this heavily wooded area seems 
+to be a dead end...
+---
+Peak
+Contents: rope
+The highest point of the area! No trees, just sweet air. 
+The breeze feels great. There seems to be nothing but 
+mountains around and below.
+---
+Valley
+The lowest point of the area, with many mountains
+surrounding you. There appears to be a small house over 
+yander..
+---
+House
+Contents: brick
+This small house appears to be abandoned. The white
+walls are smothered in dirt and filth, and there seems 
+to be some broken windows for possible entry.
+---
+Kitchen
+Contents: sodaCan
+You are in the kitchen of the run down house. The table has
+scratches on it right next to some moldy, unfinished food. The 
+candles also appear to be burnt out. It's almost as if someone
+was forcibly dragged away from the dinner table...
+---
+Southern Room
+Contents: handgun,fireworks
+Oh no! The door locks behind you. The room has 
+hundreds of antiques covering the perfectly clean 
+white walls. There are some white cabinets that appear to be
+unlocked. Everything seems to be perfect... almost too perfect.
+---
+Hidden Peaks
+You have found the hidden peaks beyond the trees. These
+mountains rise up beyond the clouds, offering a striking
+view. Behind you the path is blocked by fallen trees. A 
+snowstorm is rolling in. There are steep walls that could 
+potentially be climbed with the right equipment...
+---
+Cave
+Contents: backpack
+You have found a nearby cave. There is Complete and utter 
+darkness making it impossible to see without a flashlight.
+---
+Caverns
+Contents: iceAxe
+You are deeper in the cave now. There is a rotten smell
+in the cool, brisk air. Wait.. what was that?!
+---
+===
+Exits:
+Trail Head
+d
+Stream
+---
+Stream
+u
+Trail Head
+---
+Trail Head
+u
+Cliff
+---
+Cliff
+d
+Trail Head
+---
+Stream
+s
+Woods
+---
+Woods
+n
+Stream
+---
+Cliff
+e
+Peak
+---
+Peak
+w
+Cliff
+---
+Peak
+d
+Valley
+---
+Valley
+u
+Peak
+---
+Valley
+n
+House
+---
+House
+s
+Valley
+---
+House
+e
+Kitchen
+---
+Kitchen
+w
+House
+---
+Kitchen
+s
+Southern Room
+---
+Woods
+w
+Hidden Peaks
+---
+Hidden Peaks
+w
+Cave
+---
+Cave
+e
+Hidden Peaks
+---
+Cave
+d
+Caverns
+---
+Caverns
+u
+Cave
+---
+===
