@@ -1,0 +1,183 @@
+Dunder Mifflin
+Zork III
+===
+Items:
+candy
+1
+eat:That satisfied your craving for sweetness!
+---
+toys
+5
+use:That was some fun for the child in you!
+---
+videotape,video,tape
+3
+play:The tv plays a kids show called 'fundle bundle'.
+---
+weapons
+10
+use:That was a walk on the wild side for you!
+---
+pita,bread
+3
+smell:The burnt bread has a smokey smell like charcoal.
+eat:The burnt bread tastes like charcoal - gross!
+---
+plants
+5
+water:The water seeps into the soil of the plants.
+break:The pots shatter into pieces onto the floor.
+---
+candles
+3
+smell:The candles give off floral, fruity, and and citrus scents.
+blow:The flame is the blown out, and the scents fade away.
+---
+art
+5
+view:The art fills you with a sense of peace.
+break:The glass shatters, and the frame splinters.
+---
+folder,files
+1
+read:The words are all blacked out so you can't read them.
+rip:The torn up pieces of paper fall to the floor.
+---
+teapot
+10
+pour:The teacup is now filled with tea!
+break:The teapot shatters into pieces on the floor.
+---
+teacup
+5
+lift:The teacup is lifted to your lips as you taste the tea.
+break:The teacup shatters into pieces on the floor.
+---
+novel,book
+5
+read:The novel on the table is 'Angela's Ashes'.
+throw:The book lands on the other side of the room.
+---
+===
+Rooms:
+Front Desk
+Contents: candy
+There is a large desk with sweet treats of all colors and flavors on the surface. There is a wanted poster for the scranton strangler on the wall behind the desk.
+---
+Office Room
+Contents: toys
+There is a square desk with small toys of all shapes and sizes on the surface. The closed blinds on the large windows around the room block out the light.
+---
+Conference Room
+Contents: videotape
+There is a large table with plush chairs all around its perimeter. The outdated television at the front of the room has a video tape in its player.
+---
+Cublicles Area
+Contents: weapons
+There are several cubicles that create an intricate labyrinth. The open drawer of one desk contains some weird weapons - pepper spray, nunchucks, and ninja stars.
+---
+Extra Office Room
+There is a square desk with some sports merchandise and apparel on the surface. A football helmet and a baseball glove hang off a basketball hoop in the corner.
+---
+Kitchen Area
+Contents: pita
+There is an office kitchen with appliances for all intents and purposes. The outmodeled microwave beside the kitchen table eminates the scent of burnt pita.
+---
+Men's Restroom
+There is nothing special about this restroom, other than the scented candle on the sink. But the strong scent coming from the first stall is becoming too strong. 
+---
+Women's Restroom
+Contents: plants,candles,art
+Everything about this restroom is special. There is a large couch, potted plants, scented candles, and framed art - this is not a restroom, this is paradise.
+---
+Annex Area
+Contents: folder
+There are several cubicles that create an intricate labyrinth. The open drawer of one desk contains files in a folder about the scraton strangler.
+---
+Break Room
+Contents: teapot,teacup,treats
+There are vending machines that fill the small room with a low hum. The round table is covered with a decorative tablecloth and adorned with sweet treats.
+---
+===
+Exits:
+Front Desk
+w
+Office Room
+---
+Office Room
+e
+Front Desk
+---
+Office Room
+n
+Conference Room
+---
+Conference Room
+s
+Office Room
+---
+Conference Room
+e
+Cubicles Area
+---
+Cubicles Area
+w
+Conference Room
+---
+Cubicles Area
+e
+Extra Office Room
+---
+Extra Office Room
+w
+Cubicles Area
+---
+Front Desk
+n
+Cubicles Area
+---
+Cubicles Area
+s
+Front Desk
+---
+Cubicles Area
+n
+Kitchen Area
+---
+Kitchen Area
+s
+Cubicles Area
+---
+Kitchen Area
+e
+Men's Restroom
+---
+Men's Restroom
+w
+Kitchen Area
+---
+Kitchen Area
+w
+Women's Restroom
+---
+Women's Restroom
+e
+Kitchen Area
+---
+Kitchen Area
+n
+Annex Area
+---
+Annex Area
+s
+Kitchen Area
+---
+Annex Area
+w
+Break Room
+---
+Break Room
+e
+Annex Area
+---
+===
