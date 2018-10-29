@@ -6,35 +6,43 @@ candy
 1
 eat:That satisfied your craving for sweetness!
 ---
-toys
-5
+toy
+3
 use:That was some fun for the child in you!
 ---
-videotape,video,tape
+videoTape,videotape,video,tape
 3
-play:The tv plays a kids show called 'fundle bundle'.
+play:The tv plays a kids show called 'Fundle Bundle'.
 ---
-weapons
+pepperSpray,pepperspray,spray
 10
-use:That was a walk on the wild side for you!
+spray:The pepperspray shoots out a strong stream of spray.
 ---
-pita,bread
+nunChuck,nunchuck,chuck
+10
+use:The nunchucks twirl so fast that they can't be seen.
+---
+ninjaStar,ninjastar,star
+5
+throw:The ninjastar flies across the room and into the wall.
+---
+pitaBread,pitabread,pita,bread
 3
 smell:The burnt bread has a smokey smell like charcoal.
 eat:The burnt bread tastes like charcoal - gross!
 ---
-plants
-5
+pottedPlant,pottedplant,plant
+10
 water:The water seeps into the soil of the plants.
 break:The pots shatter into pieces onto the floor.
 ---
-candles
-3
+scentedCandle,scentedcandle,candle
+5
 smell:The candles give off floral, fruity, and and citrus scents.
 blow:The flame is the blown out, and the scents fade away.
 ---
-art
-5
+framedArt,framedart,art
+10
 view:The art fills you with a sense of peace.
 break:The glass shatters, and the frame splinters.
 ---
@@ -44,12 +52,12 @@ read:The words are all blacked out so you can't read them.
 rip:The torn up pieces of paper fall to the floor.
 ---
 teapot
-10
+5
 pour:The teacup is now filled with tea!
 break:The teapot shatters into pieces on the floor.
 ---
 teacup
-5
+3
 lift:The teacup is lifted to your lips as you taste the tea.
 break:The teacup shatters into pieces on the floor.
 ---
@@ -65,29 +73,29 @@ Contents: candy
 There is a large desk with sweet treats of all colors and flavors on the surface. There is a wanted poster for the scranton strangler on the wall behind the desk.
 ---
 Office Room
-Contents: toys
+Contents: toy
 There is a square desk with small toys of all shapes and sizes on the surface. The closed blinds on the large windows around the room block out the light.
 ---
 Conference Room
-Contents: videotape
+Contents: videoTape
 There is a large table with plush chairs all around its perimeter. The outdated television at the front of the room has a video tape in its player.
 ---
 Cubicles Area
-Contents: weapons
+Contents: pepperSpray,nunChuck,ninjaStar
 There are several cubicles that create an intricate labyrinth. The open drawer of one desk contains some weird weapons - pepper spray, nunchucks, and ninja stars.
 ---
 Extra Office Room
 There is a square desk with some sports merchandise and apparel on the surface. A football helmet and a baseball glove hang off a basketball hoop in the corner.
 ---
 Kitchen Area
-Contents: pita
+Contents: pitaBread
 There is an office kitchen with appliances for all intents and purposes. The outmodeled microwave beside the kitchen table eminates the scent of burnt pita.
 ---
 Men's Restroom
 There is nothing special about this restroom, other than the scented candle on the sink. But the strong scent coming from the first stall is becoming too strong. 
 ---
 Women's Restroom
-Contents: plants,candles,art
+Contents: pottedPlant,scentedCandle,framedArt
 Everything about this restroom is special. There is a large couch, potted plants, scented candles, and framed art - this is not a restroom, this is paradise.
 ---
 Annex Area
@@ -95,7 +103,7 @@ Contents: folder
 There are several cubicles that create an intricate labyrinth. The open drawer of one desk contains files in a folder about the scraton strangler.
 ---
 Break Room
-Contents: teapot,teacup,treats
+Contents: teapot,teacup,novel
 There are vending machines that fill the small room with a low hum. The round table is covered with a decorative tablecloth and adorned with sweet treats.
 ---
 ===
