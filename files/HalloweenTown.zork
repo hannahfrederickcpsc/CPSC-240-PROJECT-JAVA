@@ -1,0 +1,201 @@
+Halloween Town
+Zork III
+===
+Items:
+book
+1
+read:Opens to the story of Rudolph.
+---
+pumpkin
+3
+smash:The pumpkin explodes and spiders come gushing out of it.
+---
+Zero
+15
+pet:Zero's nose lights up as Jack has not been paying much attention to him
+---
+spiderWeb
+10
+destroy:You are now covered in a spiderweb
+---
+shovel
+5
+dig:You realize that the dead are not in the ground but walking in the town.
+---
+gravestone
+6
+read:You have found Zero's grave.
+---
+santasHat
+20
+wear:You now look like Santa
+---
+snowflake
+1
+lick:The snowflake then melts
+---
+ornament
+10
+hang:You put the ornament on the christmas tree
+---
+bowtie
+17
+wear:You now look like the mayor of Halloween Town
+---
+beaker
+24
+drink:You have drank deadly nightshade and will most likely pass out.
+---
+needleAndThread
+8
+sew:The needle and thread disapear when you touch it
+---
+flower
+13
+pluck:You have been given a chance to see your future
+---
+spellbook
+27
+read:This was Sally's original spell book before she was execute
+---
+bathtub
+19
+look:You see a racoon sleeping soundly with its kids
+---
+scorpions
+17
+crush:Scorpion guts go all over the floor
+---
+dice
+11
+roll:You rolled an 11
+---
+deckOfCards
+25
+shuffle:You realize they are all blank and you should leave before you get stuck here
+---
+car
+18
+drive:You try to leave, but there are no keys
+---
+megaphone
+30
+speak:You try to speak, but nothing comes out
+---
+===
+Rooms:
+Jack's Room
+Contents: book,pumpkin
+It is a circular room with a pumkin next to the fireplace and a book on a coffin that acts as a bed.
+---
+Jack's Castle
+Contents: Zero,spiderWeb
+Zero(Jack's dog) is playing on the spiral staircase infront of you and a huge spider's web is being made in the corner
+---
+Cemetery
+Contents: shovel,gravestone
+You are standing on a curling hill that oversees the entire cemetery. Next to you is Zero's gravestone and a used shovel.
+---
+The Holiday Trees
+Contents: santasHat,snowflake
+You see Santa's Hat sitting next to the door that looks like a christmas tree and snowflakes are falling,but only where you are standing.
+---
+Town Hall
+Contents: ornament,bowtie
+There are benches for patrons facing the stage with a Christmas Tree. As you enter you kick an ornament and see a bowtie next to it.
+---
+Dr.Finkelstein's Lab
+Contents: beaker,needleAndThread
+You walk in and see a beaker with a gross smelling liquid and needle and thread on the operating table.
+---
+Sally's Room
+Contents: flower,spellBook
+A small room with the a spell book on the nightstand next to the bed with a single flower by the window.
+---
+Oogie Boogie's kid's Room
+Contents: bathtub,scorpions
+As you enter you are spooked by a scorpion crawling over your foot and in the corner a bathtub will not stop moving.
+---
+Oogie Boogie's Dungeon
+Contents: dice,deckOfCards
+You awake after falling into the dungeon with dice and a deck of cards next to you.
+---
+Town Square
+Conents: car,megaPhone
+To your right a car is parked next to a fountain with fog coming out and a megaphone is on the hood.
+---
+===
+Exits:
+Jack's Room
+d
+Jack's Castle
+---
+Jack's Castle
+u
+Jack's Room
+---
+Jack's Castle
+w
+Cemetery
+---
+Cemetery
+e
+Jack's Castle
+---
+Cemetery
+u
+The Holiday Trees
+---
+The Holiday Trees
+d
+Cemetery
+---
+Cemetery
+w
+Town Square
+---
+Town Square
+e
+Cemetery
+---
+Town Square
+d
+Dr.Finkelstein's Lab
+---
+Dr.Finkelstein's Lab
+u
+Town Square
+---
+Dr.Finkelstein's Lab
+d
+Sally's Room
+---
+Sally's Room
+u
+Dr.Finkelstein's Lab
+---
+Town Square
+w
+Town Hall
+---
+Town Hall
+e
+Town Square
+---
+Cemetery
+d
+Oogie Boogie's kid's Room
+---
+Oogie Boogie's kid's Room
+u 
+Cemetery
+---
+Oogie Boogie's kid's Room
+d
+Oogie Boogie's Dungeon
+---
+Oogie Boogie's Dungeon
+u
+Oogie Boogie's kid's Room
+---
+===
