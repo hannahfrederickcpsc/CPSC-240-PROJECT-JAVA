@@ -13,7 +13,7 @@ public class Item{
 	private Hashtable <String,String> messages;
 	private ArrayList<String> verbs;	
 	//constructor to read items from .zork file
-	public Item(Scanner s)throws NoItemException{
+	public Item(Scanner s)throws NoItemException, Dungeon.IllegalDungeonFormatException{
 		messages = new Hashtable<String,String>();
 		verbs =  new ArrayList<String>();
 		this.primaryName = s.nextLine();
@@ -53,6 +53,7 @@ public class Item{
 			message = "";
 			currLine = s.nextLine();
 		}
+	
 	}//end Item()
 			
 	//returns boolean if a verb "goes by" a specific name

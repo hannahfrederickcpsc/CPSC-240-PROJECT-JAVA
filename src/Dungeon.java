@@ -23,11 +23,9 @@ public class Dungeon {
     public static String ROOMS_MARKER = "Rooms:";
     public static String EXITS_MARKER = "Exits:";
     public static String ITEMS_MARKER = "Items:";
-
     // Variables relating to game state (.sav) storage.
     static String FILENAME_LEADER = "Dungeon file: ";
     static String ROOM_STATES_MARKER = "Room states:";
-
     private String name;
     private Room entry;
     private Hashtable<String,Room> rooms;
@@ -70,15 +68,14 @@ public class Dungeon {
 	    throw new IllegalDungeonFormatException("No '" + 
 		ITEMS_MARKER + "' line where expected.");
 	}
-
+	
        try {
-            // Instantiate and add items
+            //Instantiate and add items
             while (true){
-                add(new Item(s));
-            }
+                	add(new Item(s));
+            }	
         } 
-       catch (NoItemException e) { /* end of items */
-       }
+       catch (NoItemException e) { /* end of items */}
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
@@ -112,7 +109,6 @@ public class Dungeon {
                 Exit exit = new Exit(s, this);
             }
         } catch (Exit.NoExitException e) {  /* end of exits */ }
-
         s.close();
     
 }
