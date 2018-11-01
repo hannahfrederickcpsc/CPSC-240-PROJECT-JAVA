@@ -37,6 +37,7 @@ public class Exit {
         src = d.getRoom(srcTitle);
         dir = s.nextLine();
         dest = d.getRoom(s.nextLine());
+	System.out.println(src + "\n" + dest);
         
         // I'm an Exit object. Add me as an exit to my source Room.
         src.addExit(this);
