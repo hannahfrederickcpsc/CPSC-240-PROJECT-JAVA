@@ -199,4 +199,8 @@ public class Room {
     {
 	return contents;
     }
+	public String toString()
+{
+	return title;
+}
 }

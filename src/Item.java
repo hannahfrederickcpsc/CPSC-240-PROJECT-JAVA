@@ -31,7 +31,6 @@ public class Item{
 		String verb = "";
 		//string that will replace the ':' in the line
 		String realCurrLine = "";
-		
 		while(!currLine.equals("---")){
 			//replacing ':'
 			realCurrLine = currLine.replace(":"," ");

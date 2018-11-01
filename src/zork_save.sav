@@ -1,0 +1,38 @@
+Zork III save data
+Dungeon file: /home/soccergoals_artworks/zorkProject/files/dundermifflin.zork
+Room states:
+Front Desk:
+beenHere=true
+Contents: candy
+---
+Break Room:
+beenHere=false
+Contents: teapot,teacup,novel
+---
+Women's Restroom:
+beenHere=false
+Contents: pottedPlant,scentedCandle,framedArt
+---
+Conference Room:
+beenHere=false
+Contents: videoTape
+---
+Cubicles Area:
+beenHere=false
+Contents: pepperSpray,nunChuck,ninjaStar
+---
+Office Room:
+beenHere=false
+Contents: toy
+---
+Annex Area:
+beenHere=false
+Contents: folder
+---
+Kitchen Area:
+beenHere=false
+Contents: pitaBread
+---
+===
+Adventurer: 
+Current room: Front Desk
