@@ -1,17 +1,26 @@
 
-// For now, only direction commands and "save". If the "direction" is bogus,
-// then this effectively doubles as an UnknownCommand (to be a subclass
-// later).
+/**
+ * A <tt>Command</tt> represents the abstract base class for all commands in zork.
+ *
+ * @author zorkaholics
+ */
 abstract class Command {
 
-    private String dir;     // for now, this class is only for direction 
-                            // commands, plus "save" which is kind of a weird
-                            // special case.
-
+    private String dir;     
+    /**
+     * Constructs a new <tt>Command</tt> object.
+     *
+     * @param dir any command phrase.
+     */
     Command(String dir) {
         this.dir = dir;
     }
-    
+    /**
+     * Carries out the process desired using the command phrase given, returning
+     * the correct string responding to the command.
+     *
+     * @return the correct string responding to the command.
+     */
     abstract String execute();
       
 }
