@@ -5,6 +5,9 @@ import java.util.Scanner;
 */
 public class Exit {
 
+    /** Specifies what happens when the scanner object is not positioned at the start of an exit entry, this happens when the scanner has reached the end of the exits section of a dungeon file. 
+     
+    */
     class NoExitException extends Exception {}
 
     private String dir;
