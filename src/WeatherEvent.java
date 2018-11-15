@@ -15,7 +15,7 @@ class WeatherEvent{
 
 	public Room getSrc(){}
 
-	public Room getDest(){}
+	public Room getWeatherDest(){}
 
 	public String getDir(){}
 }

@@ -1,4 +1,4 @@
 abstract class Event{
-	abstract Event();
-	abstract void execute(){}
+	Event(){}
+	abstract void execute();
 }
