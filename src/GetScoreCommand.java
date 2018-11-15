@@ -1,0 +1,21 @@
+/**
+ *A <tt>GetScoreCommand</tt> represents the command given by the adventurer to retrieve
+ * their score.
+ *
+ * @author zorkaholics
+ */
+class GetScoreCommand extends Command{
+	/**
+	 * Constructs a new <tt>GetScoreCommand</tt> object.
+	 */
+	GetScoreCommand(){}
+
+	/**
+	 * Carries out the process to get the adventurers score expressed as a phrase
+	 * corresponding to the adventurers actual integer score value.
+	 *
+	 * @return the phrase corresponding to the adventurers integer health value.
+	 */
+	public String execute(){}
+}
+	

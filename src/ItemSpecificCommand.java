@@ -1,17 +1,45 @@
 import java.util.ArrayList;
+/**
+ * An <tt>ItemSpecificCommand</tt> represents the command given by the adventurer that
+ * directly corresponds to a given item.
+ *
+ * @author zorkaholics
+ */
 class ItemSpecificCommand extends Command{
 	private String verb;
 	private String noun;
+
+	/**
+	 * Constructs a new <tt>ItemSpecificCommand</tt> object setting the given noun 
+	 * and verb.
+	 *
+	 * @param noun the item name that the specific command corresponds to.
+	 * @param verb the command to be done to the item given.
+	 */
 	ItemSpecificCommand(String verb, String noun){
 		super(noun);
 		this.verb = verb;
 		this.noun = noun;
 	}
+	 /** Constructs a new <tt>ItemSpecificCommand</tt> object with the default
+	 * value for the noun being a blank string.
+	 *
+	 * @param verb the command to be carried out.
+	 */
 	ItemSpecificCommand(String verb){
 		super(verb);
 		this.verb = verb;
 		this.noun = "";
 	}
+	/**
+	 * Carries out the command given on the item given, returning the correct string
+	 * responding to the command being carried out. If the item given is 
+	 * non-existent or not in the current room/adventurers inventory, the 
+	 * system will return the correct string responding to such issues.
+	 *
+	 * @return the correct string responding to what happened when the command
+	 * was carried out.
+	 */
 	String execute(){
 		GameState g = GameState.instance();
 		Dungeon dungeon = g.getDungeon();

@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,7 +27,10 @@ public class GameState {
     private Room adventurersCurrentRoom;
     private ArrayList<Item> inventory;
     private ArrayList<String> verbs;
-
+    private int adventurersHealth;
+    private int adventurersScore;
+    private int adventurersMoves;
+    private ArrayList<NPC> allNonPlayerCharacters;
     static synchronized GameState instance() {
         if (theInstance == null) {
             theInstance = new GameState();
@@ -169,4 +171,19 @@ public class GameState {
 	    return inventoryList;
 
     }
+    public ArrayList<NPC> getAllNonPlayerCharacters(){}
+    public Room getNonPlayerCharacterCurrRoom(String NPCName){}
+    public void setNonPlayerCharacterCurrRoom(Room room){}
+    public NPC getNPCInVicinity(String NPCName){}
+    public int getAdventurersScore(){}
+    public int getAdventurersHealth(){}
+    public String die(){}
+    public String die(String NPCName){}
+    public void changeScore(int numChange){}
+    public void changeHealth(int numChange){}
+    public void changeHunger(int numChange){}
+    public void incrementMoves(){}
+    public int getMoves(){}
+    public int getHungerPoints(){}
+
 }

@@ -1,12 +1,32 @@
 import java.util.ArrayList;
+/**
+ * A <tt>TakeCommand</tt> represents the command for the adventurer to take an item
+ * and add it to their inventory.
+ *
+ * @author zorkaholics
+ */
 class TakeCommand extends Command{
 	private String itemName;
-
+	/**
+	 * Constructs a new <tt>TakeCommand</tt> object with the itemname of the 
+	 * item wanting to be taken.
+	 *
+	 * @param itemName the name of the item wanting to be taken by the adventurer.
+	 */
 	TakeCommand(String itemName){
 		super(itemName);
 		this.itemName = itemName;
 	}
-
+	
+	/**
+	 * Carries out the process of taking an item and adding it to the adventurers
+	 * inventory, returning the correct phrase responding to the process. If the 
+	 * item is non-existent, if the item is not in the adventurers inventory, or if
+	 * the item is not in the current room the system will respond correctly to such
+	 * issues.
+	 *
+	 * @return phrase responding to the process that has happened.
+	 */
 	String execute(){
 		GameState g = GameState.instance();
 		Room currRoom = g.getAdventurersCurrentRoom();

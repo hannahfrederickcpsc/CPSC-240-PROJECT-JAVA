@@ -32,6 +32,8 @@ public class Dungeon {
     private Hashtable<String,Item> items;
     private ArrayList<Item> itemList;
     private String filename;
+    private ArrayList<NPC> allNonPlayerCharacters;
+    private ArrayList<WeatherEvent> weatherEvents;
 
     Dungeon(String name, Room entry) {
         init();
@@ -190,11 +192,9 @@ public class Dungeon {
 
 	return itemList;
     }
-					
-			
-
-
-
-
-
+    
+    public NPC getNPC(String NPCName){}
+    public WeatherEvent getRandomWeatherEvent(){}
+    public ArrayList<NPC> getWeatherEvents(){}
+    public Room getRandomRoom(){}					
 }

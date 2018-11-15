@@ -2,6 +2,9 @@ import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
+/** Reads in the command line argument to use a dungeon file and requests user input to proceed through the dungeon of that file. If the command line argument is a valid dungeon file, then the user input will be read as commands that will change the state of the dungeon. 
+    @author zorkaholics
+*/
 public class Interpreter {
 
     private static GameState state; // not strictly necessary; GameState is 
@@ -10,6 +13,11 @@ public class Interpreter {
     public static String USAGE_MSG = 
         "Usage: Interpreter dungeonFile.zork|saveFile.sav.";
 
+    /** Takes the command line argument and tries to read the dungeon file that matches the command line argument. If this is a valid dungeon file, then user starts in the entry room of that dungeon and types commands that change the state of the dungeon. If this is a valid save file, then the user resumes in the last room that the user was in and keeps the state of the dungeon when the user last saved.
+        @param args[] the command line argument.
+	@throws FileNotFoundException if the command line argument is not a dungeon file or a save file that is in the current directory.
+     
+    */
     public static void main(String args[])throws FileNotFoundException {
 	File a = new File("../files");
 	File[]files;
@@ -96,6 +104,11 @@ public class Interpreter {
         }
     }
 
+    /** Returns the user input up to the return line taken in with a scanner object.
+        @param commandLine the scanner object that reads the user input.
+	@return the string that the scanner read from the user input.
+     
+    */
     private static String promptUser(Scanner commandLine) {
 
         System.out.print("> ");

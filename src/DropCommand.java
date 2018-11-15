@@ -1,12 +1,30 @@
 import java.util.ArrayList;
+/**
+ * A <tt>DropCommand</tt> is a command that can be used to drop an Item from the 
+ * adventurers inventory to the current room that the adventurer is in.
+ * @author zorkaholics 
+ */
 class DropCommand extends Command{
 	private String itemName;
-
+	/**
+	 * Constructs a new <tt>DropCommand</tt> object with the specified item name
+	 * representing the item the adventurer is wanting to drop.
+	 * @param itemName the name of the item the adventurer wants to drop from their
+	 * inventory.
+	 */
 	DropCommand(String itemName){
 		super(itemName);
 		this.itemName = itemName;
 	}
-	
+	/** Carries out the process of dropping an item into the current room returning 
+	 * a phrase responding to if the player has successfully dropped an item or not. 
+	 * If the item is not in their inventory, or the item does not
+	 * exist,  the method realizes the item cannot be dropped, thus returning the 
+	 * correct string corresponding to the issue.
+	 * 
+	 * @return correct String responding to whether the item given was dropped 
+	 * or not. 
+	 */
 	String execute(){
 		GameState g = GameState.instance();
 		ArrayList<Item> inventory = g.getInventory();
