@@ -70,6 +70,9 @@ public class Dungeon {
      * @param initState Truth value that allows the system to know if it
      * needs to restore the game from a save file, or start from scratch
      * from a .zork file.
+     *
+     * @throws FileNotFoundException
+     * @throws IllegalDungeonFormatException
      */
     public Dungeon(String filename, boolean initState) throws FileNotFoundException,
         IllegalDungeonFormatException {
@@ -159,6 +162,8 @@ public class Dungeon {
 	 * to the file.
 	 *
 	 * @param w PrintWriter to write to the save file.
+	 *
+	 * @throws IOException
 	 */
     void storeState(PrintWriter w) throws IOException {
         w.println(FILENAME_LEADER + getFileObject().getAbsolutePath());
@@ -179,6 +184,8 @@ public class Dungeon {
 	 *
 	 * @param s Scanner pointing to the exact starting point of the 
 	 * dungeon-specific aspects in the save file.
+	 *
+	 * @throws GameState.IllegalSaveFormatException
 	 */
     void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
 
