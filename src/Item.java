@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Set;
 
-/** Represents an item that commands can be called on to change the state of the game and to print these changes to the screen. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
+/** An <tt>Item</tt> represents an object that a {@link Command} can be called on to change the {@link GameState} of the {@link Dungeon} and to print these changes to the screen. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
     @author zorkaholics
 */
 public class Item{
@@ -93,7 +93,7 @@ public class Item{
 		return nameSplit[0];
 	}//end getPrimaryName()
 
-	/** Returns the string that is printed to the screen when the command associated with the item is called, this is in an item entry of a dungeon file.
+	/** Returns the string that is printed when an {@link ItemSpecificCommand} associated with the item is called, this is in an item entry of a dungeon file.
 	    @param verb the verb that is used right before an alias of the item to call a command on that item.
 	    @return the string to be printed to the screen right after this command is called on the item.
 	*/
