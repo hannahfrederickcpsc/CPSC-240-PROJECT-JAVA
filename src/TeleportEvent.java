@@ -1,4 +1,4 @@
-/** Represents a teleport event that occurs when a certain command is typed with a specific item which puts the user in a random room of the dungeon. An item entry in a dungeon file can contain verbs that can be typed right before an alias of the item and can have a teleport event associated with that verb for that item.
+/** A <tt>TeleportEvent</tt> represents a type of {@link Event} that occurs when a certain {@link Command} is typed with a specific {@link Item} which puts the user in a random {@link Room} of the {@link Dungeon}. An item entry in a dungeon file can contain verbs that can be typed right before an alias of the item and can have a teleport event associated with that verb for that item.
     @author zorkaholics
 */
 
