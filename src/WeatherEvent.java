@@ -42,12 +42,6 @@ class WeatherEvent{
 */
 	public Room getSrc(){}
 /**
-*Reurns the description of the weather event.
-*
-*@return the string that is the weather event description
-*/
-	public String getDesc(){}
-/**
 *Returns the drection of the exit the weather event opens when it occurs.
 *
 *@return the string of the direction of the exit made by the weather object occuring
