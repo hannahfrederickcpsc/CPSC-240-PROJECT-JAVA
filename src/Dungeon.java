@@ -7,6 +7,14 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.File;
 import java.util.ArrayList;
+/**
+ * A dungeon represents the playable environment that is able to be
+ * manually traversed by the adventurer. A dungeon is broken up into 
+ * playable {@link Room} areas that allow the adventurer to traverse
+ * the dungeon.
+ *
+ * @author zorkaholics
+ */
 public class Dungeon {
 
     public static class IllegalDungeonFormatException extends Exception {
@@ -35,6 +43,15 @@ public class Dungeon {
     private ArrayList<NPC> allNonPlayerCharacters;
     private ArrayList<WeatherEvent> weatherEvents;
 
+    /**
+     * Constructs a new <tt>Dungeon</tt> object given the name and 
+     * room that the adventurer is first placed in. This creates
+     * a dungeon with only a name and entry room. 
+     *
+     * @param name Name of the dungeon.
+     * @param entry Room the adventurer is first placed in.
+     *
+     */
     Dungeon(String name, Room entry) {
         init();
         this.filename = null;    // null indicates not hydrated from file.
@@ -45,8 +62,17 @@ public class Dungeon {
     }
 
     /**
-     * Read from the .zork filename passed, and instantiate a Dungeon object
-     * based on it.
+     * Constructs a new <tt>Dungeon</tt> object that reads in 
+     * information to fill up the dungeon from a .zork file. 
+     *
+     * @param filename Name of the .zork file to be read.
+     * 
+     * @param initState Truth value that allows the system to know if it
+     * needs to restore the game from a save file, or start from scratch
+     * from a .zork file.
+     *
+     * @throws FileNotFoundException
+     * @throws IllegalDungeonFormatException
      */
     public Dungeon(String filename, boolean initState) throws FileNotFoundException,
         IllegalDungeonFormatException {
@@ -117,6 +143,9 @@ public class Dungeon {
     
     // Common object initialization tasks, regardless of which constructor
     // is used.
+	/**
+	 * Initializes instance variables.
+	 */
     private void init() {
         rooms = new Hashtable<String,Room>();
 	items = new Hashtable<String,Item>();
@@ -127,6 +156,15 @@ public class Dungeon {
      * Store the current (changeable) state of this dungeon to the writer
      * passed.
      */
+	/**
+	 * Stores the current state of the dungeon into a 
+	 * save file. This ONLY stores the dungeon-specific parts 
+	 * to the file.
+	 *
+	 * @param w PrintWriter to write to the save file.
+	 *
+	 * @throws IOException
+	 */
     void storeState(PrintWriter w) throws IOException {
         w.println(FILENAME_LEADER + getFileObject().getAbsolutePath());
         w.println(ROOM_STATES_MARKER);
@@ -140,6 +178,15 @@ public class Dungeon {
      * Restore the (changeable) state of this dungeon to that reflected in the
      * reader passed.
      */
+	/**
+	 * Restores the state of the dungeon from a save file. This ONLY 
+	 * restores the dungeon-specific aspects of the save file.
+	 *
+	 * @param s Scanner pointing to the exact starting point of the 
+	 * dungeon-specific aspects in the save file.
+	 *
+	 * @throws GameState.IllegalSaveFormatException
+	 */
     void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
 
         // Note: the filename has already been read at this point.
@@ -155,25 +202,70 @@ public class Dungeon {
             roomName = s.nextLine();
         }
     }
-
+	/**
+	 * Returns the starting room of the dungeon.
+	 *
+	 * @return Entry room of the dungeon.
+	 */
     public Room getEntry() { return entry; }
+    	/**
+	 * Returns the name of the dungeon.
+	 *
+	 * @return Name of the dungeon.
+	 */
     public String getName() { return name; }
+    	/**
+	 * Returns the file name of the .zork file which hydrates the 
+	 * dungeon.
+	 *
+	 * @return The file name of the .zork file that hydrated the
+	 * dungeon.
+	 */
     public String getFilename() { return filename; }
+    	/**
+	 * Returns the actual <tt>File</tt> object of the .zork file
+	 * that hydrated the dungeon.
+	 *
+	 * @return <tt>File</tt> object of the .zork file that hydrated
+	 * the dungeon.
+	 */
     public File getFileObject()
     {
 	File dungeonFile =  new File(getFilename());
 	return dungeonFile;
     }
+	/**
+	 * Adds the given room to the dungeon.
+	 *
+	 * @param room Room to be added to the dungeon.
+	 */
     public void add(Room room) { rooms.put(room.getTitle(),room); }
-
+	/**
+	 * Returns a room from the dungeon given the room name.
+	 *
+	 * @param roomTitle Name of the room to be returned.
+	 *
+	 * @return Room that has the name that was given.
+	 */
     public Room getRoom(String roomTitle) {
         return rooms.get(roomTitle);
     }
-
+	/**
+	 * Adds an Item to the dungeons collection of Items.
+	 *
+	 * @param item Item to be added to the dungeon.
+	 */
     public void add(Item item){
 	items.put(item.getPrimaryName(),item);
     }
-
+	/**
+	 * Returns an Item from the dungeon given an Item name.
+	 * If the item is non-existent, nothing is returned.
+	 *
+	 * @param primaryName Name of the Item to be returned.
+	 *
+	 * @return Item that has the given name.
+	 */
     public Item getItem(String primaryName){
 	Set<String> keys = items.keySet();
 	for (String key: keys){
@@ -183,6 +275,11 @@ public class Dungeon {
 	}
 		return null;
     }
+	/**
+	 * Returns the master collection of Items in the dungeon.
+	 *
+	 * @return Master ArrayList of Items in the dungeon.
+	 */
     public ArrayList<Item> getItemList(){
 	Set<String> tableKeys = items.keySet();
 	for(String key: tableKeys)
@@ -192,9 +289,33 @@ public class Dungeon {
 
 	return itemList;
     }
-    
+
+	/**
+      	 * Returns a NPC given the NPC name.
+	 *
+	 * @param NPCName Name of the NPC wanting to be returned.
+	 *
+	 * @return NPC that has the given name.
+	 */	 
     public NPC getNPC(String NPCName){}
+    	/**
+	 * Returns a random <tt>WeatherEvent</tt> object.
+	 *
+	 * @return Random <tt>WeatherEvent</tt> object.
+	 */
     public WeatherEvent getRandomWeatherEvent(){}
+    	/**
+	 * Returns the master collection of the <tt>WeatherEvent</tt> 
+	 * objects in the dungeon.
+	 *
+	 * @return ArrayList of <tt>WeatherEvent</tt> objects in the 
+	 * dungeon.
+	 */
     public ArrayList<NPC> getWeatherEvents(){}
+    	/**
+	 * Returns a random playable room within the dungeon.
+	 *
+	 * @return Random playable room within the dungeon.
+	 */
     public Room getRandomRoom(){}					
 }

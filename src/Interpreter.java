@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
-/** Reads in the command line argument to use a dungeon file and requests user input to proceed through the dungeon of that file. If the command line argument is a valid dungeon file, then the user input will be read as commands that will change the state of the dungeon. 
+/** The <tt>Interpreter</tt> reads in the command line argument to use a dungeon file or a save file and requests user input to proceed through the {@link Dungeon} of that file. If the command line argument is a valid dungeon file or a valid save file in the current directory, then the user input will be read as a {@link Command} that will change the {@link GameState} of the dungeon.
     @author zorkaholics
 */
 public class Interpreter {
@@ -13,7 +13,7 @@ public class Interpreter {
     public static String USAGE_MSG = 
         "Usage: Interpreter dungeonFile.zork|saveFile.sav.";
 
-    /** Takes the command line argument and tries to read the dungeon file that matches the command line argument. If this is a valid dungeon file, then user starts in the entry room of that dungeon and types commands that change the state of the dungeon. If this is a valid save file, then the user resumes in the last room that the user was in and keeps the state of the dungeon when the user last saved.
+    /** Takes the command line argument and tries to read the dungeon file or the save file that matches the command line argument. If this is a valid dungeon file, then the user starts in the entry room of that dungeon and types commands that change the state of the dungeon. If this is a valid save file, then the user resumes in the last room that the user was in and preserves the state of the dungeon when the user last saved.
         @param args[] the command line argument.
 	@throws FileNotFoundException if the command line argument is not a dungeon file or a save file that is in the current directory.
      

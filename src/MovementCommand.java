@@ -33,6 +33,7 @@ class MovementCommand extends Command{
 		Room nextRoom = currentRoom.leaveBy(dir);
 			if (nextRoom != null) {
 				GameState.instance().setAdventurersCurrentRoom(nextRoom);
+				GameState.instance().incrementMoves();
 				return "\n" + nextRoom.describe() + "\n";
 			}
 			else{

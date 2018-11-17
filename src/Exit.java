@@ -1,10 +1,13 @@
 import java.util.Scanner;
 
-/** Represents an exit out of one room and into the next room by a cardinal direction in a certain dungeon. Each exit entry in a dungeon file lists the two rooms connected by the exit, first the current room and then the subsequent room, and the cardinal direction, from the former room to the latter room.
+/** An <tt>Exit</tt> represents an exit out of one {@link Room} and into the next <tt>Room</tt> by a cardinal direction in a certain {@link Dungeon}. Each exit entry in a dungeon file lists the two rooms connected by the exit, first the current room and then the subsequent room, and the cardinal direction, from the former room to the latter room.
     @author zorkaholics
 */
 public class Exit {
 
+    /** Specifies what happens when the scanner object is not positioned at the start of an exit entry, this happens when the scanner has reached the end of the exits section of a dungeon file. 
+     
+    */
     class NoExitException extends Exception {}
 
     private String dir;
