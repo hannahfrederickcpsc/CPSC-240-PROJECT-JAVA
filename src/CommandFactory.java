@@ -1,3 +1,8 @@
+/**
+*The class that instantiates a new command object based on the users input.
+*
+*@author Isabella
+*/
 import java.util.*;
 
 public class CommandFactory {
@@ -5,17 +10,28 @@ public class CommandFactory {
     private static CommandFactory theInstance;
     public static List<String> MOVEMENT_COMMANDS = 
         Arrays.asList("n","w","e","s","u","d" );
-
+/**
+*Returns the one instance of the command factory in the game. If not initialzed when called, then it will instantiate the new instance.
+*
+*@return the instance of the Command Factory.
+*/
     public static synchronized CommandFactory instance() {
         if (theInstance == null) {
             theInstance = new CommandFactory();
         }
         return theInstance;
     }
-
+/**
+*The constructor for the Command Factory.
+*/
     private CommandFactory() {
     }
-
+/**
+*Returns a command object based on the users input. If the command is not understood, then the method will return an unknown command.
+*
+*@param command a string that the user typed into the command prompt for zork
+*@return the command object that corresponds to the command entered into the command prompt.
+*/
     public Command parse(String command) {
 	if (MOVEMENT_COMMANDS.contains(command)) {
             return new MovementCommand(command);
