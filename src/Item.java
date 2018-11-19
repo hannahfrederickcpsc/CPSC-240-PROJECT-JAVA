@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 /** An <tt>Item</tt> represents an object that a {@link Command} can be called on to change the {@link GameState} of the {@link Dungeon} and to print these changes to the screen. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
-    @author zorkaholics
+    @author HF
 */
 public class Item{
 

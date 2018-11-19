@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /** An <tt>Exit</tt> represents an exit out of one {@link Room} and into the next <tt>Room</tt> by a cardinal direction in a certain {@link Dungeon}. Each exit entry in a dungeon file lists the two rooms connected by the exit, first the current room and then the subsequent room, and the cardinal direction, from the former room to the latter room.
-    @author zorkaholics
+    @author HF
 */
 public class Exit {
 

@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 /** The <tt>Interpreter</tt> reads in the command line argument to use a dungeon file or a save file and requests user input to proceed through the {@link Dungeon} of that file. If the command line argument is a valid dungeon file or a valid save file in the current directory, then the user input will be read as a {@link Command} that will change the {@link GameState} of the dungeon.
-    @author zorkaholics
+    @author HF
 */
 public class Interpreter {
 

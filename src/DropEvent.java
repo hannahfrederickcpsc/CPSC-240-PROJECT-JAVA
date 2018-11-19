@@ -1,5 +1,5 @@
 /** A <tt>DropEvent</tt> represents a type of {@link Event} that occurs when a certain {@link Command} is typed with a specific {@link Item} which drops that item into the current {@link Room}. An item entry in a dungeon file can contain verbs that can be typed right before an alias of the item and can have a drop event associated with that verb for that item.
-    @author zorkaholics
+    @author HF
 */
 class DropEvent extends Event{
 	private String command;
