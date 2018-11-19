@@ -50,12 +50,8 @@ class WeatherEvent{
 /**
 *Returns the drection of the exit the weather event opens when it occurs.
 *
-*@return the string of the direction of the exit made by the weather object occuring
+*@return the string of the direction of the exit made by the weather object occurring.
 */
-=======
 
-	public String getWeatherDescription(){}
-
->>>>>>> ab89ebee74d32462e909ee14bddee455ea2b6acc
 	public String getDir(){}
 }

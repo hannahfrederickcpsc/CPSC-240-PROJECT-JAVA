@@ -1,5 +1,5 @@
 /** An <tt>Event</tt> represents an abstract event that occurs when a certain {@link Command} is typed with a specific {@link Item} which changes the {@link GameState}. Event is abstract so it cannot be instantiated, but there are types of events that can be instantiated and different events change the state in different ways.
-    @author HF
+    @author Hannah
 */
 abstract class Event{
 
