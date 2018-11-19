@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Set;
 
-/** An <tt>Item</tt> represents an object that a {@link Command} can be called on to change the {@link GameState} of the {@link Dungeon} and to print these changes to the screen. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
+/** An <tt>Item</tt> represents an object that a {@link Command} or an {@link ItemSpecificCommand} can be called on to change the {@link GameState} of the {@link Dungeon} and to print these changes to the screen.
     @author Hannah
 */
 public class Item{
@@ -21,7 +21,7 @@ public class Item{
 	private ArrayList<String> verbs;	
 	//constructor to read items from .zork file
 	
-	/** Constructs a new <tt>Item</tt> object with a scanner object positioned at the beginning of an item entry in a dungeon file.
+	/** Constructs a new <tt>Item</tt> object with a scanner object positioned at the beginning of an item entry in a dungeon file. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
 	    @param s the scanner object that reads an item entry of a dungeon file to instantiate an item object in that dungeon.
 	    @throws NoItemException if the scanner object is not positioned at the start of an item entry, now the scanner's cursor is positioned one line past where it was.
 	    @throws IllegalDungeonFormatException if the dungeon file is not formatted the way that the item constructor expected it to be, so the item entry did not end with the item delimiter.
