@@ -1,6 +1,8 @@
 /**
  * A <tt>TradeCommand</tt> represents the command given to trade items with a NPC.
  * This command is a {@link EngageMenuCommand}.
+ *
+ * @author Matt
  */
 class TradeCommand extends EngageMenuCommand{
 

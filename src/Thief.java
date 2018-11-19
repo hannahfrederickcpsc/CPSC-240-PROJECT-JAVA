@@ -4,7 +4,7 @@ import java.util.Scanner;
  * A thief can also take a random item from the adventurers inventory,
  * and must be killed for the item to be returned.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 public class Thief extends NPC{
 	/**

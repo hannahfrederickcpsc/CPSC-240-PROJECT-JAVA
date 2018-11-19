@@ -3,7 +3,7 @@ import java.util.ArrayList;
  * An <tt>ItemSpecificCommand</tt> represents the command given by the adventurer that
  * directly corresponds to a given item.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class ItemSpecificCommand extends Command{
 	private String verb;

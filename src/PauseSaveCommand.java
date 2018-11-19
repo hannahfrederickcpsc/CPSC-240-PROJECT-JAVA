@@ -2,7 +2,7 @@
  * A <tt>PauseSaveCommand</tt> represents the command given by the adventurer
  * to save the game from the pause menu.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class PauseSaveCommand extends PauseMenuCommand{
 	/**

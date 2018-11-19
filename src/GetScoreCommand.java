@@ -2,7 +2,7 @@
  *A <tt>GetScoreCommand</tt> represents the command given by the adventurer to retrieve
  * their score.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class GetScoreCommand extends Command{
 	/**

@@ -2,7 +2,7 @@
  * A <tt>CompanionCommand</tt> is an abstract base class for all further commands 
  * involving the adventurers companion.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 abstract class CompanionCommand extends Command{
 	private String command;

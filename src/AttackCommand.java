@@ -2,7 +2,7 @@
  * An <tt>AttackCommand</tt> represents the command given to attack
  * a NPC. 
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class AttackCommand extends EngageMenuCommand{
 	private String usableWeaponName;

@@ -2,7 +2,7 @@
  * A <tt>QuitCommand</tt> is a {@link PauseMenuCommand} that allows the adventurer
  * to quit the game out of the pause menu. 
  *
- * @author zorkaholics
+ * @author Matt 
  *
  */
 class QuitCommand extends PauseMenuCommand{

@@ -3,7 +3,7 @@
  * adventurers 'Companion.' A companion is allowed to be ordered around
  * to do the adventurers bidding.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 public class Companion extends Friendly{
 	/**

@@ -2,7 +2,7 @@
  * A <tt>SaveCommand</tt> represents the command given by the adventurer to save 
  * the game at its current state.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class SaveCommand extends Command{
 	private String saveFileName;

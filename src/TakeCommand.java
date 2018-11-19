@@ -3,7 +3,7 @@ import java.util.ArrayList;
  * A <tt>TakeCommand</tt> represents the command for the adventurer to take an item
  * and add it to their inventory.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class TakeCommand extends Command{
 	private String itemName;

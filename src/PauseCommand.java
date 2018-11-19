@@ -1,7 +1,7 @@
 /**
  * A <tt>PauseCommand</tt> represents the command to completely pause the game.
  *
- * @author xorkaholics
+ * @author Matt 
  */
 class PauseCommand extends Command{
 	/**

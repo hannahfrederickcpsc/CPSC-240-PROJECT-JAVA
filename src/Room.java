@@ -8,7 +8,7 @@ import java.io.PrintWriter;
  * <tt>Item</tt>, <tt>Exit</tt>, and <tt>NPC</tt> objects. Each <tt>Room</tt> can be 
  * accessed by an <tt>Exit</tt> by the adventurer.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 public class Room {
 

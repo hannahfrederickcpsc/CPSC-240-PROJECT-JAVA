@@ -2,7 +2,7 @@
  * A <tt>Monster</tt> is a NPC that is unfriendly, and can only be 
  * attacked.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 public class Monster extends NPC{
 	/**

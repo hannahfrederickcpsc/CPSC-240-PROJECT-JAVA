@@ -2,7 +2,7 @@
  * A <tt>CompanionAttackCommand</tt> represents the command that the adventurer gives
  * to order their companion to attack another NPC.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class CompanionAttackCommand extends CompanionCommand{
 	private Companion companion;

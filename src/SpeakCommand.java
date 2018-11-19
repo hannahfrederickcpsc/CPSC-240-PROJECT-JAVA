@@ -2,7 +2,7 @@
  * A <tt>SpeakCommand</tt> represents a command to allow the adventurer to speak with
  * an engaged NPC. 
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class SpeakCommand extends EngageMenuCommand{
 	private String command;

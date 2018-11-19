@@ -2,7 +2,7 @@
  * A <tt>EngageMenuCommand</tt> is the abstract base class for all commands involving 
  * the actual actions that take place during NPC interactions. 
  * 
- * @author zorkaholics
+ * @author Matt 
  */
 abstract class EngageMenuCommand extends Command{
 	private String command;

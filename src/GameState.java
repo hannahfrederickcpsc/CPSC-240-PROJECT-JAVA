@@ -182,7 +182,9 @@ public class GameState {
     public void changeScore(int numChange){}
     public void changeHealth(int numChange){}
     public void changeHunger(int numChange){}
-    public void incrementMoves(){}
+    public void incrementMoves(){
+    	this.adventurersMoves += 1;
+    }
     public int getMoves(){}
     public int getHungerPoints(){}
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * An <tt>InventoryCommand</tt> represents the command used to display the adventurers
  * current inventory of items. 
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class InventoryCommand extends Command{
 	private String i;

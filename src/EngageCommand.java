@@ -1,6 +1,8 @@
 /**
  * An <tt>EngageCommand</tt> represents the command used to engage in complex 
  * interactions with a Non player character. 
+ *
+ * @author Matt
  */
 class EngageCommand extends Command{
 	private NPC npcToEngage;
