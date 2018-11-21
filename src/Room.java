@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 /**
  * A <tt>Room</tt> represents a specific area within the playable dungeon that can hold
- * <tt>Item</tt>, <tt>Exit</tt>, and <tt>NPC</tt> objects. Each <tt>Room</tt> can be 
+ * {@link NPC}, {@link Exit}, and {@link Item} objects. Each <tt>Room</tt> can be 
  * accessed by an <tt>Exit</tt> by the adventurer.
  *
  * @author Matt 
