@@ -1,8 +1,3 @@
-/** 
-*A weather event object is generated from WeatherGnerator and changes the state of the game by opening a new exit, as well as new rooms, for the game after the adventurer completes a number of moves in the game.
-*
-*@author Isabella
-*/
 
 import java.util.Scanner;
 /** 
@@ -11,6 +6,12 @@ import java.util.Scanner;
 *@author Isabella
 */
 class NoWeatherException extends Exception{}
+/** 
+*A weather event object is generated from WeatherGnerator and changes the state of the game by opening a new exit, 
+as well as new rooms, for the game after the adventurer completes a number of moves in the game.
+*
+*@author Isabella
+*/
 class WeatherEvent{
 	private String desc;
 	private String dir;
