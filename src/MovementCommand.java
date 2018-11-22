@@ -2,7 +2,7 @@
  * A <tt>MovementCommand</tt> represents the command given to allow the adventurer
  * to move freely between rooms.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class MovementCommand extends Command{
 	private String dir;

@@ -2,7 +2,7 @@
  * A <tt>GetHealthCommand</tt> represents the command given to retrieve the 
  * adventurers current state of their health.
  *
- * @author zorkaholics
+ * @author Matt
  */
 class GetHealthCommand extends Command{
 

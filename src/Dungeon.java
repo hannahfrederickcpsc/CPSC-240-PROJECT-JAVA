@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * playable {@link Room} areas that allow the adventurer to traverse
  * the dungeon.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 public class Dungeon {
 

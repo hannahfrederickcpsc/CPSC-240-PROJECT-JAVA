@@ -2,7 +2,7 @@ import java.util.ArrayList;
 /**
  * A <tt>DropCommand</tt> is a command that can be used to drop an Item from the 
  * adventurers inventory to the current room that the adventurer is in.
- * @author zorkaholics 
+ * @author Matt 
  */
 class DropCommand extends Command{
 	private String itemName;

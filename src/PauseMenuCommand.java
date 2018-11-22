@@ -1,7 +1,7 @@
 /**
  * A <tt>PauseMenuCommand</tt> is an abstract base class for all pause menu commands.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 abstract class PauseMenuCommand extends Command{
 	private String command;

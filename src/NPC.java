@@ -5,7 +5,7 @@ class NoNPCException extends Exception{}
  * An <tt>NPC</tt> represents a Non player character that is allowed to be
  * interacted with while playing the game.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 public abstract class NPC{
 	private String properName;

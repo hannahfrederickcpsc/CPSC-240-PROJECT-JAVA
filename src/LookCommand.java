@@ -2,7 +2,7 @@
  * A <tt>LookCommand</tt> represents a command given by the adventurer to 
  * see the full description of the current room.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class LookCommand extends Command{
 	private String look;

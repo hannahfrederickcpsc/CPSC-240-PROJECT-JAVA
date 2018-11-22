@@ -2,7 +2,7 @@
 /**
  * A <tt>Command</tt> represents the abstract base class for all commands in zork.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 abstract class Command {
 

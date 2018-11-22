@@ -1,7 +1,7 @@
 /**
  * A <tt>Friendly</tt> is a NPC that is friendly towards the adventurer.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 public class Friendly extends NPC{
 	/**

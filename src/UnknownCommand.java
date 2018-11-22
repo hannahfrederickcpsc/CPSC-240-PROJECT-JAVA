@@ -2,7 +2,7 @@
  * An <tt>UnknownCommand</tt> represents a command given by the adventurer that is 
  * unknown to the system.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class UnknownCommand extends Command{
 	private String BogusCommand;

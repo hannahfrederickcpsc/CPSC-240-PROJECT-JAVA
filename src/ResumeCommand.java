@@ -2,7 +2,7 @@
  * A <tt>ResumeCommand</tt> represents the command the adventurer gives to resume
  * the game from the pause menu.
  *
- * @author zorkaholics
+ * @author Matt 
  */
 class ResumeCommand extends PauseMenuCommand{
 	/**
