@@ -12,7 +12,7 @@ import java.util.ArrayList;
 */
 public class GameState {
 /** 
-*IllegalSaveFormatException is called if when reading in a file it is not in the correct format and cannot be read into the program. 
+*IllegalSaveFormatException is called if when reading in a file it is not in the correct format and cannot be read into the program. Extends Exception.
 *
 *@author Isabella
 */
@@ -43,19 +43,30 @@ public class GameState {
     private int adventurersScore;
     private int adventurersMoves;
     private ArrayList<NPC> allNonPlayerCharacters;
-
+/**
+*Returns the game's one instance of the GameState object. When called, if GameState has not been instantiated, the method will create the new object. If the object has alrady been instantiated, it will return the one GameState object.
+*@return the game's one GameState object.
+*/
     static synchronized GameState instance() {
         if (theInstance == null) {
             theInstance = new GameState();
         }
         return theInstance;
     }
-
+/**
+*Constructs GameState by instantiating GameState's inventory and verbs fields.
+*/
     private GameState() {
 	    inventory = new ArrayList<Item>();
 	    verbs = new ArrayList<String>();
     }
-
+/**
+*Restores the game's state by reading in information from a specified file and instantiating GameState's fields. This method is able to throw FileNotFoundException, IllegalSaveFormatException, and IllegalDungeonFormatException. The exceptions IllegalSaveFormatException and IllegalDungeonFormatException are thrown depending on the extention of the file you specify to restore GameState. 
+*@param filename the string of the name of the file GameState is being initialized to.
+*@throws FileNotFoundException
+*@throws IllegalSaveFormatException
+*@throws IllegalDungeonFormatException
+*/
     void restore(String filename) throws FileNotFoundException,
         IllegalSaveFormatException, Dungeon.IllegalDungeonFormatException {
 
