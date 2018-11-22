@@ -1,10 +1,10 @@
+
+import java.util.*;
 /**
-*The class that instantiates a new command object based on the users input.
+*The CommandFactory  instantiates a new command object based on the users input.
 *
 *@author Isabella
 */
-import java.util.*;
-
 public class CommandFactory {
 
     private static CommandFactory theInstance;
