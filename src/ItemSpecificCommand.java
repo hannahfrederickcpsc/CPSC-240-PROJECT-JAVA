@@ -42,11 +42,13 @@ class ItemSpecificCommand extends Command{
 	 */
 	String execute(){
 		GameState g = GameState.instance();
+		EventFactory e = EventFactory.instance();
 		Dungeon dungeon = g.getDungeon();
 		Room currRoom = g.getAdventurersCurrentRoom();
 		Item item;
 		ArrayList <Item> inventory = g.getInventory();
 		ArrayList<String> verbs = g.getVerbs();
+		Event event;
 		if(!verbs.contains(this.verb)){
 			return "I don't understand the command '" + verb + "'.\n";
 		}
@@ -65,9 +67,14 @@ class ItemSpecificCommand extends Command{
 					return "You can't " + verb + " the " + noun + "\n";
 				}
 				else{
-
+					if(item.getEvents() != null){
+						for(String l: item.getEvents()){
+								event = e.parse(l, item.getPrimaryName());
+								event.execute();
+								}
+					}
 					return item.getMessageForVerb(verb) + "\n";
-			
+
 				}
 			}
 	        
