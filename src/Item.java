@@ -18,7 +18,8 @@ public class Item{
 
 	//hashtable <verb,messageOfThatVerb> 
 	private Hashtable <String,String> messages;
-	private ArrayList<String> verbs;	
+	private ArrayList<String> verbs;
+	private ArrayList<String> events;	
 	//constructor to read items from .zork file
 	
 	/** Constructs a new <tt>Item</tt> object with a scanner object positioned at the beginning of an item entry in a dungeon file. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
@@ -30,6 +31,7 @@ public class Item{
 	public Item(Scanner s)throws NoItemException, Dungeon.IllegalDungeonFormatException{
 		messages = new Hashtable<String,String>();
 		verbs =  new ArrayList<String>();
+		events = new ArrayList<String>();
 		this.primaryName = s.nextLine();
 		if(primaryName.equals("===")){
 			throw new NoItemException();
@@ -54,6 +56,20 @@ public class Item{
 			for (int i = 0; i < tempSplit.length; ++i){
 				if(i == 0){
 				verb = tempSplit[i];
+					if(verb.contains("[")){
+						int startIndex = verb.indexOf("[") + 1;
+						int endIndex = verb.indexOf("]");
+						String event = verb.substring(startIndex, endIndex);
+						if(event.contains(",")){
+							String [] tempEvents = event.split(",");
+							for(String k : tempEvents){
+								this.events.add(k);
+							}	
+						}
+						else{
+							this.events.add(event);
+						}			
+					}
 				}
 				else{
 				message += tempSplit[i] + " ";
@@ -126,5 +142,8 @@ public class Item{
 			verbs.add(verb);
 		}
 		return verbs;
-	}		
+	}	
+	public ArrayList<String> getEvents(){
+		return this.events;
+	}	
 }//end Item class

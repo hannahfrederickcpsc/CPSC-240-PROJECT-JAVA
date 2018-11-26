@@ -65,6 +65,7 @@ class ItemSpecificCommand extends Command{
 					return "You can't " + verb + " the " + noun + "\n";
 				}
 				else{
+
 					return item.getMessageForVerb(verb) + "\n";
 			
 				}
