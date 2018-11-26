@@ -311,13 +311,17 @@ writen in a way that the program cannot read in the .zork file.
 	 *
 	 * @return NPC that has the given name.
 	 */	 
-    public NPC getNPC(String NPCName){}
+    public NPC getNPC(String NPCName){
+    		return null;
+    	}
     	/**
 	 * Returns a random <tt>WeatherEvent</tt> object.
 	 *
 	 * @return Random <tt>WeatherEvent</tt> object.
 	 */
-    public WeatherEvent getRandomWeatherEvent(){}
+    public WeatherEvent getRandomWeatherEvent(){
+    		return null;
+    	}
     	/**
 	 * Returns the master collection of the <tt>WeatherEvent</tt> 
 	 * objects in the dungeon.
@@ -325,11 +329,15 @@ writen in a way that the program cannot read in the .zork file.
 	 * @return ArrayList of <tt>WeatherEvent</tt> objects in the 
 	 * dungeon.
 	 */
-    public ArrayList<NPC> getWeatherEvents(){}
+    public ArrayList<NPC> getWeatherEvents(){
+    	return null;	
+    	}
     	/**
 	 * Returns a random playable room within the dungeon.
 	 *
 	 * @return Random playable room within the dungeon.
 	 */
-    public Room getRandomRoom(){}					
+    public Room getRandomRoom(){
+    	return null;
+    }					
 }
