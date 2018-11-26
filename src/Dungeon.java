@@ -16,8 +16,18 @@ import java.util.ArrayList;
  * @author Matt 
  */
 public class Dungeon {
+/**
+*An IllegalDungeonFormatException is thrown when the syntax of a .zork file that os being read into the program is writen in a way that the program cannot read in the .zork file. This class extends Exception.
+*
+*@author Matt
+*/
 
     public static class IllegalDungeonFormatException extends Exception {
+/**
+*IllegalDungeonFormatException is called when the syntax of a .zork file that os being read into the program is 
+writen in a way that the program cannot read in the .zork file.
+*@param e the error message that is displayed when IllegalDungeonFormatException is thrown.
+*/
         public IllegalDungeonFormatException(String e) {
             super(e);
         }
@@ -289,6 +299,10 @@ public class Dungeon {
 
 	return itemList;
     }
+	public void removeItem(Item item)
+	{
+		itemList.remove(item);
+	}	
 
 	/**
       	 * Returns a NPC given the NPC name.
