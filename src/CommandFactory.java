@@ -49,6 +49,12 @@ public class CommandFactory {
 	else if(command.equals("i")){
 		return new InventoryCommand(command);
 	}
+	else if(command.equals("score")){
+                return new GetScoreCommand(command);
+	}
+	else if(command.equals("health")){
+                return new GetHealthCommand(command);
+	}
 	else if(command.startsWith("drop")){
 		String dropReplace = command.replace("drop ","");
 		return new DropCommand(dropReplace);
