@@ -43,6 +43,7 @@ public class GameState {
     private int adventurersScore;
     private int adventurersMoves;
     private ArrayList<NPC> allNonPlayerCharacters;
+    private int adventurersHunger;
 /**
 *Returns the game's one instance of the GameState object. When called, if GameState has not been instantiated, the method will create the new object. If the object has alrady been instantiated, it will return the one GameState object.
 *@return the game's one GameState object.
@@ -252,74 +253,99 @@ public class GameState {
 *Returns an array list of all NonPlayerCharacters.
 *@returns an array list of all NonPlayerCharacters.
 */  
-    public ArrayList<NPC> getAllNonPlayerCharacters(){}
+    public ArrayList<NPC> getAllNonPlayerCharacters(){
+	    return null;
+    	}
 /**
 *Returns the room that a specific NonPlayerCharacter is in currently.
 *@param NPCName the name of the specific NonPlayerCharacter.
 *@return the room object that the NonPlayerCharcter is in currently.
 */ 
-    public Room getNonPlayerCharacterCurrRoom(String NPCName){}
+    public Room getNonPlayerCharacterCurrRoom(String NPCName){
+ 		return null;
+    	}
 /**
 *Sets the NonPlayerCharacter's room to the specified room.         
 *@param room the room you want to set the NonPlayerCharacter's room to.
 */
-    public void setNonPlayerCharacterCurrRoom(Room room){}
+    public void setNonPlayerCharacterCurrRoom(Room room){
+    	}
 /**
 *Returns the NPC object of a specified NonPlayerCharacter in the adventurer's current room.
 *@param NPCName the name of the specific NonPlayerCharacter.
 *@return the NPC object in the adventurer's current room.
 */
-    public NPC getNPCInVicinity(String NPCName){}
+    public NPC getNPCInVicinity(String NPCName){
+    		return null;
+    	}
 /**
 *Returns the adventurer's current score.
 *@return the integer of the adventurer's current score.
 */
-    public int getAdventurersScore(){}
+    public int getAdventurersScore(){
+    		return this.adventurersScore;
+    	}
 /**
 *Returns the adventurer's current  health.
 *@return the integer of the adventurer's current health.
 */
-    public int getAdventurersHealth(){}
+    public int getAdventurersHealth(){
+    		return this.adventurersHealth;
+    	}
 /**
 *Returns the output of the program when the adventurer dies.
 *@return the string of the output of the program when the adventurer dies.
 */
-    public String die(){}
+    public String die(){
+    		return null;
+    	}
 /**
 *Returns the output of the program when the specified NonPlayerCharacter dies.
 *@param NPCName the specified NonPlayerCharacter.
 *@return the string of the output of the program when the adventurer dies.
 */
-    public String die(String NPCName){}
+    public String die(String NPCName){
+    		return null;
+    	}
 /**
 *Changes the adventurer's current score by a specified amount.
 *@param numChange the intger to increment or decrement the adventurer's score by.
 */
-    public void changeScore(int numChange){}
+    public void changeScore(int numChange){
+    		this.adventurersScore += numChange;
+    	}
 /**
 *Changes the adventurer's current health by a specified amount.
 *@param numChange the intger to increment or decrement the adventurer's health by.
 */
-    public void changeHealth(int numChange){}
+    public void changeHealth(int numChange){
+    		this.adventurersHealth += numChange;
+    	}
 /**
 *Changes the adventurer's current hunger by a specified amount.
 *@param numChange the intger to increment or decrement the adventurer's hunger by.
 */
-    public void changeHunger(int numChange){}
+    public void changeHunger(int numChange){
+    		this.adventurersHunger += numChange;
+    	}
 /**
 *Increments the adventurer's moves by one.
 */
     public void incrementMoves(){
-        this.adventurersMoves += 1;
+        this.adventurersMoves++;
     }
 /**
 *Returns the adventurer's current number of moves.
 *@return the integer of the adventurer's current number of moves.
 */
-    public int getMoves(){}
+    public int getMoves(){
+    		return this.adventurersMoves;
+    	}
 /**
 *Returns the adventurer's current amount of health points.
 *@return the integer of the adventurer's current amount of health points.
 */
-    public int getHungerPoints(){}
+    public int getHungerPoints(){
+    		return this.adventurersHunger;
+    	}
 }
