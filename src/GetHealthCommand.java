@@ -20,6 +20,25 @@ class GetHealthCommand extends Command{
 	 * @return Phrase corresponding to the adventurers health value.
 	 */
 	public String execute(){
-		return null;
+		GameState g = GameState.instance();
+		int health = g.getAdventurersHealth();
+		if(health > 89){
+			return "You feel amazing!\n";
+		}
+		else if(health > 69){
+			return "You are feeling ok, but not great.\n";
+		}
+		else if(health > 49){
+			return "You are feeling a little down..\n";
+		}
+		else if(health > 29){
+			return "You are feeling like crap..\n";
+		}
+		else if(health > 9){
+			return "You are close to giving up.. but not yet.\n";
+		}
+		else{
+			return "Bro... you are dying. Find food or something.\n";
+		}
 	}
 }

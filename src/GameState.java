@@ -60,6 +60,8 @@ public class GameState {
     private GameState() {
 	    inventory = new ArrayList<Item>();
 	    verbs = new ArrayList<String>();
+	    this.adventurersHealth = 100;
+	    this.adventurersScore = 0;
     }
 /**
 *Restores the game's state by reading in information from a specified file and instantiating GameState's fields. This method is able to throw FileNotFoundException, IllegalSaveFormatException, and IllegalDungeonFormatException. The exceptions IllegalSaveFormatException and IllegalDungeonFormatException are thrown depending on the extention of the file you specify to restore GameState. 
@@ -92,6 +94,8 @@ public class GameState {
 	String currentRoomLine = s.nextLine();
         adventurersCurrentRoom = dungeon.getRoom(
         currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
+	this.adventurersScore = Integer.valueOf(s.nextLine().replace("Score: ", ""));
+	this.adventurersHealth = Integer.valueOf(s.nextLine().replace("Health: ", ""));
 	if(s.hasNext()){
 	String lastLine = s.nextLine().replace("Inventory: ","");
 	String [] inventorySplit = lastLine.split(",");
@@ -122,6 +126,8 @@ public class GameState {
         w.println(ADVENTURER_LEADER);
 	w.println(CURRENT_ROOM_LEADER + 
         getAdventurersCurrentRoom().getTitle());
+	w.println("Score: " + this.adventurersScore);
+	w.println("Health: " + this.adventurersHealth);
 	if(!inventory.isEmpty()){
 		w.println(INVENTORY_LEADER + this.getInventoryList() );
 	}

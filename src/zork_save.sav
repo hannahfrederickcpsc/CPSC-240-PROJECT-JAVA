@@ -1,38 +1,23 @@
 Zork III save data
-Dungeon file: /home/soccergoals_artworks/zorkProject/files/dundermifflin.zork
+Dungeon file: /home/matt_morgan1230/zorkProject/src/trinklev3.zork
 Room states:
-Front Desk:
+Stephen's office:
+beenHere=false
+Contents: StarWarsToy,WawaTravelMug,donut
+---
+Basement hallway:
 beenHere=true
-Contents: candy
 ---
-Break Room:
+Rotunda balcony:
 beenHere=false
-Contents: teapot,teacup,novel
+Contents: chainsaw,magicWand
 ---
-Women's Restroom:
-beenHere=false
-Contents: pottedPlant,scentedCandle,framedArt
----
-Conference Room:
-beenHere=false
-Contents: videoTape
----
-Cubicles Area:
-beenHere=false
-Contents: pepperSpray,nunChuck,ninjaStar
----
-Office Room:
-beenHere=false
-Contents: toy
----
-Annex Area:
-beenHere=false
-Contents: folder
----
-Kitchen Area:
-beenHere=false
-Contents: pitaBread
+Rotunda:
+beenHere=true
 ---
 ===
 Adventurer: 
-Current room: Front Desk
+Current room: Basement hallway
+Score: 0
+Health: 100
+Inventory: DrPepper

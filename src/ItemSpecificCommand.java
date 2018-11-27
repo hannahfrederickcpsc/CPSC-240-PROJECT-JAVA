@@ -73,7 +73,8 @@ class ItemSpecificCommand extends Command{
 								event.execute();
 								}
 					}
-					return item.getMessageForVerb(verb) + "\n";
+					return item.getMessageForVerb(verb) + "\n"
+						+ g.getAdventurersCurrentRoom().describe() + "\n";
 
 				}
 			}
