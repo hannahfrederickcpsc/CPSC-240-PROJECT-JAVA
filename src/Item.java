@@ -47,6 +47,8 @@ public class Item{
 		String verb = "";
 		//string that will replace the ':' in the line
 		String realCurrLine = "";
+		int startIndex;
+		int endIndex;
 		while(!currLine.equals("---")){
 			//replacing ':'
 			realCurrLine = currLine.replace(":"," ");
@@ -57,9 +59,10 @@ public class Item{
 				if(i == 0){
 				verb = tempSplit[i];
 					if(verb.contains("[")){
-						int startIndex = verb.indexOf("[") + 1;
-						int endIndex = verb.indexOf("]");
+						startIndex = verb.indexOf("[") + 1;
+						endIndex = verb.indexOf("]");
 						String event = verb.substring(startIndex, endIndex);
+						verb = verb.replace(verb.substring(startIndex - 1, endIndex + 1), "");
 						if(event.contains(",")){
 							String [] tempEvents = event.split(",");
 							for(String k : tempEvents){
@@ -75,6 +78,7 @@ public class Item{
 				message += tempSplit[i] + " ";
 				}
 			}
+			
 			//adding message to ht, setting verb as reference to message
 			messages.put(verb,message);
 
