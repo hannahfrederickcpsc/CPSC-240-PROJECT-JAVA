@@ -13,7 +13,9 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @param command the string that was given to attack an NPC
 	 */
-	AttackCommand(String command){}
+	AttackCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the process of attacking a NPC, returning the string declaring 

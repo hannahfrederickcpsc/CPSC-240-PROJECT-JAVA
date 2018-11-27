@@ -9,6 +9,7 @@ class DisappearEvent extends Event{
             @param command the string that the user types which contains the verb with the item that will cause a disappear event to occur.
         */
 	public DisappearEvent(String command, String itemName){
+		super(command);
 		this.command = command;
 		this.itemName = itemName;
 	}

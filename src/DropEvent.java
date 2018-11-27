@@ -9,11 +9,22 @@ class DropEvent extends Event{
             @param command the string that the user types which contains the verb with the item that will cause a drop event to occur.
         */
 	public DropEvent(String command, String itemName){
+		super(command);
 		this.command = command;
 		this.itemName = itemName;	
 	}
 
 	/** Executes the <tt>DropEvent</tt> object after a certain command is used with a specific item so that the item is dropped into the room that the user was in when the command was called and is removed from the user's inventory if the item was stored there.
         */
-	public void execute(){}
+	public void execute(){
+		GameState g = GameState.instance();
+		Dungeon d = g.getDungeon();
+		Item item = d.getItem(this.itemName);
+		Room currRoom = g.getAdventurersCurrentRoom();
+		if(g.getInventory().contains(item)){
+			g.removeFromInventory(item);
+			currRoom.add(item);
+		}
+
+	}
 }

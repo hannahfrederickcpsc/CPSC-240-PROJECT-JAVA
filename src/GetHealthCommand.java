@@ -9,7 +9,7 @@ class GetHealthCommand extends Command{
 	/**
 	 * Constructs a new <tt>GetHealthCommand</tt> object.
 	 */
-	GetHealthCommand(){}
+	GetHealthCommand(String command){}
 
 	/**
 	 * Carries out the command, returning a phrase corresponding to the 

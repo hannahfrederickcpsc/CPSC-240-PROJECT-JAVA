@@ -9,7 +9,9 @@ abstract class CompanionCommand extends Command{
 	/**
 	 * Constructs a new <tt>CompanionCommand</tt> object.
 	 */
-	CompanionCommand(){}
+	CompanionCommand(String command){
+		super(command);
+	}
 	/**
 	 * Carries out the process for further interaction involving the adventurers
 	 * companion returning the correct phrase responding to such interactions.

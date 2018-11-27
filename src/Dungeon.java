@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Iterator;
 /**
  * A dungeon represents the playable environment that is able to be
  * manually traversed by the adventurer. A dungeon is broken up into 
@@ -113,7 +115,7 @@ writen in a way that the program cannot read in the .zork file.
                 	add(new Item(s));
             }	
         } 
-       catch (NoItemException e) { /* end of items */}
+       catch (Item.NoItemException e) { /* end of items */}
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
@@ -338,6 +340,13 @@ writen in a way that the program cannot read in the .zork file.
 	 * @return Random playable room within the dungeon.
 	 */
     public Room getRandomRoom(){
-    	return null;
+	Random rand = new Random();
+	int randNum = rand.nextInt(this.rooms.size());
+	Set<String> keys = rooms.keySet();
+	ArrayList<String> keysList = new ArrayList<String>();
+	for(String o: keys){
+		keysList.add(o);
+	}
+	return getRoom(keysList.get(randNum));
     }					
 }

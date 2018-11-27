@@ -9,7 +9,9 @@ class QuitCommand extends PauseMenuCommand{
 	/**
 	 * Constructs a new <tt>QuitCommand</tt> object.
 	 */ 
-	QuitCommand(){}
+	QuitCommand(){
+		super();
+	}
 
 	/**
 	 * Carries out the command to quit the game returning a string responding to the 

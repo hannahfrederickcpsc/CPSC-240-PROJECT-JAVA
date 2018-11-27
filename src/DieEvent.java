@@ -8,7 +8,10 @@ class DieEvent extends Event{
 	/** Constructs a new <tt>DieEvent</tt> object with the command that contains the verb and the item that causes a die event with that item. An item entry in a dungeon file can contain verbs that can be typed right before an alias of the item and can have a die event associated with it.
 	    @param command the string that the user types which contains the verb with the item that will cause a die event to occur.
 	*/
-	public DieEvent(String command){}
+	public DieEvent(String command){
+		super(command);
+		this.command = command;
+	}
 
 	/** Executes the <tt>DieEvent</tt> object after a certain command is used with a specific item so that the game will end and the user will lose.
 	 

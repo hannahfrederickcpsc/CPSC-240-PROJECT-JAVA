@@ -9,7 +9,9 @@ class TradeCommand extends EngageMenuCommand{
 	/**
 	 * Constructs a new <tt>TradeCommand</tt> object.
 	 */
-	TradeCommand(){}
+	TradeCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out trade interactions with an engaged NPC returning a phrase of

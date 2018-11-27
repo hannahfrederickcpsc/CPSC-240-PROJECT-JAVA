@@ -8,7 +8,9 @@ class PauseSaveCommand extends PauseMenuCommand{
 	/**
 	 * Constructs a new <tt>PauseSaveCommand</tt> object.
 	 */
-	PauseSaveCommand(){}
+	PauseSaveCommand(){
+		super();
+	}
 
 	/**
 	 * Carries out the process to save the game from the pause menu returning the 

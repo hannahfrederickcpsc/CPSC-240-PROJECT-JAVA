@@ -8,7 +8,9 @@ class ResumeCommand extends PauseMenuCommand{
 	/**
 	 * Constructs a new <tt>ResumeCommand</tt> object.
 	 */
-	ResumeCommand(){}
+	ResumeCommand(){
+		super();
+	}
 
 	/**
 	 * Carries out the process to resume the game, returning a phrase

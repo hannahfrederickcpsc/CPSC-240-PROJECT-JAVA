@@ -10,7 +10,9 @@ class SpeakCommand extends EngageMenuCommand{
 	/**
 	 * Constructs a new <tt>SpeakCommand</tt> object.
 	 */
-	SpeakCommand(){}
+	SpeakCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the speaking interaction with an engaged NPC, returning a phrase 

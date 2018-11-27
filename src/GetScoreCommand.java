@@ -8,7 +8,7 @@ class GetScoreCommand extends Command{
 	/**
 	 * Constructs a new <tt>GetScoreCommand</tt> object.
 	 */
-	GetScoreCommand(){}
+	GetScoreCommand(String command){}
 
 	/**
 	 * Carries out the process to get the adventurers score expressed as a phrase

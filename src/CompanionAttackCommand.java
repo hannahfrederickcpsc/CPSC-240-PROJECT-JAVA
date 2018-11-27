@@ -6,14 +6,16 @@
  */
 class CompanionAttackCommand extends CompanionCommand{
 	private Companion companion;
-	private NPC npcToAttack;
+	private String npcName;
 
 	/**
 	 * Constructs a new <tt>CompanionAttackCommand</tt> object.
 	 *
 	 * @param npcToAttack the NPC that the adventurer wants the NPC to attack.
 	 */
-	CompanionAttackCommand(NPC npcToAttack){}
+	CompanionAttackCommand(String npcName){
+		super(npcName);
+	}
 
 	/**
 	 * Carries out the process of the adventurers Companion attacking an NPC 
