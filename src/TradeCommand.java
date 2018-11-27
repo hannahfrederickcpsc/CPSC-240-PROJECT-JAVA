@@ -19,5 +19,7 @@ class TradeCommand extends EngageMenuCommand{
 	 *
 	 * @return phrase responding to what was swapped in the trade with an NPC.
 	 */ 
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

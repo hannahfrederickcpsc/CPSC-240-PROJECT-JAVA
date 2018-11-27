@@ -19,5 +19,5 @@ abstract class CompanionCommand extends Command{
 	 * @return phrase responding the correct phrase responding to the companion 
 	 * interactions.
 	 */
-	public abstract String execute(){}
+	public abstract String execute();
 }

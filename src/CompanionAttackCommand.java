@@ -24,5 +24,7 @@ class CompanionAttackCommand extends CompanionCommand{
 	 * @return a phrase declaring the winner of the battle between the companion 
 	 * and the NPC that is being attacked.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

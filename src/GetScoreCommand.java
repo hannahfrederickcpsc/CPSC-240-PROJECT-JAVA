@@ -8,7 +8,9 @@ class GetScoreCommand extends Command{
 	/**
 	 * Constructs a new <tt>GetScoreCommand</tt> object.
 	 */
-	GetScoreCommand(String command){}
+	GetScoreCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the process to get the adventurers score expressed as a phrase
@@ -16,6 +18,8 @@ class GetScoreCommand extends Command{
 	 *
 	 * @return the phrase corresponding to the adventurers integer health value.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }
 	

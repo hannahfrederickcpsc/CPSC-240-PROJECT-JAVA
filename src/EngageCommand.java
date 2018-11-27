@@ -5,7 +5,7 @@
  * @author Matt
  */
 class EngageCommand extends Command{
-	private NPC npcToEngage;
+	private String npcName;
 
 	/**
 	 * Constructs a new <tt>EngageCommand</tt> object with the NPC the adventurer
@@ -14,7 +14,9 @@ class EngageCommand extends Command{
 	 * @param npcToEngage the NPC the adventurer is wanting to engage interactions
 	 * with.
 	 */
-	EngageCommand(NPC npcToEngage){}
+	EngageCommand(String npcName){
+		super(npcName);
+	}
 
 	/**
 	 * Carries out the command to engage interactions with an NPC returning a phrase 
@@ -23,6 +25,8 @@ class EngageCommand extends Command{
 	 * @return the correct phrase responding to the interactions that took place
 	 * with the engaged NPC.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }
 

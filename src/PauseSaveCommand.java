@@ -8,8 +8,8 @@ class PauseSaveCommand extends PauseMenuCommand{
 	/**
 	 * Constructs a new <tt>PauseSaveCommand</tt> object.
 	 */
-	PauseSaveCommand(){
-		super();
+	PauseSaveCommand(String command){
+		super(command);
 	}
 
 	/**
@@ -19,5 +19,8 @@ class PauseSaveCommand extends PauseMenuCommand{
 	 * @return the phrase responding to the game being saved.
 	 *
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
+	
 }

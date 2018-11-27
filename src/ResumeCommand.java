@@ -8,8 +8,8 @@ class ResumeCommand extends PauseMenuCommand{
 	/**
 	 * Constructs a new <tt>ResumeCommand</tt> object.
 	 */
-	ResumeCommand(){
-		super();
+	ResumeCommand(String command){
+		super(command);
 	}
 
 	/**
@@ -18,5 +18,7 @@ class ResumeCommand extends PauseMenuCommand{
 	 *
 	 * @return phrase signaling the game has been resumed.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

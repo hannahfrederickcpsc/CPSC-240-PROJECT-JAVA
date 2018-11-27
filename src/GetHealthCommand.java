@@ -9,7 +9,9 @@ class GetHealthCommand extends Command{
 	/**
 	 * Constructs a new <tt>GetHealthCommand</tt> object.
 	 */
-	GetHealthCommand(String command){}
+	GetHealthCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the command, returning a phrase corresponding to the 
@@ -17,5 +19,7 @@ class GetHealthCommand extends Command{
 	 *
 	 * @return Phrase corresponding to the adventurers health value.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

@@ -18,5 +18,7 @@ public class WeatherGenerator{
 *
 *@return a  string that states the effect to the game, the new exit(s), and new room(s).
 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

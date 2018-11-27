@@ -20,5 +20,7 @@ class SpeakCommand extends EngageMenuCommand{
 	 *
 	 * @return Phrase from the NPC saying goodbye.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }
