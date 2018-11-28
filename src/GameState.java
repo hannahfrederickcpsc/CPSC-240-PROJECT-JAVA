@@ -325,7 +325,7 @@ public class GameState {
 *@param numChange the intger to increment or decrement the adventurer's health by.
 */
     public void changeHealth(int numChange){
-    		this.adventurersHealth += numChange;
+    		this.adventurersHealth -= numChange;
     	}
 /**
 *Changes the adventurer's current hunger by a specified amount.
