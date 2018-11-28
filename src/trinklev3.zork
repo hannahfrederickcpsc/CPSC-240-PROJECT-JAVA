@@ -10,14 +10,14 @@ WawaTravelMug,mug
 ---
 DrPepper,can,soda
 10
-kick[Teleport,Disappear]:The can skitters down the hallway.
-shake:A liquid fizzes menacingly inside the can.
-drink:Gulp, gulp -- that was GOOD!  *belch*
+kick[Drop]:The can skitters down the hallway.
+shake[Drop,Teleport]:A liquid fizzes menacingly inside the can.
+drink[Teleport,Disappear]:Gulp, gulp -- that was GOOD!  *belch*
 ---
 StarWarsToy,Yoda
 5
-touch:Yoda says, "Do, or do not! There is no try."
-break:Whoops!
+touch[Teleport,Drop]:Yoda says, "Do, or do not! There is no try."
+break[Disappear,Teleport]:Whoops!
 ---
 chainsaw
 35

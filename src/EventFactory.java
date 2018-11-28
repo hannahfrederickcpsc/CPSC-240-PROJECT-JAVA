@@ -35,7 +35,7 @@ public class EventFactory{
 			return new WinEvent(event);
 		}
 		else if(event.startsWith("Drop")){
-			return new DropEvent(event, itemName);
+			return new DropEvent(event, itemName, currRoom);
 		}
 		return null;
 

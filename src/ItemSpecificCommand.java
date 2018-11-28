@@ -67,10 +67,9 @@ class ItemSpecificCommand extends Command{
 					return "You can't " + verb + " the " + noun + "\n";
 				}
 				else{
-					if(item.getEvents() != null){
-						for(String l: item.getEvents()){
+					if(item.getEvents(verb) != null){
+						for(String l: item.getEvents(verb)){
 								event = e.parse(l, item.getPrimaryName(), currRoom);
-								currRoom = g.getAdventurersCurrentRoom();
 								event.execute();
 								}
 					}
