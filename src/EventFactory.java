@@ -12,7 +12,7 @@ public class EventFactory{
 	}
 
 
-	public Event parse(String event, String itemName, Room currRoom){
+	public Event parse(String event, String itemName, String verb, Room currRoom){
 		if(event.startsWith("Transform")){
 			return new TransformEvent(event, itemName, currRoom);
 		}
@@ -23,7 +23,7 @@ public class EventFactory{
 			return new DisappearEvent(event, itemName, currRoom);
 		}
 		else if(event.startsWith("Die")){
-			return new DieEvent(event);
+			return new DieEvent(event, verb, itemName);
 		}
 		else if(event.startsWith("Wound")){
 			return new WoundEvent(event);
@@ -32,7 +32,7 @@ public class EventFactory{
 			return new ScoreEvent(event);
 		}
 		else if(event.startsWith("Win")){
-			return new WinEvent(event);
+			return new WinEvent(event, verb, itemName);
 		}
 		else if(event.startsWith("Drop")){
 			return new DropEvent(event, itemName, currRoom);

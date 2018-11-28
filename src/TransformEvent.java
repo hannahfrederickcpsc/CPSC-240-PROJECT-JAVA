@@ -24,10 +24,9 @@ public class TransformEvent extends Event{
 		GameState g = GameState.instance();
 		Dungeon d = g.getDungeon();
 		Item item = d.getItem(this.itemName);
-		String newItem = "";
-		String [] tempItem = command.split("(");
-		newItem = tempItem[1];
-		newItem = newItem.substring(0, newItem.length() - 1);
+		int startIndex = command.indexOf("(") + 1;
+                int endIndex = command.indexOf(")");
+                String newItem  = command.substring(startIndex, endIndex);
 		if(g.getInventory().contains(item)){
 			g.removeFromInventory(item);
 			g.addToInventory(d.getItem(newItem));
