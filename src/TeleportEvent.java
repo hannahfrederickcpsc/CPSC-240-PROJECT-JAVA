@@ -21,7 +21,8 @@ class TeleportEvent extends Event{
 		Dungeon d = g.getDungeon();
 		Room currRoom = g.getAdventurersCurrentRoom();
 		Room randRoom = d.getRandomRoom();
-		while(randRoom.equals(currRoom)){
+		while(currRoom.equals(randRoom))
+		{
 			randRoom = d.getRandomRoom();
 		}
 		g.setAdventurersCurrentRoom(randRoom);
