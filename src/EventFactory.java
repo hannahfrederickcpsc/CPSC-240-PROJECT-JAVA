@@ -12,7 +12,7 @@ public class EventFactory{
 	}
 
 
-	public Event parse(String event, String itemName){
+	public Event parse(String event, String itemName, Room currRoom){
 		if(event.startsWith("Transform")){
 			return new TransformEvent(event, itemName);
 		}
@@ -20,7 +20,7 @@ public class EventFactory{
 			return new TeleportEvent(event);
 		}
 		else if(event.startsWith("Disappear")){
-			return new DisappearEvent(event, itemName);
+			return new DisappearEvent(event, itemName, currRoom);
 		}
 		else if(event.startsWith("Die")){
 			return new DieEvent(event);

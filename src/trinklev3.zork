@@ -10,7 +10,7 @@ WawaTravelMug,mug
 ---
 DrPepper,can,soda
 10
-kick[Drop,Teleport]:The can skitters down the hallway.
+kick[Teleport,Disappear]:The can skitters down the hallway.
 shake:A liquid fizzes menacingly inside the can.
 drink:Gulp, gulp -- that was GOOD!  *belch*
 ---

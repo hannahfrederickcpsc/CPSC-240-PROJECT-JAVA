@@ -69,7 +69,8 @@ class ItemSpecificCommand extends Command{
 				else{
 					if(item.getEvents() != null){
 						for(String l: item.getEvents()){
-								event = e.parse(l, item.getPrimaryName());
+								event = e.parse(l, item.getPrimaryName(), currRoom);
+								currRoom = g.getAdventurersCurrentRoom();
 								event.execute();
 								}
 					}

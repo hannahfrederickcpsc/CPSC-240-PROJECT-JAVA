@@ -9,7 +9,7 @@ Basement hallway:
 beenHere=true
 ---
 Rotunda balcony:
-beenHere=false
+beenHere=true
 Contents: chainsaw,magicWand
 ---
 Rotunda:
@@ -17,7 +17,6 @@ beenHere=true
 ---
 ===
 Adventurer: 
-Current room: Basement hallway
+Current room: Rotunda balcony
 Score: 0
 Health: 100
-Inventory: DrPepper
