@@ -302,6 +302,8 @@ public class Room {
      *
      * @return <tt>ArrayList</tt> object containing all the {@link NPC}'s in this room.
      */
-    public ArrayList<NPC> getNonPlayerCharacters(){}
+    public ArrayList<NPC> getNonPlayerCharacters(){
+    	return null;
+    }
 
 }

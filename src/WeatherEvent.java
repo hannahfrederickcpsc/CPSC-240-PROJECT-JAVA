@@ -29,30 +29,40 @@ class WeatherEvent{
 *
 *@return the string name of the event.
 */
-	public String getName(){}
+	public String getName(){
+		return null;
+	}
 /**
 *Returns the room that is the destination of the weather event.
 *
 *@return the room that the weather event opens up to.
 */
-	public Room getDest(){}
+	public Room getDest(){
+		return null;
+	}
 /**
 *Returns the room that the weather event occurs in.
 *
 *@return the room the the weather event occurs in.
 */
-	public Room getSrc(){}
+	public Room getSrc(){
+		return null;
+	}
 /**
 *Returns a description of the weather event.
 *
 *@return the string that gives a description of the weather event
 */
-	public String getWeatherDescription(){}
+	public String getWeatherDescription(){
+		return null;
+	}
 /**
 *Returns the drection of the exit the weather event opens when it occurs.
 *
 *@return the string of the direction of the exit made by the weather object occurring.
 */
 
-	public String getDir(){}
+	public String getDir(){
+		return null;
+	}
 }

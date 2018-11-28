@@ -7,18 +7,26 @@ import java.util.Scanner;
  * @author Matt 
  */
 public class Thief extends NPC{
+
+	public Thief(Scanner s){
+		super(s);
+	}
 	/**
 	 * Allows the Thief to steal from the adventurer.
 	 *
 	 * @return A phrase mocking the adventurer.
 	 */
-	public String steal(){}
+	public String steal(){
+		return null;
+	}
 	/**
 	 * Returns the type of the NPC.
 	 *
 	 * @return Type of the NPC.
 	 */
-	public String getType(){}
+	public String getType(){
+		return null;
+	}
 	/**
 	 * Sets the type of the NPC.
 	 *

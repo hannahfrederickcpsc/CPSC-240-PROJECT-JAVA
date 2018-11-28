@@ -10,7 +10,9 @@ class SpeakCommand extends EngageMenuCommand{
 	/**
 	 * Constructs a new <tt>SpeakCommand</tt> object.
 	 */
-	SpeakCommand(){}
+	SpeakCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the speaking interaction with an engaged NPC, returning a phrase 
@@ -18,5 +20,7 @@ class SpeakCommand extends EngageMenuCommand{
 	 *
 	 * @return Phrase from the NPC saying goodbye.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

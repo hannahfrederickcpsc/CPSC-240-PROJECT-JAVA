@@ -10,6 +10,7 @@ public class TransformEvent extends Event{
             @param command the string that the user types which contains the verb with the item that will cause a transform event to occur.
         */
 	public TransformEvent(String command, String itemName){
+		super(command);
 		this.command = command;
 		this.itemName = itemName;
 	}

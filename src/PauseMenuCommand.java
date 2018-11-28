@@ -8,7 +8,9 @@ abstract class PauseMenuCommand extends Command{
 	/**
 	 * Constructs a new <tt>PauseMenuCommand</tt> object.
 	 */
-	PauseMenuCommand(){}
+	PauseMenuCommand(String command){
+		super(command);
+	}
 	/**
 	 * Carries out the process of the pause menu command given
 	 * by the adventurer, returning the correct string responding to the 

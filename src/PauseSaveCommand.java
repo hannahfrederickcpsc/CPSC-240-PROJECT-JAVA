@@ -8,7 +8,9 @@ class PauseSaveCommand extends PauseMenuCommand{
 	/**
 	 * Constructs a new <tt>PauseSaveCommand</tt> object.
 	 */
-	PauseSaveCommand(){}
+	PauseSaveCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the process to save the game from the pause menu returning the 
@@ -17,5 +19,8 @@ class PauseSaveCommand extends PauseMenuCommand{
 	 * @return the phrase responding to the game being saved.
 	 *
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
+	
 }

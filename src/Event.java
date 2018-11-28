@@ -6,7 +6,7 @@ abstract class Event{
 	/** Instructs that all event objects that inherit from the abstract event object must contain a constructor with all the necessary information for that specific event since the abstract event constructor does not contain any information. The contents of the event constructor will be different for different types of events.
 	 
 	*/
-	Event(){}
+	Event(String command){}
 
 	/** Instructs that all event objects that inherit from the abstract event object must contain an execute method with all the necessary information for that specific event since the abstract execute method does not contain any information. The contents of the execute method will be different for different types of events.
 	 

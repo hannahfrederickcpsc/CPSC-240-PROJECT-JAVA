@@ -13,7 +13,9 @@ abstract class EngageMenuCommand extends Command{
 	 * @param command a String that is the command given by the adventurer to 
 	 * further proceed with NPC interactions.
 	 */
-	EngageMenuCommand(String command){}
+	EngageMenuCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the actual interactions with the engaged NPC returning a phrase 
@@ -21,5 +23,5 @@ abstract class EngageMenuCommand extends Command{
 	 *
 	 * @return String that is responding to the interactions that take place.
 	 */
-	public abstract String execute(){}
+	public abstract String execute();
 }

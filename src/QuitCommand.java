@@ -9,7 +9,9 @@ class QuitCommand extends PauseMenuCommand{
 	/**
 	 * Constructs a new <tt>QuitCommand</tt> object.
 	 */ 
-	QuitCommand(){}
+	QuitCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the command to quit the game returning a string responding to the 
@@ -19,5 +21,7 @@ class QuitCommand extends PauseMenuCommand{
 	 *
 	 * @return a String responding to the user quitting out of the pause menu.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

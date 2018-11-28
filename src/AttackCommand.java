@@ -13,7 +13,9 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @param command the string that was given to attack an NPC
 	 */
-	AttackCommand(String command){}
+	AttackCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the process of attacking a NPC, returning the string declaring 
@@ -21,7 +23,9 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return the string declaring who won the battle.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 
 	/**
 	 * Selects the weapon that is to be used during the battle. If the weapon is not
@@ -30,7 +34,9 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @param item the weapon to be used in battle.
 	 */
-	private static void selectWeapon(Item item){}
+	private static void selectWeapon(Item item){
+		
+	}
 
 	/**
 	 * Compares the level between the adventurer and the engaged NPC to decide who
@@ -40,7 +46,9 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return boolean marking if the adventurer or NPC has a higher level.
 	 */
-	private static boolean compareLevels(NPC npc){}
+	private static boolean compareLevels(NPC npc){
+		return true;
+	}
 
 	/**
 	 * Carries out the process for the NPC to attack the adventurer.
@@ -49,7 +57,9 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return the string responding to the attack.
 	 */
-	private static String NPCAttack(String itemName){}
+	private static String NPCAttack(String itemName){
+		return null;
+	}
 
 	/**
 	 * Carries out the process to allow the adventurer to attack the NPC.
@@ -58,5 +68,7 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return String responding to the attack.
 	 */
-	private static String attack(String usableWeaponName){}
+	private static String attack(String usableWeaponName){
+		return null;
+	}
 }

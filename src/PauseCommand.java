@@ -7,7 +7,9 @@ class PauseCommand extends Command{
 	/**
 	 * Constructs a new <tt>PauseCommand</tt> object.
 	 */
-	PauseCommand(){}
+	PauseCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out the process to pause the game, returning the adventurers
@@ -15,5 +17,7 @@ class PauseCommand extends Command{
 	 *
 	 * @return correctly formatted menu along with its options.
 	 */
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

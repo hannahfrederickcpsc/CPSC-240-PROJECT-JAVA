@@ -9,7 +9,9 @@ class TradeCommand extends EngageMenuCommand{
 	/**
 	 * Constructs a new <tt>TradeCommand</tt> object.
 	 */
-	TradeCommand(){}
+	TradeCommand(String command){
+		super(command);
+	}
 
 	/**
 	 * Carries out trade interactions with an engaged NPC returning a phrase of
@@ -17,5 +19,7 @@ class TradeCommand extends EngageMenuCommand{
 	 *
 	 * @return phrase responding to what was swapped in the trade with an NPC.
 	 */ 
-	public String execute(){}
+	public String execute(){
+		return null;
+	}
 }

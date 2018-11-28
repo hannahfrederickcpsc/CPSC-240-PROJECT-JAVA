@@ -40,19 +40,25 @@ public abstract class NPC{
 	 *
 	 * @return Health of the NPC.
 	 */
-	public int getHealth(){}
+	public int getHealth(){
+		return health;
+	}
 	/**
 	 * Returns the level of the NPC.
 	 *
 	 * @return The level of the NPC.
 	 */
-	public int getLevel(){}
+	public int getLevel(){
+		return level;
+	}
 	/**
 	 * Returns the inventory of the NPC.
 	 *
 	 * @return ArrayList containing the NPC's inventory of Items.
 	 */
-	public ArrayList<Item> getInventory(){}
+	public ArrayList<Item> getInventory(){
+		return inventory;
+	}
 	/**
 	 * Returns the type of the NPC.
 	 *
