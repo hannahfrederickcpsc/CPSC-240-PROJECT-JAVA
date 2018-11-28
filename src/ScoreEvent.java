@@ -14,10 +14,15 @@ class ScoreEvent extends Event{
 	/** Executes the score event object after a certain command is used with a specific item so that the point value associated with that score event is added to the user's score.
         */
 	public void execute(){
+		System.out.println(command);
 		GameState g = GameState.instance();
+		System.out.println("got here");
 		String [] scoreArray = command.split("(");
+		System.out.println(scoreArray[1]);
 		String scoreString = scoreArray[1].substring(0, scoreArray[1].length() - 1);
+		System.out.println(scoreString);
 		int score = Integer.parseInt(scoreString);
+		System.out.println(score);
 		g.changeScore(score);
 	}
 }

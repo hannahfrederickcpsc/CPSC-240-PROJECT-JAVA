@@ -16,7 +16,7 @@ public class WinEvent extends Event{
 
         */
 	public void execute(){
-		System.Exit(1);
+		System.exit(1);
 	}
 
 }

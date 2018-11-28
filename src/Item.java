@@ -50,10 +50,8 @@ public class Item{
 		int startIndex;
 		int endIndex;
 		while(!currLine.equals("---")){
-			//replacing ':'
-			realCurrLine = currLine.replace(":"," ");
 			//splitting contents into array
-			tempSplit = realCurrLine.split(" ");
+			tempSplit = currLine.split(":");
 			//populating verb and message variables
 			for (int i = 0; i < tempSplit.length; ++i){
 				if(i == 0){
@@ -62,11 +60,15 @@ public class Item{
 						startIndex = verb.indexOf("[") + 1;
 						endIndex = verb.indexOf("]");
 						String event = verb.substring(startIndex, endIndex);
+						System.out.println("event=" + event);
 						ArrayList<String> eventsAL = new ArrayList<String>();
-						verb = verb.replace(verb.substring(startIndex - 1, endIndex + 1), "");
+						verb = verb.substring(0,startIndex - 1);
+						System.out.println("verb="+verb);
+						//verb = verb.replace(verb.substring(startIndex, endIndex), "");
 						if(event.contains(",")){
 							String [] tempEvents = event.split(",");
 							for(String k : tempEvents){
+								System.out.println("real event=" + k);
 								eventsAL.add(k);
 							}	
 						}
@@ -78,6 +80,7 @@ public class Item{
 				}
 				else{
 				message += tempSplit[i] + " ";
+				System.out.println("message=" + message);
 				}
 			}
 			

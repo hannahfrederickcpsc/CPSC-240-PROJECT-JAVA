@@ -5,6 +5,7 @@
 public class TransformEvent extends Event{
 	private String command;
 	private String itemName;
+	private Room currRoom;
 
 	/** Constructs a new <tt>TransformEvent</tt> object with the command that contains the verb and the item that causes a transform event with that item. An item entry in a dungeon file can contain verbs that can be typed right before an alias of the item and can have a transform event associated with it.
             @param command the string that the user types which contains the verb with the item that will cause a transform event to occur.
@@ -38,5 +39,6 @@ public class TransformEvent extends Event{
 		if(d.getItemList().contains(item)){
 			d.removeItem(item);
 			d.add(d.getItem(newItem));
+		}
 	}
 }
