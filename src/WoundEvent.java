@@ -14,5 +14,11 @@ class WoundEvent extends Event{
 
 	/** Executes the <tt>WoundEvent</tt> object after a certain command is used with a specific item so that the point value associated with that wound event is subtracted from the user's health.
         */
-	public void execute(){}
+	public void execute(){
+		GameState g = GameState.instance();
+                String [] woundArray = command.split("(");
+                String woundString = woundArray[1].substring(0, woundArray[1].length() - 1);
+                int wound = Integer.parseInt(woundString);
+                g.changeHealth(wound);
+	}
 }

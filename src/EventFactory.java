@@ -14,7 +14,7 @@ public class EventFactory{
 
 	public Event parse(String event, String itemName, Room currRoom){
 		if(event.startsWith("Transform")){
-			return new TransformEvent(event, itemName);
+			return new TransformEvent(event, itemName, currRoom);
 		}
 		else if(event.startsWith("Teleport")){
 			return new TeleportEvent(event);
