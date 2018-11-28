@@ -15,5 +15,8 @@ public class WinEvent extends Event{
 	/** Executes the <tt>WinEvent</tt> object after a certain command is used with a specific item so that the game will end and the user will win.
 
         */
-	public void execute(){}
+	public void execute(){
+		System.Exit(1);
+	}
+
 }

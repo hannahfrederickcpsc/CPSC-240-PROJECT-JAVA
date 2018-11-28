@@ -16,5 +16,7 @@ class DieEvent extends Event{
 	/** Executes the <tt>DieEvent</tt> object after a certain command is used with a specific item so that the game will end and the user will lose.
 	 
 	*/
-	public void execute(){}
+	public void execute(){
+		System.exit(0);
+	}
 }
