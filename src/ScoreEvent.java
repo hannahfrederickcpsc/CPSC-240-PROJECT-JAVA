@@ -17,13 +17,13 @@ class ScoreEvent extends Event{
 	public void execute(){
 		System.out.println(command);
 		GameState g = GameState.instance();
-		System.out.println("got here");
+		
 		int startIndex = command.indexOf("(") + 1;
 		int endIndex = command.indexOf(")");
 		String scoreString  = command.substring(startIndex, endIndex);
-		System.out.println(scoreString);
+		
 		int score = Integer.parseInt(scoreString);
-		System.out.println(score);
+		
 		g.changeScore(score);
 	}
 }

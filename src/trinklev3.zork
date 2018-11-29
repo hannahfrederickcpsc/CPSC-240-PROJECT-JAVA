@@ -8,9 +8,9 @@ wave[Score(5),Teleport]:An angelic form briefly appears.
 ---
 DrPepper,can,soda
 10
-kick[Drop]:The can skitters down the hallway.
+kick[Drop,Wound(100)]:The can skitters down the hallway.
 shake:A liquid fizzes menacingly inside the can.
-drink[Transform(emptyCan),Wound(-1)]:Gulp, gulp -- that was GOOD!  *belch*
+drink[Transform(emptyCan),Score(20)]:Gulp, gulp -- that was GOOD!  *belch*
 ---
 emptyCan
 2

@@ -206,6 +206,9 @@ public class Room {
      */
     public String describe() {
         String description;
+	if(GameState.instance().getAdventurersHealth() <= 0){
+		return "";
+	}
         if (beenHere) {
             description = title + "\n";
         } else {

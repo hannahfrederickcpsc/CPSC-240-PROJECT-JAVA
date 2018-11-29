@@ -2,11 +2,8 @@ Zork III save data
 Dungeon file: /home/matt_morgan1230/zorkProject/src/trinklev3.zork
 Room states:
 Stephen's office:
-beenHere=true
-Contents: WawaTravelMug,donut
----
-Room B6:
-beenHere=true
+beenHere=false
+Contents: StarWarsToy,WawaTravelMug,donut
 ---
 Basement hallway:
 beenHere=true
@@ -14,13 +11,13 @@ Contents: DrPepper
 ---
 Rotunda balcony:
 beenHere=false
-Contents: chainsaw,magicWand
+Contents: bomb,magicWand
 ---
 Rotunda:
 beenHere=true
 ---
 ===
 Adventurer: 
-Current room: Stephen's office
+Current room: Basement hallway
 Score: 0
-Health: 100
+Health: 1
