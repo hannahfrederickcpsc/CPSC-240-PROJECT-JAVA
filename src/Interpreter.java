@@ -90,11 +90,14 @@ public class Interpreter {
 	    Scanner stdin = new Scanner(System.in);
 
             while (!command.equals("q")) {
-
 		    System.out.print(
                     CommandFactory.instance().parse(command).execute());
-
+		    if(state.getAdventurersHealth() <= 0){
+				System.out.println("Oh no.. you died!");
+				System.exit(0);
+		    }
                 command = promptUser(commandLine);
+		
             }
 
             System.out.println("Bye!");
