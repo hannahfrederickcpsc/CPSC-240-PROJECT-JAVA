@@ -25,6 +25,7 @@ class DieEvent extends Event{
 		Dungeon d = g.getDungeon();
 		Item item = d.getItem(itemName);
 		System.out.println(item.getMessageForVerb(verb));
+		System.out.println("════════════╗\n║            ║[]\n╚════════════╝\n");
 		System.exit(0);
 	}
 }
