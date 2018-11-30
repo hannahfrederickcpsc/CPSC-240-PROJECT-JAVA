@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+/**
+*A NoNPCException is called when an NPC is the return value of a method, but there is not an instantiated NonPlayerCharacter so the method throws a NoNPCException. This method extends Exception.
+*
+*/
 class NoNPCException extends Exception{}
 /**
  * An <tt>NPC</tt> represents a Non player character that is allowed to be
