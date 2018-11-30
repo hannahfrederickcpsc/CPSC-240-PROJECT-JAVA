@@ -7,7 +7,6 @@ Contents: StarWarsToy,WawaTravelMug,donut
 ---
 Basement hallway:
 beenHere=true
-Contents: DrPepper
 ---
 Rotunda balcony:
 beenHere=false
@@ -19,5 +18,6 @@ beenHere=true
 ===
 Adventurer: 
 Current room: Basement hallway
-Score: 0
-Health: 1
+Score: 20
+Health: 110
+Inventory: squishedCan

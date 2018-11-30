@@ -1,3 +1,5 @@
+
+import java.util.Scanner;
 /** A <tt>WinEvent</tt> represents a type of {@link Event} that occurs when an {@link ItemSpecificCommand} is typed with that specific {@link Item} which ends the program so the user wins.
     @author Hannah
 */
@@ -26,7 +28,11 @@ public class WinEvent extends Event{
 		GameState g = GameState.instance();
 		Dungeon d = g.getDungeon();
                 Item item = d.getItem(itemName);
-                System.out.println(item.getMessageForVerb(verb));
+		System.out.println(item.getMessageForVerb(verb));
+		System.out.println("You win!\n" + 
+				"Results: \n" + 
+				"Score: " + g.getAdventurersScore() + "\n" +
+				"Health: " + g.getAdventurersHealth());
 		System.exit(1);
 	}
 

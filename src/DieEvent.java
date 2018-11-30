@@ -27,7 +27,13 @@ class DieEvent extends Event{
 		Dungeon d = g.getDungeon();
 		Item item = d.getItem(itemName);
 		System.out.println(item.getMessageForVerb(verb));
-		System.out.println("════════════╗\n║            ║[]\n╚════════════╝\n");
+
+		System.out.println("You died!\n" +
+				"Results:\n" +
+				"Score: " + g.getAdventurersScore());
+
+		System.out.println(" ════════════╗\n║            ║[]\n╚════════════╝\n");
+
 		System.exit(0);
 	}
 }

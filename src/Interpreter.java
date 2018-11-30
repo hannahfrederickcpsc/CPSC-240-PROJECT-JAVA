@@ -93,7 +93,9 @@ public class Interpreter {
 		    System.out.print(
                     CommandFactory.instance().parse(command).execute());
 		    if(state.getAdventurersHealth() <= 0){
-				System.out.println("Oh no.. you died!");
+				System.out.println("Oh no.. you have died!\n" + 
+						"Results:\n" +
+						"Score: " + state.getAdventurersScore());
 				System.exit(0);
 		    }
                 command = promptUser(commandLine);
