@@ -4,7 +4,7 @@
 class ScoreEvent extends Event{
 	private String command;
 
-	/** Constructs a new <tt>ScoreEvent</tt> object with the command that contains the verb and the item that causes a score event with that item. An item entry in a dungeon file can contain verbs that can be typed right before an alias of the item and can have a score event with a point value associated with it.
+	/** Constructs a new <tt>ScoreEvent</tt> object with the command that contains the verb and the item that causes a score event with that item. The string command always matches a valid item because the <tt>ItemSpecificCommand</tt> class checks that the item is not null before it parses the command as an event.
             @param command the string that the user types which contains the verb with the item that will cause a score event to occur.
         */
 	public ScoreEvent(String command){

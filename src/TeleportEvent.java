@@ -5,7 +5,7 @@
 class TeleportEvent extends Event{
 	private String command;
 
-	/** Constructs a new <tt>TeleportEvent</tt> object with the command that contains the verb and the item that causes a teleport event with that item. An item entry in a dungeon file can contain verbs that can be typed right before an alias of the item and can have a teleport event associated with it.
+	/** Constructs a new <tt>TeleportEvent</tt> object with the command that contains the verb and the item that causes a teleport event with that item. The string command always matches a valid item because the <tt>ItemSpecificCommand</tt> class checks that the item is not null before it parses the command as an event.
             @param command the string that the user types which contains the verb with the item that will cause a teleport event to occur.
         */
 	public TeleportEvent(String command){
