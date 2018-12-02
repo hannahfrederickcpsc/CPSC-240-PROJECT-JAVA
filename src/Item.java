@@ -148,6 +148,11 @@ public class Item{
 		}
 		return verbs;
 	}	
+	
+	/** Returns the list of events that can be caused when the user types an item specific command with the item.
+	    @param key the verb that when called with the item causes at least one event to occur.
+	    @return the list of strings of events that occur when the user types the verb with the item.
+	*/
 	public ArrayList<String> getEvents(String key){
 		return this.events.get(key);
 	}	

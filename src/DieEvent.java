@@ -30,7 +30,8 @@ class DieEvent extends Event{
 
 		System.out.println("You died!\n" +
 				"Results:\n" +
-				"Score: " + g.getAdventurersScore());
+				"Score: " + g.getAdventurersScore() + "\n" +
+				"Health: " + g.getAdventurersHealth());
 
 		System.out.println(" ════════════╗\n║            ║[]\n╚════════════╝\n");
 

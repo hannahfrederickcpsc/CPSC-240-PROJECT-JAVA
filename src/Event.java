@@ -4,7 +4,7 @@
 abstract class Event{
 
 	/** Instructs that all event objects that inherit from the abstract event object must contain a constructor with all the necessary information for that specific event since the abstract event constructor does not contain any information. The contents of the event constructor will be different for different types of events.
-	 
+	    @param command the string that the user types which contains the verb with the item that will cause a certain event to occur. 
 	*/
 	Event(String command){}
 

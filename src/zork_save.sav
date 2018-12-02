@@ -1,12 +1,13 @@
 Zork III save data
-Dungeon file: /home/matt_morgan1230/zorkProject/src/trinklev3.zork
+Dungeon file: /home/soccergoals_artworks/zorkProject/src/trinklev3.zork
 Room states:
 Stephen's office:
 beenHere=false
 Contents: StarWarsToy,WawaTravelMug,donut
 ---
 Basement hallway:
-beenHere=true
+beenHere=false
+Contents: DrPepper
 ---
 Rotunda balcony:
 beenHere=false
@@ -17,7 +18,6 @@ beenHere=true
 ---
 ===
 Adventurer: 
-Current room: Basement hallway
-Score: 20
-Health: 110
-Inventory: squishedCan
+Current room: Rotunda
+Score: 0
+Health: 100
