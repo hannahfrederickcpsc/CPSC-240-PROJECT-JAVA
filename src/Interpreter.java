@@ -106,7 +106,9 @@ public class Interpreter {
 
             System.out.println("Bye!");
 
-        } catch(Exception e) { 
+        }
+	}	
+	catch(Exception e) { 
             e.printStackTrace(); 
         }
     }

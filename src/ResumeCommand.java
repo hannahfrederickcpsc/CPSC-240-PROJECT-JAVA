@@ -20,7 +20,6 @@ class ResumeCommand extends PauseMenuCommand{
 	 * @return phrase signaling the game has been resumed.
 	 */
 	public String execute(){
-		//figure out how to resume the game
-		return "game resumed!";
+		return "The game has resumed!";
 	}
 }
