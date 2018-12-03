@@ -22,7 +22,8 @@ class QuitCommand extends PauseMenuCommand{
 	 * @return a String responding to the user quitting out of the pause menu.
 	 */
 	public String execute(){
-		return "The game has been quit!";
+		System.out.println("The game has been quit!");
 		System.exit(0);
+		return "";
 	}
 }

@@ -61,9 +61,9 @@ class MovementCommand extends Command{
 				if(GameState.instance().getMoves() == 20){
 					event = d.getRandomWeatherEvent();
 					if(event != null){
-					WeatherGenerator g = new WeatherGenerator(event);
+					WeatherGenerator w = new WeatherGenerator(event);
 					GameState.instance().changeMoves(-20);
-					return "\n" + g.execute() + "\n" +
+					return "\n" + w.execute() + "\n" +
 						nextRoom.describe() + "\n";
 					}
 				}
