@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * A <tt>PauseCommand</tt> represents the command to completely pause the game.
  *
@@ -21,24 +22,37 @@ class PauseCommand extends Command{
 	 */
 	public String execute(){
 		GameState g = GameState.instance();
-		return "Score: " + g.getAdventurersScore() + "\n" + 
+		System.out.println( "Score: " + g.getAdventurersScore() + "\n" + 
 			"Health: " + g.getAdventurersHealth() + "\n" +
 			"Inventory:" + "\n" + g.getInventoryList() + "\n" +
 			"You may..." + "\n" +
 			"resume: to resume the game and not save the game" + "\n" +
 			"save: to save the game and also resume the game" + "\n" +
-			"quit: to quit the game and not save the game" + "\n";
-			System.out.println("Type in the option you want: resume, save, or quit");
-			String option = s.nextLine();
+			"quit: to quit the game and not save the game" + "\n");
+		System.out.println("Type in the option you want: resume, save, or quit");
+		String option = s.nextLine();
+		while(!option.equals("resume") && !option.equals("save") &&  !option.equals("quit")){
+				Command unknownCommand = new UnknownCommand(option);
+				return unknownCommand.execute();
+		}
 			if(option.equals("resume"))
-			{
-				
-			}
-			else if (option.equals("save"))
-			{
-			}
-			else if (option.equals("quit"))
-			{
-			}
+                        {
+				Command resumeCommand = new ResumeCommand(option);
+				return resumeCommand.execute();
+                        }
+
+                        else if (option.equals("save"))
+                        {
+				Command pauseSaveCommand = new PauseSaveCommand(option);
+				return pauseSaveCommand.execute();
+                        }
+
+                        else if (option.equals("quit"))
+                        {
+				Command quitCommand = new QuitCommand(option);
+				return quitCommand.execute();
+                        }
+
+
 	}
 }

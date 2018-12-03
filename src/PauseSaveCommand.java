@@ -20,7 +20,7 @@ class PauseSaveCommand extends PauseMenuCommand{
 	 *
 	 */
 	public String execute(){
-		return null;
+		return "The game has been saved!";
 	}
 	
 }
