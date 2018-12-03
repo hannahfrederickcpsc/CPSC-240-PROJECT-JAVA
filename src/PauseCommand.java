@@ -18,6 +18,13 @@ class PauseCommand extends Command{
 	 * @return correctly formatted menu along with its options.
 	 */
 	public String execute(){
-		return null;
+		GameState g = GameState.instance();
+		return "Score: " + g.getAdventurersScore() + "\n" + 
+			"Health: " + g.getAdventurersHealth() + "\n" +
+			"Inventory:" + "\n" + g.getInventoryList() + "\n" +
+			"You may..." + "\n" +
+			"resume: to resume the game and not save the game" + "\n" +
+			"save: to save the game and also resume the game" + "\n" +
+			"quit: to quit the game and not save the game" + "\n";
 	}
 }

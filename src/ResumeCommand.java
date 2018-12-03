@@ -1,3 +1,4 @@
+
 /**
  * A <tt>ResumeCommand</tt> represents the command the adventurer gives to resume
  * the game from the pause menu.
@@ -19,6 +20,7 @@ class ResumeCommand extends PauseMenuCommand{
 	 * @return phrase signaling the game has been resumed.
 	 */
 	public String execute(){
-		return null;
+		//figure out how to resume the game
+		return "game resumed!";
 	}
 }
