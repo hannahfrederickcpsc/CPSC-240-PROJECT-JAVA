@@ -28,12 +28,12 @@ class MovementCommand extends Command{
 	 * succeeds.
 	 */
 	String execute(){
-		Room currentRoom = 
-			GameState.instance().getAdventurersCurrentRoom();
+		GameState g = GameState.instance();
+		Room currentRoom = g.getAdventurersCurrentRoom();
 		Room nextRoom = currentRoom.leaveBy(dir);
 			if (nextRoom != null) {
-				GameState.instance().setAdventurersCurrentRoom(nextRoom);
-				GameState.instance().incrementMoves();
+				g.setAdventurersCurrentRoom(nextRoom);
+				g.incrementMoves();
 				return "\n" + nextRoom.describe() + "\n";
 			}
 			else{
