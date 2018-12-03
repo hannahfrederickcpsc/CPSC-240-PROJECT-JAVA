@@ -61,6 +61,9 @@ You stand on a circular white balcony overlooking an entry hall.
 Columnar bannisters in ancient Grecian style stand between you and the
 precipice.
 ---
+Some Weird Place
+You have found a weird place..
+---
 ===
 Exits:
 Rotunda
@@ -94,5 +97,22 @@ Stephen's office
 Stephen's office
 e
 Basement hallway
+---
+===
+Weather Events:
+Tornado
+Rotunda balcony
+e
+Some Weird Place
+A tornado comes in,
+opening uo Some Weird Place.
+---
+Earthquake
+Some Weird Place
+w
+Rotunda balcony
+An earthquake rumbles
+across the area,
+opening an exit to Rotunda balcony.
 ---
 ===
