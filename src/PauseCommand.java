@@ -4,11 +4,13 @@
  * @author Matt 
  */
 class PauseCommand extends Command{
+		private Scanner s;
 	/**
 	 * Constructs a new <tt>PauseCommand</tt> object.
 	 */
-	PauseCommand(String command){
+	PauseCommand(String command, Scanner s){
 		super(command);
+		this.s = s
 	}
 
 	/**
@@ -26,5 +28,17 @@ class PauseCommand extends Command{
 			"resume: to resume the game and not save the game" + "\n" +
 			"save: to save the game and also resume the game" + "\n" +
 			"quit: to quit the game and not save the game" + "\n";
+			System.out.println("Type in the option you want: resume, save, or quit");
+			String option = s.nextLine();
+			if(option.equals("resume")
+			{
+				
+			}
+			else if (option.equals("save")
+			{
+			}
+			else if (option.equals("quit")
+			{
+			}
 	}
 }

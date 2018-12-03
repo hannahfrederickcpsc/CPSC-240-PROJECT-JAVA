@@ -28,12 +28,46 @@ class MovementCommand extends Command{
 	 * succeeds.
 	 */
 	String execute(){
-		Room currentRoom = 
-			GameState.instance().getAdventurersCurrentRoom();
+		GameState g = GameState.instance();
+		Room currentRoom = g.getAdventurersCurrentRoom();
 		Room nextRoom = currentRoom.leaveBy(dir);
+		Dungeon d = GameState.instance().getDungeon();
+		WeatherEvent event;
 			if (nextRoom != null) {
-				GameState.instance().setAdventurersCurrentRoom(nextRoom);
-				GameState.instance().incrementMoves();
+
+				g.setAdventurersCurrentRoom(nextRoom);
+				g.changeMoves(1);
+
+				g.setAdventurersCurrentRoom(nextRoom);
+				g.changeMoves(1);
+
+				if(g.getHungerPoints() =< 10)
+				{
+					g.changeHealth(5);
+				}
+				else if (g.getHungerPoints() =<30)
+				{
+					g.changeHealth(3);
+				}
+				else if(g.getHungerPoints() =< 50)
+				{
+					g.changeHealth(1);
+				}
+				else 
+				{
+					g.changeHunger(2);
+				}
+
+				if(GameState.instance().getMoves() == 20){
+					event = d.getRandomWeatherEvent();
+					if(event != null){
+					WeatherGenerator g = new WeatherGenerator(event);
+					GameState.instance().changeMoves(-20);
+					return "\n" + g.execute() + "\n" +
+						nextRoom.describe() + "\n";
+					}
+				}
+
 				return "\n" + nextRoom.describe() + "\n";
 			}
 			else{
