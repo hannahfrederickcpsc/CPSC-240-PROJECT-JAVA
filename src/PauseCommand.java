@@ -52,7 +52,6 @@ class PauseCommand extends Command{
 				Command quitCommand = new QuitCommand(option);
 				return quitCommand.execute();
                         }
-
-
+		return "";
 	}
 }
