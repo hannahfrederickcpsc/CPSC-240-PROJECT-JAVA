@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 /**
  * A <tt>Thief</tt> is a NPC that is unfriendly and can only be attacked. 
  * A thief can also take a random item from the adventurers inventory,
@@ -7,9 +8,16 @@ import java.util.Scanner;
  * @author Matt 
  */
 public class Thief extends NPC{
+	private String properName;
+	private ArrayList<String> dialogue;
+	private int level;
+	private int health;
+	private String type;
+	private ArrayList<Item>inventory;
 
-	public Thief(Scanner s){
-		super(s);
+
+	public Thief(Scanner s, Dungeon d){
+		super(s, d);
 	}
 	/**
 	 * Allows the Thief to steal from the adventurer.
@@ -33,4 +41,7 @@ public class Thief extends NPC{
 	 * @param type Type of the NPC.
 	 */
 	public void setType(String type){}
+	public String speak(){
+		return null;
+	}
 }

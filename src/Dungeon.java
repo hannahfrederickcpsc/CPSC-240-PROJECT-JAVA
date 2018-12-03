@@ -54,6 +54,8 @@ writen in a way that the program cannot read in the .zork file.
     private String filename;
     private ArrayList<NPC> allNonPlayerCharacters;
     private ArrayList<WeatherEvent> weatherEvents;
+    private ArrayList<WeatherEvent> triggeredWeatherEvents;
+    private int weatherEventCount;
 
     /**
      * Constructs a new <tt>Dungeon</tt> object given the name and 
@@ -87,9 +89,10 @@ writen in a way that the program cannot read in the .zork file.
      * @throws IllegalDungeonFormatException
      */
     public Dungeon(String filename, boolean initState) throws FileNotFoundException,
-        IllegalDungeonFormatException {
+        IllegalDungeonFormatException{
 
         init();
+	this.weatherEvents = new ArrayList<WeatherEvent>();
         this.filename = filename;
 
         Scanner s = new Scanner(new FileReader(filename));
@@ -116,6 +119,21 @@ writen in a way that the program cannot read in the .zork file.
             }	
         } 
        catch (Item.NoItemException e) { /* end of items */}
+	String NPCHeader = s.nextLine();
+ 	if(NPCHeader.equals("NPC:")){
+		throw new IllegalDungeonFormatException("Np NPC header where expected");
+	}
+	String type = s.nextLine();	
+
+       try{
+	       while(true){
+		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(type, s, this));
+				       type = s.nextLine();
+	       }
+
+       }
+	       catch(NPCFactory.NoNPCException e){}
+		     
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
@@ -149,6 +167,15 @@ writen in a way that the program cannot read in the .zork file.
                 Exit exit = new Exit(s, this);
             }
         } catch (Exit.NoExitException e) {  /* end of exits */ }
+	if(!s.nextLine().equals("Weather Events:")){
+		throw new IllegalDungeonFormatException("No 'Weather Events:' line where expected.");
+	}
+	try {
+		while(true){
+			WeatherEvent w = new WeatherEvent(s, this);
+			this.weatherEvents.add(w);
+		}
+	} catch (WeatherEvent.NoWeatherException e) {}
         s.close();
     
 }
@@ -162,6 +189,8 @@ writen in a way that the program cannot read in the .zork file.
         rooms = new Hashtable<String,Room>();
 	items = new Hashtable<String,Item>();
 	itemList = new ArrayList<Item>();
+	this.weatherEventCount = 0;
+	this.triggeredWeatherEvents = new ArrayList<WeatherEvent>();
     }
 
     /*
@@ -178,7 +207,23 @@ writen in a way that the program cannot read in the .zork file.
 	 * @throws IOException
 	 */
     void storeState(PrintWriter w) throws IOException {
+	String line = "";
         w.println(FILENAME_LEADER + getFileObject().getAbsolutePath());
+	if(this.weatherEventCount > 0){
+	w.println("Weather Event trigger count: " + this.weatherEventCount);
+	w.print("Triggered Weather Events: ");
+	if(this.triggeredWeatherEvents.size() > 1){
+	for(WeatherEvent e: this.triggeredWeatherEvents){
+		line += e.getName() + ",";
+	}
+	w.print(line.substring(0,line.length() -1));
+	}
+	else if(this.triggeredWeatherEvents.size() == 1){
+		w.print(this.triggeredWeatherEvents.get(0).getName());
+	}
+	w.println();
+	}
+
         w.println(ROOM_STATES_MARKER);
         for (Room room : rooms.values()) {
             room.storeState(w);
@@ -202,6 +247,13 @@ writen in a way that the program cannot read in the .zork file.
     void restoreState(Scanner s) throws GameState.IllegalSaveFormatException {
 
         // Note: the filename has already been read at this point.
+	    this.weatherEventCount = Integer.valueOf(s.nextLine().replace("Weather Event trigger count: ",""));
+	    String[] triggeredEvents = s.nextLine().replace("Triggered Weather Events: ","").split(",");
+	    for(String f: triggeredEvents){
+	    	this.triggeredWeatherEvents.add(getWeatherEvent(f));
+		WeatherGenerator w = new WeatherGenerator(getWeatherEvent(f));
+		w.execute();
+	    }
         
         if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
             throw new GameState.IllegalSaveFormatException("No '" +
@@ -322,7 +374,19 @@ writen in a way that the program cannot read in the .zork file.
 	 * @return Random <tt>WeatherEvent</tt> object.
 	 */
     public WeatherEvent getRandomWeatherEvent(){
-    		return null;
+    		if(this.weatherEventCount < this.weatherEvents.size()){
+	    		Random rand = new Random();
+			int randNum = rand.nextInt(this.weatherEvents.size());
+			WeatherEvent event = this.weatherEvents.get(randNum);
+			while(this.triggeredWeatherEvents.contains(event)){
+				randNum = rand.nextInt(this.weatherEvents.size());
+				event = this.weatherEvents.get(randNum);
+			}
+			this.triggeredWeatherEvents.add(event);
+			this.weatherEventCount++;
+			return event;
+		}
+		return null;
     	}
     	/**
 	 * Returns the master collection of the <tt>WeatherEvent</tt> 
@@ -348,5 +412,16 @@ writen in a way that the program cannot read in the .zork file.
 		keysList.add(o);
 	}
 	return getRoom(keysList.get(randNum));
-    }					
+    }
+    
+    public WeatherEvent getWeatherEvent(String eventName){
+	    for(WeatherEvent w: this.weatherEvents){
+	    	if(w.getName().equals(eventName)){
+			return w;
+		}
+	    } 
+	    return null;
+    }
+	
+
 }

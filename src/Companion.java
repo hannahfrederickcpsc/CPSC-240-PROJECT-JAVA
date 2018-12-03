@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 /**
  * A <tt>Companion</tt> is a Friendly NPC that has been made the 
  * adventurers 'Companion.' A companion is allowed to be ordered around
@@ -9,8 +9,8 @@ import java.util.Scanner;
  */
 public class Companion extends Friendly{
 
-	public Companion(Scanner s){
-		super(s);
+	public Companion(Scanner s, Dungeon d){
+		super(s, d);
 	}
 	/**
 	 * Allows the companion to follow the adventurer throughout the 
@@ -36,4 +36,7 @@ public class Companion extends Friendly{
 	 * @param type Type the NPC is.
 	 */
 	public void setType(String type){}
+	public String speak(){
+		return null;
+	}
 }

@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
-*A NoNPCException is called when an NPC is the return value of a method, but there is not an instantiated NonPlayerCharacter so the method throws a NoNPCException. This method extends Exception.
-*
-*/
-class NoNPCException extends Exception{}
-/**
  * An <tt>NPC</tt> represents a Non player character that is allowed to be
  * interacted with while playing the game.
  *
  * @author Matt 
  */
 public abstract class NPC{
+	/**
+*A NoNPCException is called when an NPC is the return value of a method, but there is not an instantiated NonPlayerCharacter so the method throws a NoNPCException. This method extends Exception.
+*
+*/
+	
 	private String properName;
 	private ArrayList<String> dialogue;
 	private int level;
@@ -29,12 +29,12 @@ public abstract class NPC{
 	 *
 	 * @throws NoNPCException
 	 */
-	public NPC(Scanner s){}
+	public NPC(Scanner s, Dungeon d){}
 	/**
 	 * Allows the user to interact with an NPC by speaking to them.
 	 *
 	 */
-	public void speak(){}
+	public abstract String speak();
 	/**
 	 * Returns the health of the NPC.
 	 *
