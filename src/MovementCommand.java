@@ -41,15 +41,15 @@ class MovementCommand extends Command{
 				g.setAdventurersCurrentRoom(nextRoom);
 				g.changeMoves(1);
 
-				if(g.getHungerPoints() =< 10)
+				if(g.getHungerPoints() <= 10)
 				{
 					g.changeHealth(5);
 				}
-				else if (g.getHungerPoints() =<30)
+				else if (g.getHungerPoints() <= 30)
 				{
 					g.changeHealth(3);
 				}
-				else if(g.getHungerPoints() =< 50)
+				else if(g.getHungerPoints() <= 50)
 				{
 					g.changeHealth(1);
 				}

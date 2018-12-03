@@ -10,7 +10,7 @@ class PauseCommand extends Command{
 	 */
 	PauseCommand(String command, Scanner s){
 		super(command);
-		this.s = s
+		this.s = s;
 	}
 
 	/**
@@ -30,14 +30,14 @@ class PauseCommand extends Command{
 			"quit: to quit the game and not save the game" + "\n";
 			System.out.println("Type in the option you want: resume, save, or quit");
 			String option = s.nextLine();
-			if(option.equals("resume")
+			if(option.equals("resume"))
 			{
 				
 			}
-			else if (option.equals("save")
+			else if (option.equals("save"))
 			{
 			}
-			else if (option.equals("quit")
+			else if (option.equals("quit"))
 			{
 			}
 	}
