@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Hashtable;
 /**
  * A <tt>Thief</tt> is a NPC that is unfriendly and can only be attacked. 
  * A thief can also take a random item from the adventurers inventory,
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Thief extends NPC{
 	private String properName;
-	private ArrayList<String> dialogue;
+	private Hashtable<String,String> dialogue;
 	private int level;
 	private int health;
 	private String type;
@@ -18,7 +19,26 @@ public class Thief extends NPC{
 
 	public Thief(Scanner s, Dungeon d){
 		super(s, d);
+		this.dialogue = new Hashtable<String,String>();
+		this.inventory = new ArrayList<Item>();
+		this.type = "Friend";
+		this.health = 100;
+		this.type = "Thief";
+		this.properName = s.nextLine();
+		String [] items = s.nextLine().replace("items: ","").split(",");
+		for (String item: items){
+			this.inventory.add(d.getItem(item));
+		}
+		this.level = Integer.valueOf(s.nextLine().replace("level: ",""));
+		String greeting  = s.nextLine().replace("greeting: ","");
+		this.dialogue.put("Hello",greeting);
+		String dialogue = s.nextLine().replace("dialogue: ","");
+		this.dialogue.put("Talk",dialogue);
+		String goodbye = s.nextLine().replace("goodbye","");
+		this.dialogue.put("Bye",goodbye);	
 	}
+
+	
 	/**
 	 * Allows the Thief to steal from the adventurer.
 	 *
@@ -40,7 +60,9 @@ public class Thief extends NPC{
 	 *
 	 * @param type Type of the NPC.
 	 */
-	public void setType(String type){}
+	public void setType(String type){
+		this.type = type;	
+	}
 	public String speak(){
 		return null;
 	}

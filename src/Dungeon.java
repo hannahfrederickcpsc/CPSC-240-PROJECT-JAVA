@@ -120,15 +120,15 @@ writen in a way that the program cannot read in the .zork file.
         } 
        catch (Item.NoItemException e) { /* end of items */}
 	String NPCHeader = s.nextLine();
- 	if(NPCHeader.equals("NPC:")){
+	System.out.println(NPCHeader);
+ 	if(!NPCHeader.equals("NPCs:")){
 		throw new IllegalDungeonFormatException("Np NPC header where expected");
-	}
-	String type = s.nextLine();	
+	}	
 
        try{
 	       while(true){
-		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(type, s, this));
-				       type = s.nextLine();
+		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(s, this));
+				       
 	       }
 
        }

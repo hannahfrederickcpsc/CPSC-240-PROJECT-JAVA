@@ -14,7 +14,8 @@ public class NPCFactory{
 
 	private NPCFactory(){}
 
-	public NPC parse(String type, Scanner s, Dungeon d)throws NoNPCException{
+	public NPC parse(Scanner s, Dungeon d)throws NoNPCException{
+		String type = s.nextLine();
 		if(type.equals("===")){
 			throw new NoNPCException();
 		}

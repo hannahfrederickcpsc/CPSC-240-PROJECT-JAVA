@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Hashtable;
 /**
  * A <tt>Monster</tt> is a NPC that is unfriendly, and can only be 
  * attacked.
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Monster extends NPC{
 	private String properName;
-	private ArrayList<String> dialogue;
+	private Hashtable<String,String> dialogue;
 	private int level;
 	private int health;
 	private String type;
@@ -16,6 +17,21 @@ public class Monster extends NPC{
 	
 	public Monster(Scanner s, Dungeon d){
 		super(s, d);
+		this.dialogue = new Hashtable<String,String>();
+		this.inventory = new ArrayList<Item>();
+		this.type = "Friend";
+		this.properName = s.nextLine();
+		String [] items = s.nextLine().replace("items: ","").split(",");
+		for (String item: items){
+			this.inventory.add(d.getItem(item));
+		}
+		this.level = Integer.valueOf(s.nextLine().replace("level: ",""));
+		String greeting  = s.nextLine().replace("greeting: ","");
+		this.dialogue.put("Hello",greeting);
+		String dialogue = s.nextLine().replace("dialogue: ","");
+		this.dialogue.put("Talk",dialogue);
+		String goodbye = s.nextLine().replace("goodbye","");
+		this.dialogue.put("Bye",goodbye);	
 	}
 	/**
 	 * Returns the type of the NPC.
