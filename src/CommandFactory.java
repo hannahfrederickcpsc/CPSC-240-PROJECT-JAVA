@@ -32,7 +32,7 @@ public class CommandFactory {
 *@param command a string that the user typed into the command prompt for zork
 *@return the command object that corresponds to the command entered into the command prompt.
 */
-    public Command parse(String command) {
+    public Command parse(String command, Scanner commandLine) {
 	if (MOVEMENT_COMMANDS.contains(command)) {
             return new MovementCommand(command);
         } else if (command.equals("save")){
@@ -60,7 +60,7 @@ public class CommandFactory {
 		return new DropCommand(dropReplace);
 	}
 	else if(command.equals("pause")){
-                return new PauseCommand(command);
+                return new PauseCommand(command, commandLine);
         }
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
