@@ -8,7 +8,7 @@ import java.util.Set;
 */
 public class Item{
 
-	/** Specifies what happens when the scanner object is not positioned at the start of an item entry, this happens when the scanner has reached the end of th e items section of a dungeon file. 
+	/** Specifies what happens when the scanner object is not positioned at the start of an item entry, this happens when the scanner has reached the end of the items section of a dungeon file. 
 	 
 	*/
 	class NoItemException extends Exception{}
@@ -24,8 +24,8 @@ public class Item{
 	
 	/** Constructs a new <tt>Item</tt> object with a scanner object positioned at the beginning of an item entry in a dungeon file. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
 	    @param s the scanner object that reads an item entry of a dungeon file to instantiate an item object in that dungeon.
-	    @throws NoItemException if the scanner object is not positioned at the start of an item entry, now the scanner's cursor is positioned one line past where it was.
-	    @throws IllegalDungeonFormatException if the dungeon file is not formatted the way that the item constructor expected it to be, so the item entry did not end with the item delimiter.
+	    @throws Item.NoItemException if the scanner object is not positioned at the start of an item entry, now the scanner's cursor is positioned one line past where it was.
+	    @throws Dungeon.IllegalDungeonFormatException if the dungeon file is not formatted the way that the item constructor expected it to be, so the item entry did not end with the item delimiter.
 	 
 	*/
 	public Item(Scanner s)throws NoItemException, Dungeon.IllegalDungeonFormatException{
@@ -91,7 +91,7 @@ public class Item{
 	}//end Item()
 			
 	//returns boolean if a verb "goes by" a specific name
-	/** Determines if the <tt>Item</tt> object has an alias that matches the name that is provided, the aliases are listed in each item entry of a dungeon file.
+	/** Determines if the <tt>Item</tt> object has an alias that matches the name that is provided.
 	    @param name the name that the program checks to see if it is one of the alias for that item.
 	    @return true if the name is one of the aliases and false if the name is not one of the aliases.
 	*/
@@ -105,7 +105,7 @@ public class Item{
 		return false;
 	}//end goesBy()
 
-	/** Returns the primary name for the <tt>Item</tt> object, this is the first alias listed in each item entry of a dungeon file.
+	/** Returns the primary name for that <tt>Item</tt> object.
 	    @return the name that is the first alias for the item object, this is the alias that the program uses for the item.
 	*/
 	public String getPrimaryName(){
@@ -114,7 +114,7 @@ public class Item{
 		return nameSplit[0];
 	}//end getPrimaryName()
 
-	/** Returns the string that is printed when an {@link ItemSpecificCommand} associated with the item is called, this is in an item entry of a dungeon file.
+	/** Returns the string that is printed when an {@link ItemSpecificCommand} associated with the item is called.
 	    @param verb the verb that is used right before an alias of the item to call a command on that item.
 	    @return the string to be printed to the screen right after this command is called on the item.
 	*/
@@ -122,7 +122,7 @@ public class Item{
 		return messages.get(verb);
 	}//end getMessageForVerb()
 	
-	/** Returns the list of aliases for the <tt>Item</tt> object and the unit weight of the <tt>Item</tt> object, which is found in each item entry of a dungeon file.
+	/** Returns the list of aliases for the <tt>Item</tt> object and the unit weight of the <tt>Item</tt> object.
 	    @return a string that describes that item including the list of aliases and the unit weight of that item.
 	*/
 	public String toString(){
@@ -130,14 +130,14 @@ public class Item{
 			"\nWeight: " + this.weight;
 	}//end toString();
 
-	/** Returns the unit weight of that <tt>Item</tt> object, if the item's weight will take the user's inventory over maximum capacity then the user can't take that item.
+	/** Returns the unit weight of that <tt>Item</tt> object. If the item's weight will take the user's inventory over maximum capacity, then the user can't take that item.
 	    @return the weight associated with that item, which is found in each item entry of a dungeon file.
 	*/
 	public int getWeight(){
 		return this.weight;
 	}
 
-	/** Returns the list of verbs that can be used right before an alias of the item to call a command on it, these verbs can only be called on certain items.
+	/** Returns the list of verbs that can be used right before an alias of the item to call a command on it.
 	    @return the verbs that can be called on that item in commands, these verbs only work with certain items.
 	*/
 	public ArrayList<String> getVerbs(){
@@ -148,6 +148,11 @@ public class Item{
 		}
 		return verbs;
 	}	
+	
+	/** Returns the list of events that can be caused when the user types an item specific command with the item.
+	    @param key the verb that when called with the item causes at least one event to occur.
+	    @return the list of strings of events that occur when the user types the verb with the item.
+	*/
 	public ArrayList<String> getEvents(String key){
 		return this.events.get(key);
 	}	

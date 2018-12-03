@@ -36,11 +36,11 @@ class MovementCommand extends Command{
 			if (nextRoom != null) {
 				GameState.instance().setAdventurersCurrentRoom(nextRoom);
 				GameState.instance().changeMoves(1);
-				if(GameState.instance().getMoves() == 5){
+				if(GameState.instance().getMoves() == 20){
 					event = d.getRandomWeatherEvent();
 					if(event != null){
 					WeatherGenerator g = new WeatherGenerator(event);
-					GameState.instance().changeMoves(-5);
+					GameState.instance().changeMoves(-20);
 					return "\n" + g.execute() + "\n" +
 						nextRoom.describe() + "\n";
 					}

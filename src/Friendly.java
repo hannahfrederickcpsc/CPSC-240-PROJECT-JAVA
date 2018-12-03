@@ -15,6 +15,7 @@ public class Friendly extends NPC{
 	
 	public Friendly(Scanner s, Dungeon d){
 		super(s, d);
+
 	}
 
 	/**

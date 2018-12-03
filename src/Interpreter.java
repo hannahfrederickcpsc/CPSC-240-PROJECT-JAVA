@@ -9,7 +9,6 @@ public class Interpreter {
 
     private static GameState state; // not strictly necessary; GameState is 
                                     // singleton
-
     public static String USAGE_MSG = 
         "Usage: Interpreter dungeonFile.zork|saveFile.sav.";
 

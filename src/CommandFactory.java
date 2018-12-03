@@ -59,6 +59,9 @@ public class CommandFactory {
 		String dropReplace = command.replace("drop ","");
 		return new DropCommand(dropReplace);
 	}
+	else if(command.equals("pause")){
+                return new PauseCommand(command);
+        }
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
 		if(specificCommand.length == 2){
