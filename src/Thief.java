@@ -110,4 +110,8 @@ public class Thief extends NPC{
 			inventoryLine = s.nextLine();
 		}
 	}
+	void removeFromInventory(Item item){
+                 int index = this.inventory.indexOf(item);
+                 this.inventory.remove(index);
+         }  
 }

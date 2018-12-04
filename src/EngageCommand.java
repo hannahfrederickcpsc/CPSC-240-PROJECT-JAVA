@@ -37,7 +37,7 @@ class EngageCommand extends Command{
 		Dungeon d = g.getDungeon();
 		Room currRoom = g.getAdventurersCurrentRoom();
 		NPC npc = d.getNPC(this.npcName);
-		List<String> answerList = Arrays.asList("speak","trade","befriend","disengage");
+		List<String> answerList = Arrays.asList("speak","trade","befriend","disengage", "pause");
 		if(npc == null || !currRoom.getNonPlayerCharacters().contains(npc)){
 			return "Engage who?\n";
 		}
@@ -54,7 +54,7 @@ class EngageCommand extends Command{
 			answer = s.nextLine();
 			while(!answer.equals("disengage")){
 				if(answerList.contains(answer)){
-				CommandFactory.instance().parse(answer,s,npcName).execute();
+				System.out.println(CommandFactory.instance().parse(answer,s,npcName).execute());
 				System.out.println("What would you like to do?\n" +
 						"-speak\n" +
 						"-trade\n" + 
