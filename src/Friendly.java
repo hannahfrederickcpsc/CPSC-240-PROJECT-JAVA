@@ -118,4 +118,7 @@ public class Friendly extends NPC{
 	public ArrayList<Item> getInventory(){
 		return this.inventory;
 	}
+	public Hashtable<String,String> getDialogue(){
+		return this.dialogue;
+	}
 }

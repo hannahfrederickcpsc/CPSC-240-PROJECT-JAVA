@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.PrintWriter;
+import java.util.Hashtable;
 /**
  * An <tt>NPC</tt> represents a Non player character that is allowed to be
  * interacted with while playing the game.
@@ -75,6 +76,7 @@ public abstract class NPC{
 	public String getProperName(){
 		return this.properName;
 	}
+	public abstract Hashtable<String,String> getDialogue();
 	public abstract void storeState(PrintWriter w);
 	public abstract void restoreState(Scanner s, Dungeon d);
 }

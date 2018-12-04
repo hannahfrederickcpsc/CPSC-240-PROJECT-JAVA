@@ -66,6 +66,9 @@ public class Monster extends NPC{
 	public ArrayList<Item> getInventory(){
 		return this.inventory;
 	}
+	public Hashtable<String,String> getDialogue(){
+                return this.dialogue;
+        }
 	public void storeState(PrintWriter w){
 		w.println(this.properName);
 		String inventoryLine = "";

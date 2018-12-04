@@ -62,6 +62,12 @@ public class CommandFactory {
 	else if(command.equals("pause")){
                 return new PauseCommand(command, commandLine);
         }
+	else if(command.startsWith("engage")){
+                return new EngageCommand(command, commandLine);
+        }
+	else if(command.equals("speak")){
+                return new SpeakCommand(command, commandLine);
+        }
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
 		if(specificCommand.length == 2){
