@@ -40,6 +40,7 @@ class SpeakCommand extends EngageMenuCommand{
 					System.out.println("What?");
 				}
 				System.out.print("> ");
+
 				answer = s.nextLine();
 			}
 			System.out.println(npc.getProperName() + ": " + npc.getDialogue().get("Bye"));
