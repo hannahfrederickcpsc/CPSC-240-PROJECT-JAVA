@@ -71,6 +71,9 @@ public abstract class NPC{
 	 * @param type Type the NPC is to be set as.
 	 */
 	public abstract void setType(String type);
+	public String getProperName(){
+		return this.properName;
+	}
 }
 
 

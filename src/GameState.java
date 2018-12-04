@@ -97,6 +97,7 @@ public class GameState {
         currentRoomLine.substring(CURRENT_ROOM_LEADER.length()));
 	this.adventurersScore = Integer.valueOf(s.nextLine().replace("Score: ", ""));
 	this.adventurersHealth = Integer.valueOf(s.nextLine().replace("Health: ", ""));
+	this.adventurersHunger = Integer.valueOf(s.nextLine().replace("Hunger: ", ""));
 	this.adventurersMoves = Integer.valueOf(s.nextLine().replace("Moves: ", ""));
 	if(s.hasNext()){
 	String lastLine = s.nextLine().replace("Inventory: ","");
@@ -130,6 +131,7 @@ public class GameState {
         getAdventurersCurrentRoom().getTitle());
 	w.println("Score: " + this.adventurersScore);
 	w.println("Health: " + this.adventurersHealth);
+	w.println("Hunger: " + this.adventurersHunger);
 	w.println("Moves: " + this.adventurersMoves);
 	if(!inventory.isEmpty()){
 		w.println(INVENTORY_LEADER + this.getInventoryList() );

@@ -211,7 +211,6 @@ writen in a way that the program cannot read in the .zork file.
     void storeState(PrintWriter w) throws IOException {
 	String line = "";
         w.println(FILENAME_LEADER + getFileObject().getAbsolutePath());
-	if(this.weatherEventCount > 0){
 	w.println("Weather Event trigger count: " + this.weatherEventCount);
 	w.print("Triggered Weather Events: ");
 	if(this.triggeredWeatherEvents.size() > 1){
@@ -224,7 +223,7 @@ writen in a way that the program cannot read in the .zork file.
 		w.print(this.triggeredWeatherEvents.get(0).getName());
 	}
 	w.println();
-	}
+	
 
         w.println(ROOM_STATES_MARKER);
         for (Room room : rooms.values()) {
@@ -250,11 +249,16 @@ writen in a way that the program cannot read in the .zork file.
 
         // Note: the filename has already been read at this point.
 	    this.weatherEventCount = Integer.valueOf(s.nextLine().replace("Weather Event trigger count: ",""));
-	    String[] triggeredEvents = s.nextLine().replace("Triggered Weather Events: ","").split(",");
-	    for(String f: triggeredEvents){
-	    	this.triggeredWeatherEvents.add(getWeatherEvent(f));
-		WeatherGenerator w = new WeatherGenerator(getWeatherEvent(f));
-		w.execute();
+	    String triggeredEvents = s.nextLine().replace("Triggered Weather Events: ","");
+	    if(triggeredEvents.equals("")){
+	    }
+	    else{
+		String [] events = triggeredEvents.split(",");
+		for(String f: events){
+	    		this.triggeredWeatherEvents.add(getWeatherEvent(f));
+			WeatherGenerator w = new WeatherGenerator(getWeatherEvent(f));
+			w.execute();
+		}
 	    }
         
         if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
@@ -368,7 +372,12 @@ writen in a way that the program cannot read in the .zork file.
 	 * @return NPC that has the given name.
 	 */	 
     public NPC getNPC(String NPCName){
-    		return null;
+	    for(NPC npc: this.allNonPlayerCharacters){
+		    if(npc.getProperName().equals(NPCName)){
+			    return npc;
+		    }
+	    }
+	    return null;
     	}
     	/**
 	 * Returns a random <tt>WeatherEvent</tt> object.

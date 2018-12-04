@@ -44,19 +44,24 @@ class MovementCommand extends Command{
 				if(g.getHungerPoints() <= 10)
 				{
 					g.changeHealth(5);
+					System.out.println("You need to eat!!\n" + 
+							"You are about to die!");
 				}
 				else if (g.getHungerPoints() <= 30)
 				{
 					g.changeHealth(3);
+					System.out.println("Youre starving. Please eat.");
+
 				}
 				else if(g.getHungerPoints() <= 50)
 				{
 					g.changeHealth(1);
+					System.out.println("You are getting hungry. Find food in the near future.");
 				}
-				else 
-				{
-					g.changeHunger(2);
-				}
+			
+				
+					g.changeHunger(-2);
+				
 
 				if(GameState.instance().getMoves() == 20){
 					event = d.getRandomWeatherEvent();

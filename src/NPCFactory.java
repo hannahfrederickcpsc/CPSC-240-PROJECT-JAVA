@@ -19,7 +19,6 @@ public class NPCFactory{
 		if(type.equals("===")){
 			throw new NPCFactory.NoNPCException();
 		}
-		System.out.println("TYPPPPPE: " + type);
 		type = type.replace("Type: ","");
 		if(type.equals("Friend")){
 			return new Friendly(type,s,d);

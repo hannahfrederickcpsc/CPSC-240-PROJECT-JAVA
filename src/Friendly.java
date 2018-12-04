@@ -22,7 +22,7 @@ public class Friendly extends NPC{
 		this.isCompanion = false;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
-		this.type = "Friend";
+		this.type = type;
 		
 		this.properName = s.nextLine();
 		String [] items = s.nextLine().replace("items: ","").split(",");
@@ -49,6 +49,9 @@ public class Friendly extends NPC{
 	}
 	public int getLevel(){
 		return this.level;
+	}
+	public String getProperName(){
+		return this.properName;
 	}
 
 	

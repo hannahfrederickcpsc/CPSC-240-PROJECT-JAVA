@@ -65,7 +65,16 @@ public class Room {
 				this.add(d.getItem(contentSplit[i]));
 				}
 				lineOfDesc = s.nextLine();
+				System.out.println(lineOfDesc);
 			}
+		if(lineOfDesc.startsWith("NPCs")){
+			String [] npcs = lineOfDesc.replace("NPCs: ","").split(",");
+			for(String npc: npcs){
+				this.nonPlayerCharacters.add(d.getNPC(npc));
+			}
+		lineOfDesc = s.nextLine();
+		}
+
         
 		while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
         	    !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
@@ -101,8 +110,8 @@ public class Room {
                     throw new Dungeon.IllegalDungeonFormatException("No '" +
                         Dungeon.SECOND_LEVEL_DELIM + "' after room.");
 		}
-	}
     }
+	}
 
     // Common object initialization tasks.
     /**
@@ -111,6 +120,7 @@ public class Room {
     private void init() {
         exits = new ArrayList<Exit>();
         contents = new ArrayList<Item>();
+	this.nonPlayerCharacters = new ArrayList<NPC>();
 	beenHere = false;
     }
     /**
@@ -153,7 +163,7 @@ public class Room {
     void storeState(PrintWriter w) throws IOException {
         // At this point, nothing to save for this room if the user hasn't
         // visited it.
-        if (!contents.isEmpty() || beenHere) {
+        if (!contents.isEmpty() || beenHere || !this.nonPlayerCharacters.isEmpty()) {
             w.println(title + ":");
             w.println("beenHere=" + beenHere);
 	    if (!contents.isEmpty()){
@@ -164,6 +174,14 @@ public class Room {
 		    }
 		    String realContentLine = contentLine.substring(0, contentLine.length() - 1);
 		    w.println(realContentLine);
+	    }
+	    if(!this.nonPlayerCharacters.isEmpty()){
+		    w.print("NPCs: ");
+		    String npcLine = "";
+		    for(NPC npc: this.nonPlayerCharacters){
+			    npcLine += npc.getProperName();
+		    }
+		    w.println(npcLine);
 	    }
 
             w.println(Dungeon.SECOND_LEVEL_DELIM);
@@ -195,6 +213,15 @@ public class Room {
 			this.add(d.getItem(itemName));
 		}
 		line = s.nextLine();
+		
+	}
+	if(line.startsWith("NPCs:")){
+		String replaceLine = line.replace("NPCs: ","");
+		String [] lineSplit = replaceLine.split(",");
+		for(String npcName: lineSplit){
+			this.nonPlayerCharacters.add(d.getNPC(npcName));
+		}
+		line = s.nextLine();
 	}
     }
     /**
@@ -217,6 +244,10 @@ public class Room {
 	for (Item item: contents){
 		description += "There is a(n) " + item.getPrimaryName() + " here.\n";
 	}
+	for(NPC npc: this.nonPlayerCharacters){
+		description += "There is a " + npc.getType() + "here named " + npc.getProperName() + "\n";
+	}
+
         for (Exit exit : exits) {
             description += "\n" + exit.describe();
         }

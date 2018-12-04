@@ -20,7 +20,7 @@ public class Monster extends NPC{
 		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
-		this.type = "Friend";
+		this.type = type;
 		
 		this.properName = s.nextLine();
 		String [] items = s.nextLine().replace("items: ","").split(",");
@@ -43,7 +43,10 @@ public class Monster extends NPC{
 	 * @return Type of the NPC.
 	 */
 	public String getType(){
-		return null;
+		return this.type;
+	}
+	public String getProperName(){
+		return this.properName;
 	}
 	/**
 	 * Sets the type of the NPC.

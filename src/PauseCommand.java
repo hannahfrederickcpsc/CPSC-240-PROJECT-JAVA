@@ -35,11 +35,11 @@ class PauseCommand extends Command{
 			"Save" + "\n" +
 			"Quit Game" + "\n");
 		System.out.println("Type in the option you want: resume, save, or quit");
-		String option = s.next();
+		String option = s.nextLine();
 		while(!option.equals("resume") && !option.equals("save") &&  !option.equals("quit")){
 				Command unknownCommand = new UnknownCommand(option);
 				System.out.println(unknownCommand.execute());
-				option = s.next();
+				option = s.nextLine();
 
 		}
 			if(option.equals("resume"))
@@ -72,9 +72,7 @@ class PauseCommand extends Command{
 					return quitCommand.execute();
 				}
 				else{
-					Command pause = new PauseCommand(answer, s);
-					return "Command not understood. Returning to pause menu.\n" +
-						pause.execute();
+					return "Command not understood. Returning to game.\n";
 				}
                         }
 		return "";
