@@ -66,7 +66,7 @@ public class CommandFactory {
                 return new EngageCommand(command, commandLine);
         }
 	else if(command.equals("speak")){
-                return new SpeakCommand(command, commandLine);
+                return new SpeakCommand(command, commandLine, engagedNPCName);
         }
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
