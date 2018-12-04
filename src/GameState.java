@@ -62,6 +62,7 @@ public class GameState {
 	    verbs = new ArrayList<String>();
 	    this.adventurersHealth = 100;
 	    this.adventurersScore = 0;
+	    this.adventurersHunger = 100;
     }
 /**
 *Restores the game's state by reading in information from a specified file and instantiating GameState's fields. This method is able to throw FileNotFoundException, IllegalSaveFormatException, and IllegalDungeonFormatException. The exceptions IllegalSaveFormatException and IllegalDungeonFormatException are thrown depending on the extention of the file you specify to restore GameState. 
@@ -335,6 +336,9 @@ public class GameState {
 */
     public void changeHunger(int numChange){
     		this.adventurersHunger += numChange;
+		if(this.adventurersHunger < 0){
+			this.adventurersHunger = 0;
+		}
     	}
 /**
 *Increments the adventurer's moves by one.

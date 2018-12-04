@@ -15,11 +15,13 @@ public class Monster extends NPC{
 	private String type;
 	private ArrayList<Item>inventory;	
 	
-	public Monster(Scanner s, Dungeon d){
-		super(s, d);
+	public Monster(String type,Scanner s, Dungeon d){
+		super(type,s, d);
+		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
 		this.type = "Friend";
+		
 		this.properName = s.nextLine();
 		String [] items = s.nextLine().replace("items: ","").split(",");
 		for (String item: items){
@@ -30,8 +32,10 @@ public class Monster extends NPC{
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue: ","");
 		this.dialogue.put("Talk",dialogue);
-		String goodbye = s.nextLine().replace("goodbye","");
-		this.dialogue.put("Bye",goodbye);	
+		String goodbye = s.nextLine().replace("goodbye: ","");
+		this.dialogue.put("Bye",goodbye);
+		s.nextLine();
+
 	}
 	/**
 	 * Returns the type of the NPC.

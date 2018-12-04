@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 /**
  * A <tt>PauseCommand</tt> represents the command to completely pause the game.
  *
@@ -22,23 +24,29 @@ class PauseCommand extends Command{
 	 */
 	public String execute(){
 		GameState g = GameState.instance();
-		System.out.println( "Score: " + g.getAdventurersScore() + "\n" + 
+		System.out.println( "------------------------------------\n" + 
+				"Score: " + g.getAdventurersScore() + "\n" + 
 			"Health: " + g.getAdventurersHealth() + "\n" +
-			"Inventory:" + "\n" + g.getInventoryList() + "\n" +
-			"You may..." + "\n" +
-			"resume: to resume the game and not save the game" + "\n" +
-			"save: to save the game and also resume the game" + "\n" +
-			"quit: to quit the game and not save the game" + "\n");
+			"Hunger: " + g.getHungerPoints() + "\n" + 
+			"------------------------------------\n" +
+			"Inventory:" + "\n" + g.getInventoryList() + "\n" + 
+			"------------------------------------\n" + 
+			"Resume" + "\n" +
+			"Save" + "\n" +
+			"Quit Game" + "\n");
 		System.out.println("Type in the option you want: resume, save, or quit");
-		String option = s.nextLine();
+		String option = s.next();
 		while(!option.equals("resume") && !option.equals("save") &&  !option.equals("quit")){
 				Command unknownCommand = new UnknownCommand(option);
-				return unknownCommand.execute();
+				System.out.println(unknownCommand.execute());
+				option = s.next();
+
 		}
 			if(option.equals("resume"))
                         {
 				Command resumeCommand = new ResumeCommand(option);
-				return resumeCommand.execute();
+				return resumeCommand.execute() + "\n"; 
+					
                         }
 
                         else if (option.equals("save"))
@@ -49,8 +57,25 @@ class PauseCommand extends Command{
 
                         else if (option.equals("quit"))
                         {
-				Command quitCommand = new QuitCommand(option);
-				return quitCommand.execute();
+				System.out.println("Would you like to save before quitting?");
+				String answer = s.next();
+				List<String> yesArray = Arrays.asList("Y","y","Yes","yes");
+				List<String> noArray = Arrays.asList("N","n","No","no");				
+				if(yesArray.contains(answer)){
+					Command c = new SaveCommand(answer);
+					Command d = new QuitCommand(answer);
+					return c.execute() + "\n" + 
+						d.execute();
+				}
+				else if(noArray.contains(answer)){
+					Command quitCommand = new QuitCommand(answer);
+					return quitCommand.execute();
+				}
+				else{
+					Command pause = new PauseCommand(answer, s);
+					return "Command not understood. Returning to pause menu.\n" +
+						pause.execute();
+				}
                         }
 		return "";
 	}

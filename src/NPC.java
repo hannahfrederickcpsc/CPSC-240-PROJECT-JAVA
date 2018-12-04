@@ -18,7 +18,7 @@ public abstract class NPC{
 	private int health;
 	private String type;
 	private ArrayList<Item>inventory;
-
+	
 	/**
 	 * Constructs a new <tt>NPC</tt> object by reading in information
 	 * from the .zork file. The given scanner is pointing at the place
@@ -29,7 +29,7 @@ public abstract class NPC{
 	 *
 	 * @throws NoNPCException
 	 */
-	public NPC(Scanner s, Dungeon d){}
+	public NPC(String type,Scanner s, Dungeon d){}
 	/**
 	 * Allows the user to interact with an NPC by speaking to them.
 	 *

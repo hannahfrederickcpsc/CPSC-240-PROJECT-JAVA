@@ -28,8 +28,16 @@ eat:You feel mildly guilt-ridden.
 ---
 ===
 NPCs:
-Type: Friend
+Type: Thief 
 Matt
+items: donut,can
+level: 10
+greeting: Hello!!
+dialogue: NOOOO
+goodbye: bye!!!
+---
+Type: Monster 
+Latt
 items: donut,can
 level: 10
 greeting: Hello!!
@@ -95,4 +103,6 @@ Stephen's office
 e
 Basement hallway
 ---
+===
+Weather Events:
 ===

@@ -5,7 +5,7 @@
  * @author Matt 
  */
 class CompanionAttackCommand extends CompanionCommand{
-	private Companion companion;
+	private Friendly companion;
 	private String npcName;
 
 	/**

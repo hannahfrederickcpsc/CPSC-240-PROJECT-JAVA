@@ -17,13 +17,13 @@ public class Thief extends NPC{
 	private ArrayList<Item>inventory;
 
 
-	public Thief(Scanner s, Dungeon d){
-		super(s, d);
+	public Thief(String type,Scanner s, Dungeon d){
+		super(type,s, d);
+		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
 		this.type = "Friend";
-		this.health = 100;
-		this.type = "Thief";
+		
 		this.properName = s.nextLine();
 		String [] items = s.nextLine().replace("items: ","").split(",");
 		for (String item: items){
@@ -34,8 +34,9 @@ public class Thief extends NPC{
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue: ","");
 		this.dialogue.put("Talk",dialogue);
-		String goodbye = s.nextLine().replace("goodbye","");
-		this.dialogue.put("Bye",goodbye);	
+		String goodbye = s.nextLine().replace("goodbye: ","");
+		this.dialogue.put("Bye",goodbye);
+		s.nextLine();
 	}
 
 	

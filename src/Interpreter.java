@@ -91,9 +91,6 @@ public class Interpreter {
             while (!command.equals("q")) {
 		    System.out.print(
                     CommandFactory.instance().parse(command, commandLine).execute());
-		    if(command.equals("pause")){
-			    System.out.print(
-			    CommandFactory.instance().parse(command, commandLine).execute());
 		    if(state.getAdventurersHealth() <= 0){
 				System.out.println("Oh no.. you have died!\n" + 
 						"Results:\n" +
@@ -106,8 +103,7 @@ public class Interpreter {
 
             System.out.println("Bye!");
 
-        }
-	}	
+        }	
 	catch(Exception e) { 
             e.printStackTrace(); 
         }

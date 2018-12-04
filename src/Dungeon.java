@@ -93,6 +93,7 @@ writen in a way that the program cannot read in the .zork file.
 
         init();
 	this.weatherEvents = new ArrayList<WeatherEvent>();
+	this.allNonPlayerCharacters = new ArrayList<NPC>();
         this.filename = filename;
 
         Scanner s = new Scanner(new FileReader(filename));
@@ -120,7 +121,7 @@ writen in a way that the program cannot read in the .zork file.
         } 
        catch (Item.NoItemException e) { /* end of items */}
 	String NPCHeader = s.nextLine();
-	System.out.println(NPCHeader);
+	
  	if(!NPCHeader.equals("NPCs:")){
 		throw new IllegalDungeonFormatException("Np NPC header where expected");
 	}	
@@ -128,6 +129,7 @@ writen in a way that the program cannot read in the .zork file.
        try{
 	       while(true){
 		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(s, this));
+		      
 				       
 	       }
 

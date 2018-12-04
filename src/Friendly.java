@@ -16,8 +16,8 @@ public class Friendly extends NPC{
 	boolean isCompanion;
 
 	
-	public Friendly(Scanner s, Dungeon d){
-		super(s, d);
+	public Friendly(String type, Scanner s, Dungeon d){
+		super(type,s, d);
 		this.health = 100;
 		this.isCompanion = false;
 		this.dialogue = new Hashtable<String,String>();
@@ -34,8 +34,9 @@ public class Friendly extends NPC{
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue: ","");
 		this.dialogue.put("Talk",dialogue);
-		String goodbye = s.nextLine().replace("goodbye","");
+		String goodbye = s.nextLine().replace("goodbye: ","");
 		this.dialogue.put("Bye",goodbye);
+		s.nextLine();
 	}
 
 	/**
