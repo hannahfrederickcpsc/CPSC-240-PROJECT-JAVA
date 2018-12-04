@@ -36,14 +36,14 @@ class TradeCommand extends EngageMenuCommand{
 			}
 			if(!g.getInventory().isEmpty()){
 				for(Item i : g.getInventory()){
-					advValue += "name: " + i.getPrimaryName() + "    weight: " + i.getWeight() + "\n";
+					advValue += "name: " + i.getPrimaryName() + "    weight: " + i.getWeight() + "    value: " + i.getValue() + "\n";
 				}
 			System.out.println("\033[4mAdventurer's Inventory:\033[0m\n" + advValue);
 			
 			}
 			if(!npc.getInventory().isEmpty()){
                                 for(Item i : npc.getInventory()){
-                                        npcValue += "name: " + i.getPrimaryName() + "    weight: " + i.getWeight() + "\n";
+                                        npcValue += "name: " + i.getPrimaryName() + "    weight: " + i.getWeight() + "    value: " + i.getValue() + "\n";
                                 }
                         System.out.println("\033[4mNPC's Inventory:\033[0m\n" + npcValue);
 
@@ -76,11 +76,16 @@ class TradeCommand extends EngageMenuCommand{
 							System.out.println("this will put you over the weight limit");
 						}
 						else{
-							g.removeFromInventory(d.getItem(answerSplit[1]));
-							npc.getInventory().add(d.getItem(answerSplit[1]));
-							npc.removeFromInventory(d.getItem(answerSplit[2]));
-							g.getInventory().add(d.getItem(answerSplit[2]));
-							return "you have swapped " + answerSplit[1] + " for " + answerSplit[2];
+							if((d.getItem(answerSplit[2]).getValue() - d.getItem(answerSplit[1]).getValue()) > 10){
+								System.out.println(npc.getProperName() + " doesn't want to trade this.");
+							}
+							else{
+								g.removeFromInventory(d.getItem(answerSplit[1]));
+								npc.getInventory().add(d.getItem(answerSplit[1]));
+								npc.removeFromInventory(d.getItem(answerSplit[2]));
+								g.getInventory().add(d.getItem(answerSplit[2]));
+								return "you have swapped " + answerSplit[1] + " for " + answerSplit[2];
+							}
 						}
 					}
 				}

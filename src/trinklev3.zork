@@ -4,11 +4,14 @@ Zork III
 Items:
 magicWand
 5
+50
 ---
 WawaTravelMug,mug
 10
+20
 ---
 DrPepper,can,soda
+10
 10
 kick:The can skitters down the hallway.
 shake:A liquid fizzes menacingly inside the can.
@@ -16,14 +19,17 @@ drink:Gulp, gulp -- that was GOOD!  *belch*
 ---
 StarWarsToy,Yoda
 5
+45
 touch:Yoda says, "Do, or do not! There is no try."
 break:Whoops!
 ---
 chainsaw
 35
+60
 ---
 donut
 7
+10
 eat:You feel mildly guilt-ridden.
 ---
 ===
