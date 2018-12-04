@@ -72,16 +72,23 @@ class TradeCommand extends EngageMenuCommand{
                                                 System.out.println("trade for what?");
                                         }
 					else{
-						g.removeFromInventory(d.getItem(answerSplit[1]));
-						npc.getInventory().add(d.getItem(answerSplit[1]));
-						npc.getInventory().removeFromInventory(d.getItem(answerSplit[2]));
-						g.getInventory().add(d.getItem(answerSplit[2]));
-						System.out.println("you have traded items!");
+						if(((g.getWeight() - d.getItem(answerSplit[1]).getWeight())+ d.getItem(answerSplit[2]).getWeight()) > 40){
+							System.out.println("this will put you over the weight limit");
+						}
+						else{
+							g.removeFromInventory(d.getItem(answerSplit[1]));
+							npc.getInventory().add(d.getItem(answerSplit[1]));
+							npc.removeFromInventory(d.getItem(answerSplit[2]));
+							g.getInventory().add(d.getItem(answerSplit[2]));
+							return "you have swapped " + answerSplit[1] + " for " + answerSplit[2];
+						}
 					}
 				}
+				System.out.print("> ");
+				answer = s.nextLine();
 			}
 		}
-		return "you can't trade boi";
+		return "you have stopped trading";
 			
 	}
 	

@@ -76,6 +76,7 @@ public abstract class NPC{
 	public String getProperName(){
 		return this.properName;
 	}
+	abstract void removeFromInventory(Item item);
 	public abstract Hashtable<String,String> getDialogue();
 	public abstract void storeState(PrintWriter w);
 	public abstract void restoreState(Scanner s, Dungeon d);
