@@ -44,9 +44,17 @@ greeting:Hello!!
 dialogue:NOOOO
 goodbye:bye!!!
 ---
+Type:Thief
+John
+level:20
+greeting:HIII
+dialogue:LOLOOL
+goodbye:BYE
+---
 ===
 Rooms:
 Rotunda
+NPCs: John
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---

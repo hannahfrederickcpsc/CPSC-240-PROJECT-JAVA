@@ -32,7 +32,7 @@ public class CommandFactory {
 *@param command a string that the user typed into the command prompt for zork
 *@return the command object that corresponds to the command entered into the command prompt.
 */
-    public Command parse(String command, Scanner commandLine) {
+    public Command parse(String command, Scanner commandLine, String engagedNPCName) {
 	if (MOVEMENT_COMMANDS.contains(command)) {
             return new MovementCommand(command);
         } else if (command.equals("save")){
