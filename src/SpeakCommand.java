@@ -29,17 +29,21 @@ class SpeakCommand extends EngageMenuCommand{
 		Dungeon d = g.getDungeon();
 		NPC npc = d.getNPC(npcName);
 		if(npc.getType().equals("Friendly")){
-			System.out.println("You can say:" + "\n" + "-Hello" + "\n" + "-Talk" + "\n" + "Bye"); 
+			System.out.println("You can say:" + "\n" + "-Hello" + "\n" + "-Talk" + "\n" + "-Bye"); 
+			System.out.print("> ");
 			String answer = s.nextLine();
 			while(!answer.equals("Bye")){
 				if(answer.equals("Hello") || answer.equals("Talk")){
-					System.out.println(npc.getDialogue().get(answer));
+					System.out.println(npc.getProperName() + ": " + npc.getDialogue().get(answer));
 				}
 				else{
 					System.out.println("What?");
 				}
+				System.out.print("> ");
+				answer = s.nextLine();
 			}
-			return npc.getDialogue().get("Bye");
+			System.out.println(npc.getProperName() + ": " + npc.getDialogue().get("Bye"));
+			return "";
 			
 		}
 		return "You cannot speak with " + npc.getProperName() + "!";

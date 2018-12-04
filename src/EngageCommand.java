@@ -50,6 +50,7 @@ class EngageCommand extends Command{
 					"-trade\n" +
 					"-befriend\n" +
 					"-disengage");
+			System.out.print("> ");
 			answer = s.nextLine();
 			while(!answer.equals("disengage")){
 				if(answerList.contains(answer)){
@@ -59,6 +60,7 @@ class EngageCommand extends Command{
 				else{
 					System.out.println("Do what?");
 				}
+				System.out.print("> ");
 				answer = s.nextLine();
 
 			}
