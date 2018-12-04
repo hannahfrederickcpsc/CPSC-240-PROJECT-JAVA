@@ -28,15 +28,15 @@ eat:You feel mildly guilt-ridden.
 ---
 ===
 NPCs:
-Type: Thief 
+Type: Friendly
 Matt
-items: donut,can
+items: StarWarsToy
 level: 10
 greeting: Hello!!
 dialogue: NOOOO
 goodbye: bye!!!
 ---
-Type: Monster 
+Type: Thief 
 Latt
 items: donut,can
 level: 10
@@ -70,6 +70,9 @@ Contents: chainsaw,magicWand
 You stand on a circular white balcony overlooking an entry hall.
 Columnar bannisters in ancient Grecian style stand between you and the
 precipice.
+---
+Some place
+Some place that is Some place.
 ---
 ===
 Exits:
@@ -107,4 +110,12 @@ Basement hallway
 ---
 ===
 Weather Events:
+Tornado
+Rotunda balcony
+e
+Some place
+The tornado has came,
+opening Some place,
+lol.
+---
 ===

@@ -28,6 +28,8 @@ class PauseCommand extends Command{
 				"Score: " + g.getAdventurersScore() + "\n" + 
 			"Health: " + g.getAdventurersHealth() + "\n" +
 			"Hunger: " + g.getHungerPoints() + "\n" + 
+			"Moves: " + g.getMoves() + "\n" +
+			"Carry Weight: " + g.getWeight() + "\n" + 
 			"------------------------------------\n" +
 			"Inventory:" + "\n" + g.getInventoryList() + "\n" + 
 			"------------------------------------\n" + 

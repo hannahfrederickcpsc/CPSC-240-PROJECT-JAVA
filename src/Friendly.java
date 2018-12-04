@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.ArrayList;
+import java.io.PrintWriter;
 /**
  * A <tt>Friendly</tt> is a NPC that is friendly towards the adventurer.
  *
@@ -77,5 +78,39 @@ public class Friendly extends NPC{
 	}
 	public void MakeCompanion(){
 		this.isCompanion = true;
+	}
+	public void storeState(PrintWriter w){
+		w.println("Name: " + this.properName);
+		w.print("Inventory: ");
+		String inventoryLine = "";
+		if(!this.inventory.isEmpty()){
+		for(Item item: this.inventory){
+			inventoryLine += item.getPrimaryName() + ",";
+		}
+ 		inventoryLine = inventoryLine.substring(0,inventoryLine.length() - 1);
+		w.println(inventoryLine);
+		}
+		Dungeon d = GameState.instance().getDungeon();
+		Room currRoom = null;
+		for (Room room: d.getRooms().values()){
+			if(!room.getNonPlayerCharacters().isEmpty()){
+				for(NPC npc: room.getNonPlayerCharacters()){
+					if(npc.equals(this)){
+						currRoom = room;
+					}
+				}
+			}
+		}
+		w.println("Current Room: " + currRoom);
+		w.println("---");
+
+
+
+	}
+	public void restoreState(Scanner s){}
+
+
+	public ArrayList<Item> getInventory(){
+		return this.inventory;
 	}
 }

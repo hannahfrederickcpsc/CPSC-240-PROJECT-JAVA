@@ -223,6 +223,11 @@ writen in a way that the program cannot read in the .zork file.
 		w.print(this.triggeredWeatherEvents.get(0).getName());
 	}
 	w.println();
+	w.println("NPC States:");
+	for(NPC npc: this.allNonPlayerCharacters){
+		npc.storeState(w);
+	}
+	w.println("===");
 	
 
         w.println(ROOM_STATES_MARKER);
@@ -433,6 +438,11 @@ writen in a way that the program cannot read in the .zork file.
 	    } 
 	    return null;
     }
+
+    public Hashtable<String,Room> getRooms(){
+	    return this.rooms;
+    }
+
 	
 
 }

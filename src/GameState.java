@@ -362,4 +362,11 @@ public class GameState {
     public int getHungerPoints(){
     		return this.adventurersHunger;
     	}
+    public int getWeight(){
+	    int weight = 0;
+	    for(Item item: this.inventory){
+		    weight += item.getWeight();
+	    }
+	    return weight;
+    }
 }

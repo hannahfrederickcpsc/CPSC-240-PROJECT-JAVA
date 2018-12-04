@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.io.PrintWriter;
 /**
  * A <tt>Thief</tt> is a NPC that is unfriendly and can only be attacked. 
  * A thief can also take a random item from the adventurers inventory,
@@ -70,5 +71,36 @@ public class Thief extends NPC{
 	}
 	public String speak(){
 		return null;
+	}
+
+	public ArrayList<Item> getInventory(){
+		return this.inventory;
+	}
+	public void storeState(PrintWriter w){
+		w.println("Name: " + this.properName);
+		w.print("Inventory: ");
+		String inventoryLine = "";
+		if(!this.inventory.isEmpty()){
+		for(Item item: this.inventory){
+			System.out.println(item.getPrimaryName());
+			inventoryLine += item.getPrimaryName() + ",";
+		}
+ 		inventoryLine = inventoryLine.substring(0,inventoryLine.length() - 1);
+		w.println(inventoryLine);
+		}
+		Dungeon d = GameState.instance().getDungeon();
+		Room currRoom = null;
+		for (Room room: d.getRooms().values()){
+			if(!room.getNonPlayerCharacters().isEmpty()){
+				for(NPC npc: room.getNonPlayerCharacters()){
+					if(npc.equals(this)){
+						currRoom = room;
+					}
+				}
+			}
+		}
+		w.println("Current Room: " + currRoom);
+		w.println("---");
+
 	}
 }

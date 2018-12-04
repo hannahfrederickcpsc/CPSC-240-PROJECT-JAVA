@@ -22,7 +22,7 @@ class PauseSaveCommand extends PauseMenuCommand{
 	public String execute(){
 		Command save = new SaveCommand("zork_save.sav");
 		save.execute();
-		return "The game has been saved and resumed!\n";
+		return "The game has been saved to 'zork_save.sav' and resumed!\n";
 	}
 	
 }

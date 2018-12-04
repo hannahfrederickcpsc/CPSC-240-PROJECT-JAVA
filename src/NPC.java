@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.PrintWriter;
 /**
  * An <tt>NPC</tt> represents a Non player character that is allowed to be
  * interacted with while playing the game.
@@ -74,6 +75,7 @@ public abstract class NPC{
 	public String getProperName(){
 		return this.properName;
 	}
+	public abstract void storeState(PrintWriter w);
 }
 
 

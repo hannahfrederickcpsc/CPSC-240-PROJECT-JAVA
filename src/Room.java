@@ -245,7 +245,7 @@ public class Room {
 		description += "There is a(n) " + item.getPrimaryName() + " here.\n";
 	}
 	for(NPC npc: this.nonPlayerCharacters){
-		description += "There is a " + npc.getType() + "here named " + npc.getProperName() + "\n";
+		description += "There is a " + npc.getType() + " here named " + npc.getProperName() + "\n";
 	}
 
         for (Exit exit : exits) {
@@ -337,7 +337,7 @@ public class Room {
      * @return <tt>ArrayList</tt> object containing all the {@link NPC}'s in this room.
      */
     public ArrayList<NPC> getNonPlayerCharacters(){
-    	return null;
+    	return this.nonPlayerCharacters;
     }
 
 }

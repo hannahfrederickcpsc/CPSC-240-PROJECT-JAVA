@@ -38,9 +38,6 @@ class MovementCommand extends Command{
 				g.setAdventurersCurrentRoom(nextRoom);
 				g.changeMoves(1);
 
-				g.setAdventurersCurrentRoom(nextRoom);
-				g.changeMoves(1);
-
 				if(g.getHungerPoints() <= 10)
 				{
 					g.changeHealth(5);
@@ -63,11 +60,10 @@ class MovementCommand extends Command{
 					g.changeHunger(-2);
 				
 
-				if(GameState.instance().getMoves() == 20){
+				if((GameState.instance().getMoves() % 20) == 0){
 					event = d.getRandomWeatherEvent();
 					if(event != null){
 					WeatherGenerator w = new WeatherGenerator(event);
-					GameState.instance().changeMoves(-20);
 					return "\n" + w.execute() + "\n" +
 						nextRoom.describe() + "\n";
 					}
