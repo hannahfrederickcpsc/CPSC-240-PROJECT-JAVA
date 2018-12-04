@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * An <tt>EngageCommand</tt> represents the command used to engage in complex 
  * interactions with a Non player character. 
@@ -6,6 +7,7 @@
  */
 class EngageCommand extends Command{
 	private String npcName;
+	private Scanner s;
 
 	/**
 	 * Constructs a new <tt>EngageCommand</tt> object with the NPC the adventurer
@@ -14,7 +16,7 @@ class EngageCommand extends Command{
 	 * @param npcToEngage the NPC the adventurer is wanting to engage interactions
 	 * with.
 	 */
-	EngageCommand(String npcName){
+	EngageCommand(String npcName, Scanner s){
 		super(npcName);
 	}
 

@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * A <tt>SpeakCommand</tt> represents a command to allow the adventurer to speak with
  * an engaged NPC. 
@@ -6,12 +7,15 @@
  */
 class SpeakCommand extends EngageMenuCommand{
 	private String command;
-	
+	private Scanner s;
+	private String npcName;
 	/**
 	 * Constructs a new <tt>SpeakCommand</tt> object.
 	 */
-	SpeakCommand(String command){
+	SpeakCommand(String command, Scanner s, String npcName){
 		super(command);
+		this.s = s;
+		this.npcName = npcName;
 	}
 
 	/**
@@ -21,6 +25,23 @@ class SpeakCommand extends EngageMenuCommand{
 	 * @return Phrase from the NPC saying goodbye.
 	 */
 	public String execute(){
-		return null;
+		GameState g = GameState.instance();
+		Dungeon d = g.getDungeon();
+		NPC npc = d.getNPC(npcName);
+		if(npc.getType().equals("Friendly")){
+			System.out.println("You can say:" + "\n" + "-Hello" + "\n" + "-Talk" + "\n" + "Bye"); 
+			String answer = s.nextLine();
+			while(!answer.equals("Bye")){
+				if(answer.equals("Hello") || answer.equals("Talk")){
+					System.out.println(npc.getDialogue().get(answer));
+				}
+				else{
+					System.out.println("What?");
+				}
+			}
+			return npc.getDialogue().get("Bye");
+			
+		}
+		return "You cannot speak with " + npc.getProperName() + "!";
 	}
 }
