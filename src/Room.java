@@ -65,7 +65,6 @@ public class Room {
 				this.add(d.getItem(contentSplit[i]));
 				}
 				lineOfDesc = s.nextLine();
-				System.out.println(lineOfDesc);
 			}
 		if(lineOfDesc.startsWith("NPCs")){
 			String [] npcs = lineOfDesc.replace("NPCs: ","").split(",");
@@ -100,6 +99,9 @@ public class Room {
                 if(lineOfDesc.startsWith("Contents:")){
                                 lineOfDesc = s.nextLine();
                 }
+		if(lineOfDesc.startsWith("NPCs:")){
+			lineOfDesc = s.nextLine();
+		}
                 while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
                     !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
                     desc += lineOfDesc + "\n";

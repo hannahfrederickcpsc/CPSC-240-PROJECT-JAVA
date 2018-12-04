@@ -76,6 +76,7 @@ public abstract class NPC{
 		return this.properName;
 	}
 	public abstract void storeState(PrintWriter w);
+	public abstract void restoreState(Scanner s, Dungeon d);
 }
 
 

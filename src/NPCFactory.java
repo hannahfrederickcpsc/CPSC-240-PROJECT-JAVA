@@ -19,7 +19,7 @@ public class NPCFactory{
 		if(type.equals("===")){
 			throw new NPCFactory.NoNPCException();
 		}
-		type = type.replace("Type: ","");
+		type = type.replace("Type:","");
 		if(type.equals("Friendly")){
 			return new Friendly(type,s,d);
 		}

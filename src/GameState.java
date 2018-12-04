@@ -279,7 +279,8 @@ public class GameState {
 *Sets the NonPlayerCharacter's room to the specified room.         
 *@param room the room you want to set the NonPlayerCharacter's room to.
 */
-    public void setNonPlayerCharacterCurrRoom(Room room){
+    public void setNonPlayerCharacterCurrRoom(Room room, NPC npc){
+		
     	}
 /**
 *Returns the NPC object of a specified NonPlayerCharacter in the adventurer's current room.

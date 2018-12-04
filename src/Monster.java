@@ -24,16 +24,20 @@ public class Monster extends NPC{
 		this.type = type;
 		
 		this.properName = s.nextLine();
-		String [] items = s.nextLine().replace("items: ","").split(",");
+		String itemLine = s.nextLine();
+		if(itemLine.startsWith("items:")){
+		String [] items = itemLine.replace("items:","").split(",");
 		for (String item: items){
 			this.inventory.add(d.getItem(item));
 		}
-		this.level = Integer.valueOf(s.nextLine().replace("level: ",""));
-		String greeting  = s.nextLine().replace("greeting: ","");
+		itemLine = s.nextLine();
+		}
+		this.level = Integer.valueOf(itemLine.replace("level:",""));
+		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
-		String dialogue = s.nextLine().replace("dialogue: ","");
+		String dialogue = s.nextLine().replace("dialogue:","");
 		this.dialogue.put("Talk",dialogue);
-		String goodbye = s.nextLine().replace("goodbye: ","");
+		String goodbye = s.nextLine().replace("goodbye:","");
 		this.dialogue.put("Bye",goodbye);
 		s.nextLine();
 
@@ -63,10 +67,10 @@ public class Monster extends NPC{
 		return this.inventory;
 	}
 	public void storeState(PrintWriter w){
-		w.println("Name: " + this.properName);
-		w.print("Inventory: ");
+		w.println(this.properName);
 		String inventoryLine = "";
 		if(!this.inventory.isEmpty()){
+		w.print("Inventory: ");
 		for(Item item: this.inventory){
 			inventoryLine += item.getPrimaryName() + ",";
 		}
@@ -74,19 +78,20 @@ public class Monster extends NPC{
 		w.println(inventoryLine);
 		}
 		Dungeon d = GameState.instance().getDungeon();
-		Room currRoom = null;
-		for (Room room: d.getRooms().values()){
-			if(!room.getNonPlayerCharacters().isEmpty()){
-				for(NPC npc: room.getNonPlayerCharacters()){
-					if(npc.equals(this)){
-						currRoom = room;
-					}
-				}
-			}
-		}
-		w.println("Current Room: " + currRoom);
 		w.println("---");
 
+
+	}
+	public void restoreState(Scanner s, Dungeon d){
+		String inventoryLine = s.nextLine();
+		String [] inventoryLineSplit;
+		if(inventoryLine.startsWith("Inventory:")){
+			inventoryLineSplit = inventoryLine.replace("Inventory: ","").split(",");
+			for(String itemName: inventoryLineSplit){
+				this.inventory.add(d.getItem(itemName));
+			}
+			inventoryLine = s.nextLine();
+		}
 
 	}
 }

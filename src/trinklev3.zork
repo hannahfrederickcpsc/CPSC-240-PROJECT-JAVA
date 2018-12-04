@@ -28,21 +28,21 @@ eat:You feel mildly guilt-ridden.
 ---
 ===
 NPCs:
-Type: Friendly
+Type:Friendly
 Matt
-items: StarWarsToy
-level: 10
-greeting: Hello!!
-dialogue: NOOOO
-goodbye: bye!!!
+items:can,StarWarsToy
+level:10
+greeting:Hello!!
+dialogue:NOOOO
+goodbye:bye!!!
 ---
-Type: Thief 
+Type:Monster
 Latt
-items: donut,can
-level: 10
-greeting: Hello!!
-dialogue: NOOOO
-goodbye: bye!!!
+items:Yoda
+level:10
+greeting:Hello!!
+dialogue:NOOOO
+goodbye:bye!!!
 ---
 ===
 Rooms:
