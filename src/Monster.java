@@ -97,4 +97,8 @@ public class Monster extends NPC{
 		}
 
 	}
+	void removeFromInventory(Item item){
+		int index = this.inventory.indexOf(item);
+                this.inventory.remove(index);
+         }  
 }

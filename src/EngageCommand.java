@@ -54,7 +54,7 @@ class EngageCommand extends Command{
 			answer = s.nextLine();
 			while(!answer.equals("disengage")){
 				if(answerList.contains(answer)){
-				CommandFactory.instance().parse(answer,s,npcName).execute();
+				System.out.println(CommandFactory.instance().parse(answer,s,npcName).execute());
 				System.out.println("What would you like to do?\n" +
 						"-speak\n" +
 						"-trade\n" + 
