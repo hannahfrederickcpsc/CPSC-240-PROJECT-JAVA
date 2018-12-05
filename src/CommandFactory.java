@@ -71,6 +71,9 @@ public class CommandFactory {
 	else if(command.equals("trade")){
                 return new TradeCommand(command, commandLine, engagedNPCName);
         }
+	else if(command.equals("attack")){
+                return new AttackCommand(command, commandLine, engagedNPCName);
+        }
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
 		if(specificCommand.length == 2){

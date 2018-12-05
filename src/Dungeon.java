@@ -454,6 +454,9 @@ writen in a way that the program cannot read in the .zork file.
 	    return this.rooms;
     }
 
-	
+    public void removeNPC(NPC npc){
+		int index = allNonPlayerCharacters.indexOf(npc);
+		allNonPlayerCharacters.remove(index);
+    }	    
 
 }
