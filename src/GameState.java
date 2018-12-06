@@ -330,7 +330,7 @@ public class GameState {
     public String die(NPC npc){
 	    Dungeon d = this.dungeon;
 	    Room room = null;
-	    String retValue = npc.getProperName() + " has died, dropping all of their items.\n";
+	    String retValue = npc.getProperName() + " has died, dropping all of his/her items.\n";
 	    for(Room currRoom: d.getRooms().values()){
 		    if(currRoom.getNonPlayerCharacters().contains(npc)){
 			    currRoom.removeFromRoom(npc);

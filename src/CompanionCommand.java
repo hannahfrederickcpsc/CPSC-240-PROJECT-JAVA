@@ -31,7 +31,7 @@ import java.util.List;
 	public String execute(){
 		GameState g = GameState.instance();
 		Dungeon d = g.getDungeon();
-		if(companion == null){
+		if(g.hasCompanion() == false){
 			return "You don't have a companion loser!\n";
 		}
 		if(!companion.getCurrRoom().equals(g.getAdventurersCurrentRoom())){

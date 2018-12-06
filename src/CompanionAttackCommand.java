@@ -60,7 +60,6 @@ class CompanionAttackCommand extends CompanionCommand{
 				NPC npc = d.getNPC(commandSplit[1]);
 				compLevel = this.companion.getLevel();
 				npcLevel = npc.getLevel();
-				System.out.println(compLevel + " NPC: " + npcLevel);
 				double percentage = (compLevel/npcLevel)/2;
 				percentage *= 100;
 				int randNum = rand.nextInt(100);
