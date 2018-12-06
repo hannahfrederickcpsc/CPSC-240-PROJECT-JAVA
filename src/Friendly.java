@@ -155,8 +155,8 @@ public class Friendly extends NPC{
 		return this.dialogue;
 	}
 	void removeFromInventory(Item item){
-    		int index = this.inventory.indexOf(item);
-		this.inventory.remove(index);    
+    		this.inventory.remove(item);
+	    	getCurrRoom().add(item);	
 	}
 	boolean getFollow(){
 		return follow;
@@ -170,5 +170,12 @@ public class Friendly extends NPC{
 			}
 		}
 		return null;
+	}
+	void dropAllItems(){
+		while(this.inventory.size() != 0){
+			System.out.println(this.inventory.get(0));
+			getCurrRoom().add(this.inventory.get(0));
+			this.inventory.remove(this.inventory.get(0));
+		}
 	}
 }

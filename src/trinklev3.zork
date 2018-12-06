@@ -36,15 +36,14 @@ eat:You feel mildly guilt-ridden.
 NPCs:
 Type:Friendly
 Matt
-items:can,StarWarsToy
-level:1
+items:can,mug
+level:200
 greeting:Hello!!
 dialogue:NOOOO
 goodbye:bye!!!
 ---
 Type:Friendly
 Latt
-items:Yoda
 level:10
 greeting:Hello!!
 dialogue:NOOOO
@@ -52,16 +51,31 @@ goodbye:bye!!!
 ---
 Type:Thief
 John
-items:donut
+items:donut,chainsaw
 level:50
 greeting:HIII
 dialogue:LOLOOL
 goodbye:BYE
 ---
+Type:Monster
+Mark
+items:Yoda,mug
+level:70
+greeting:HSJFNJWNDNW
+dialogue:Wassup homie
+goodbye:bye
+---
+Type:Thief
+Jim
+level:80
+greeting:lol
+dialogue:lololol
+goodbye:bye
+---
 ===
 Rooms:
 Rotunda
-NPCs: John
+NPCs: John,Mark,Jim
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
@@ -72,7 +86,6 @@ can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
 ---
 Stephen's office
-Contents: WawaTravelMug
 This is a cluttered office, with many geeky toys sprawling on a desk.
 ---
 Room B6
@@ -80,7 +93,7 @@ NPCs: Latt
 Sunlight streams through tall windows and illuminates a brilliant classroom.
 ---
 Rotunda balcony
-Contents: chainsaw,magicWand
+Contents: chainsaw
 You stand on a circular white balcony overlooking an entry hall.
 Columnar bannisters in ancient Grecian style stand between you and the
 precipice.

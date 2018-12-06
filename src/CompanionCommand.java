@@ -77,13 +77,15 @@ import java.util.List;
 
 		}
 		if(answer.equals("stay") && this.companion.getFollow() == false){
-			return "Your companion is already staying!\n";
+			System.out.println("Your companion is already staying!\n");
+			return new CompanionCommand(answer,this.companion,s).execute();
 		}
 		else if (answer.equals("stay")){			
 			return this.companion.stay() + "\n";
 		}
 		if(answer.equals("follow") && this.companion.getFollow() == true){
-			return "Your companion is already following you!\n";
+			System.out.println("Your companion is already following you!\n");
+			return new CompanionCommand(answer,this.companion,s).execute();
 		}
 		else if (answer.equals("follow")){
 			return this.companion.follow() + "\n";

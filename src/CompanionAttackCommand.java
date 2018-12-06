@@ -63,7 +63,9 @@ class CompanionAttackCommand extends CompanionCommand{
 				double percentage = (compLevel/npcLevel)/2;
 				percentage *= 100;
 				int randNum = rand.nextInt(100);
-				System.out.println("Your companion has a %" + percentage + " chance of winning.\n" +
+				System.out.print("Your companion has a %");
+				System.out.printf("%.2f",percentage);
+				System.out.println(" chance of winning.\n" +
 						"Are you sure you want to continue with this?(y/n)\n");
 				System.out.print("> ");
 				answer = s.nextLine();
@@ -72,6 +74,7 @@ class CompanionAttackCommand extends CompanionCommand{
 					return g.die(npc);
 				}
 				else{
+
 					return g.die(companion);
 				}
 				}
