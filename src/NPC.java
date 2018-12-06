@@ -87,6 +87,7 @@ public abstract class NPC{
 	abstract Room getCurrRoom();
 	abstract boolean isCompanion();
 	abstract void releaseCompanion();
+	abstract void dropAllItems();
 }
 
 

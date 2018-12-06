@@ -19,6 +19,9 @@ public class MakeCompanionCommand extends Command{
 		g.setCompanion(true, npc);		
 		return npc.follow();
 		}
+		if(g.companion() == true){
+			return "Release your current companion if you would like to befriend " + npc.getProperName() + "\n";
+		}
 		return "You cannot make " + npc.getProperName() + " your companion.";
 
 		

@@ -329,18 +329,11 @@ public class GameState {
 */
     public String die(NPC npc){
 	    Dungeon d = this.dungeon;
-	    Room room = null;
+	    Room currRoom = npc.getCurrRoom();
 	    String retValue = npc.getProperName() + " has died, dropping all of his/her items.\n";
-	    for(Room currRoom: d.getRooms().values()){
-		    if(currRoom.getNonPlayerCharacters().contains(npc)){
-			    currRoom.removeFromRoom(npc);
-			    room = currRoom;
-		    }
-	    }
-	    for(int i = 0; i < npc.getInventory().size(); ++i){
-		    room.add(npc.getInventory().get(i));
-	    	    npc.removeFromInventory(npc.getInventory().get(i));
-	    }
+	    npc.dropAllItems();
+	    currRoom.removeFromRoom(npc);
+
 	    if(npc.isCompanion()){
 		    npc.releaseCompanion();
 	    }

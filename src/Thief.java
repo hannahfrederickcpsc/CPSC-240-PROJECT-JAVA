@@ -44,6 +44,7 @@ public class Thief extends NPC{
 			}
 		}
 		this.level = Integer.parseInt(itemLine.replace("level:",""));
+		System.out.println(level);
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue:","");
@@ -121,6 +122,7 @@ public class Thief extends NPC{
 	void removeFromInventory(Item item){
                  int index = this.inventory.indexOf(item);
                  this.inventory.remove(index);
+		 getCurrRoom().add(item);
          }  
 	void makeCompanion(){}
 	String follow(){
@@ -148,5 +150,12 @@ public class Thief extends NPC{
 	void releaseCompanion(){}
 	int getLevel(){
 		return level;
+	}
+	void dropAllItems(){
+		while(this.inventory.size() != 0){
+			System.out.println(this.inventory.get(0));
+			getCurrRoom().add(this.inventory.get(0));
+			this.inventory.remove(this.inventory.get(0));
+		}	
 	}
 }

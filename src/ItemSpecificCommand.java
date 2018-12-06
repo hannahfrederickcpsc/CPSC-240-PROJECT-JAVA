@@ -69,7 +69,6 @@ class ItemSpecificCommand extends Command{
 				else{
 					if(item.getEvents(verb) != null){
 						for(String l: item.getEvents(verb)){
-								
 								event = e.parse(l, item.getPrimaryName(), verb, currRoom);
 								event.execute();
 								}
