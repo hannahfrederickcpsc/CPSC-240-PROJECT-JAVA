@@ -16,6 +16,7 @@ public class Thief extends NPC{
 	private int health;
 	private String type;
 	private ArrayList<Item>inventory;
+	private boolean ifStole;
 
 
 	public Thief(String type,Scanner s, Dungeon d, boolean initState){
@@ -23,6 +24,7 @@ public class Thief extends NPC{
 		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
+		this.ifStole = false;
 		this.type = type;
 		
 		this.properName = s.nextLine();
@@ -61,7 +63,7 @@ public class Thief extends NPC{
 	 * @return A phrase mocking the adventurer.
 	 */
 	public String steal(){
-		return null;
+		return 
 	}
 
 	public String getProperName(){
