@@ -35,6 +35,7 @@ public class GameState {
     static String INVENTORY_LEADER = "Inventory: ";
 
     private static GameState theInstance;
+    private boolean companion;
     private Dungeon dungeon;
     private Room adventurersCurrentRoom;
     private ArrayList<Item> inventory;
@@ -44,6 +45,9 @@ public class GameState {
     private int adventurersMoves;
     private ArrayList<NPC> allNonPlayerCharacters;
     private int adventurersHunger;
+    private NPC npcCompanion;
+    private boolean engage;
+    private boolean companionEngage;
 /**
 *Returns the game's one instance of the GameState object. When called, if GameState has not been instantiated, the method will create the new object. If the object has alrady been instantiated, it will return the one GameState object.
 *@return the game's one GameState object.
@@ -280,7 +284,14 @@ public class GameState {
 *@param room the room you want to set the NonPlayerCharacter's room to.
 */
     public void setNonPlayerCharacterCurrRoom(Room room, NPC npc){
-		
+	    Dungeon d = getDungeon();
+	    for(Room currRoom: d.getRooms().values()){
+		    if(currRoom.getNonPlayerCharacters().contains(npc)){
+			    currRoom.removeFromRoom(npc);
+		    }
+	    }
+			
+	    room.getNonPlayerCharacters().add(npc);	    
     	}
 /**
 *Returns the NPC object of a specified NonPlayerCharacter in the adventurer's current room.
@@ -316,8 +327,28 @@ public class GameState {
 *@param NPCName the specified NonPlayerCharacter.
 *@return the string of the output of the program when the adventurer dies.
 */
-    public String die(String NPCName){
-    		return null;
+    public String die(NPC npc){
+	    Dungeon d = this.dungeon;
+	    Room room = null;
+	    String retValue = npc.getProperName() + " has died, dropping all of his/her items.\n";
+	    for(Room currRoom: d.getRooms().values()){
+		    if(currRoom.getNonPlayerCharacters().contains(npc)){
+			    currRoom.removeFromRoom(npc);
+			    room = currRoom;
+		    }
+	    }
+	    for(int i = 0; i < npc.getInventory().size(); ++i){
+		    room.add(npc.getInventory().get(i));
+	    	    npc.removeFromInventory(npc.getInventory().get(i));
+	    }
+	    if(npc.isCompanion()){
+		    npc.releaseCompanion();
+	    }
+
+	    d.getAllNonPlayerCharacters().remove(npc);
+
+	    	
+    		return retValue;
     	}
 /**
 *Changes the adventurer's current score by a specified amount.
@@ -370,4 +401,38 @@ public class GameState {
 	    }
 	    return weight;
     }
+    public void setCompanion(boolean value, NPC npc){
+	    this.companion = value;
+	    if(value == true){
+	    this.npcCompanion = npc;
+	    }
+	    else{
+		    this.npcCompanion = null;
+	    }
+    }
+    boolean companion(){
+	    return this.companion;
+    }
+    NPC getCompanion(){
+	    return this.npcCompanion;
+    }
+    void setEngage(boolean value){
+    	this.engage = value;
+    }
+    boolean engaged(){
+	    return this.engage;
+    }
+    void setCompanionEngaged(boolean value){
+	    this.companionEngage = value;
+    }
+    boolean getCompanionEngaged(){
+	    return this.companionEngage;
+    }
+    void releaseCompanion(){
+	    this.companion = false;
+    }
+    boolean hasCompanion(){
+	    return this.companion;
+    }
+
 }

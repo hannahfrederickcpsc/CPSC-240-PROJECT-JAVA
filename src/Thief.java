@@ -18,7 +18,7 @@ public class Thief extends NPC{
 	private ArrayList<Item>inventory;
 
 
-	public Thief(String type,Scanner s, Dungeon d){
+	public Thief(String type,Scanner s, Dungeon d, boolean initState){
 		super(type,s, d);
 		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
@@ -26,7 +26,9 @@ public class Thief extends NPC{
 		this.type = type;
 		
 		this.properName = s.nextLine();
-		String itemLine = s.nextLine();
+		String itemLine = "";
+		if(initState == true){
+		itemLine = s.nextLine();
 		if(itemLine.startsWith("items:")){
 		String [] items = itemLine.replace("items:","").split(",");
 		for (String item: items){
@@ -34,7 +36,15 @@ public class Thief extends NPC{
 		}
 		itemLine = s.nextLine();
 		}
-		this.level = Integer.valueOf(itemLine.replace("level:",""));
+		}
+		else if(initState == false){
+			itemLine = s.nextLine();
+			if(itemLine.startsWith("items:")){
+				itemLine = s.nextLine();
+			}
+		}
+		this.level = Integer.parseInt(itemLine.replace("level:",""));
+		System.out.println(level);
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue:","");
@@ -42,7 +52,6 @@ public class Thief extends NPC{
 		String goodbye = s.nextLine().replace("goodbye:","");
 		this.dialogue.put("Bye",goodbye);
 		s.nextLine();
-
 	}
 
 	
@@ -114,4 +123,31 @@ public class Thief extends NPC{
                  int index = this.inventory.indexOf(item);
                  this.inventory.remove(index);
          }  
+	void makeCompanion(){}
+	String follow(){
+		return null;
+	}
+	String stay(){
+		return null;
+	}
+	boolean getFollow(){
+		return false;
+	}
+	Room getCurrRoom(){
+		GameState g = GameState.instance();
+		Dungeon d = g.getDungeon();
+		for(Room currRoom: d.getRooms().values()){
+			if(currRoom.getNonPlayerCharacters().contains(this)){
+				return currRoom;
+			}
+		}
+		return null;
+	}
+	boolean isCompanion(){
+		return false;
+	}
+	void releaseCompanion(){}
+	int getLevel(){
+		return level;
+	}
 }
