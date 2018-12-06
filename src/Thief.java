@@ -44,7 +44,6 @@ public class Thief extends NPC{
 			}
 		}
 		this.level = Integer.parseInt(itemLine.replace("level:",""));
-		System.out.println(level);
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue:","");

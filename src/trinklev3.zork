@@ -37,7 +37,7 @@ NPCs:
 Type:Friendly
 Matt
 items:can,StarWarsToy
-level:1
+level:50
 greeting:Hello!!
 dialogue:NOOOO
 goodbye:bye!!!
