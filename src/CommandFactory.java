@@ -32,7 +32,7 @@ public class CommandFactory {
 *@param command a string that the user typed into the command prompt for zork
 *@return the command object that corresponds to the command entered into the command prompt.
 */
-    public Command parse(String command, Scanner commandLine) {
+    public Command parse(String command, Scanner commandLine, String engagedNPCName) {
 	if (MOVEMENT_COMMANDS.contains(command)) {
             return new MovementCommand(command);
         } else if (command.equals("save")){
@@ -62,6 +62,24 @@ public class CommandFactory {
 	else if(command.equals("pause")){
                 return new PauseCommand(command, commandLine);
         }
+	else if(command.equals("engage companion") && GameState.instance().hasCompanion() == true){
+                return new CompanionCommand(command, GameState.instance().getCompanion(),commandLine);
+        }
+	else if(command.startsWith("engage")){
+		return new EngageCommand(command, commandLine);
+	}
+	else if(command.equals("speak") && (GameState.instance().engaged() == true || GameState.instance().getCompanionEngaged() == true)){
+                return new SpeakCommand(command, commandLine, engagedNPCName);
+        }
+	else if(command.equals("trade") && (GameState.instance().engaged() == true || GameState.instance().getCompanionEngaged() == true)){
+                return new TradeCommand(command, commandLine, engagedNPCName);
+        }
+	else if(command.equals("attack")){
+                return new AttackCommand(command, commandLine, engagedNPCName);
+        }
+	else if(command.equals("befriend") && GameState.instance().engaged() == true){
+		return new MakeCompanionCommand(command, engagedNPCName);
+	}
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
 		if(specificCommand.length == 2){

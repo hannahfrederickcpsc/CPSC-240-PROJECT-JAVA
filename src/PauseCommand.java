@@ -37,6 +37,7 @@ class PauseCommand extends Command{
 			"Save" + "\n" +
 			"Quit Game" + "\n");
 		System.out.println("Type in the option you want: resume, save, or quit");
+		System.out.print("> ");
 		String option = s.nextLine();
 		while(!option.equals("resume") && !option.equals("save") &&  !option.equals("quit")){
 				Command unknownCommand = new UnknownCommand(option);
@@ -59,13 +60,15 @@ class PauseCommand extends Command{
 
                         else if (option.equals("quit"))
                         {
-				System.out.println("Would you like to save before quitting?");
+				System.out.println("Would you like to save before quitting? y or n");
+				System.out.print("> ");
 				String answer = s.next();
 				List<String> yesArray = Arrays.asList("Y","y","Yes","yes");
 				List<String> noArray = Arrays.asList("N","n","No","no");				
 				if(yesArray.contains(answer)){
 					Command c = new SaveCommand(answer);
 					Command d = new QuitCommand(answer);
+					System.out.println("Data saved to " + GameState.DEFAULT_SAVE_FILE + GameState.SAVE_FILE_EXTENSION);
 					return c.execute() + "\n" + 
 						d.execute();
 				}

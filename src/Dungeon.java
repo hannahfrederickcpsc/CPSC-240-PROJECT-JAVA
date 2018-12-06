@@ -128,7 +128,7 @@ writen in a way that the program cannot read in the .zork file.
 
        try{
 	       while(true){
-		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(s, this));
+		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(s, this, initState));
 		      
 				       
 	       }
@@ -265,6 +265,17 @@ writen in a way that the program cannot read in the .zork file.
 			w.execute();
 		}
 	    }
+	    String npcStates = s.nextLine();
+	    if(!npcStates.equals("NPC States:")){
+		    throw new GameState.IllegalSaveFormatException("No NPC States: where expected.");
+	    }
+	    npcStates = s.nextLine();
+	    while(!npcStates.equals(TOP_LEVEL_DELIM)){
+		    NPC npc = getNPC(npcStates);
+		    npc.restoreState(s,this);
+		    npcStates = s.nextLine();
+	    }
+
         
         if (!s.nextLine().equals(ROOM_STATES_MARKER)) {
             throw new GameState.IllegalSaveFormatException("No '" +
@@ -442,7 +453,12 @@ writen in a way that the program cannot read in the .zork file.
     public Hashtable<String,Room> getRooms(){
 	    return this.rooms;
     }
-
-	
+    public void removeNPC(NPC npc){
+		int index = allNonPlayerCharacters.indexOf(npc);
+		allNonPlayerCharacters.remove(index);
+    }	    
+    ArrayList<NPC> getAllNonPlayerCharacters(){
+	    return this.allNonPlayerCharacters;
+    }
 
 }

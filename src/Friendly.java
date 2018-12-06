@@ -15,27 +15,41 @@ public class Friendly extends NPC{
 	private String type;
 	private ArrayList<Item>inventory;
 	boolean isCompanion;
+	boolean follow;
 
 	
-	public Friendly(String type, Scanner s, Dungeon d){
+	public Friendly(String type, Scanner s, Dungeon d, boolean initState){
 		super(type,s, d);
 		this.health = 100;
-		this.isCompanion = false;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
 		this.type = type;
 		
 		this.properName = s.nextLine();
-		String [] items = s.nextLine().replace("items: ","").split(",");
+		String itemLine = "";
+		if(initState == true){
+		itemLine = s.nextLine();
+		if(itemLine.startsWith("items:")){
+		String [] items = itemLine.replace("items:","").split(",");
 		for (String item: items){
 			this.inventory.add(d.getItem(item));
 		}
-		this.level = Integer.valueOf(s.nextLine().replace("level: ",""));
-		String greeting  = s.nextLine().replace("greeting: ","");
+		itemLine = s.nextLine();
+		}
+		}
+		else if(initState == false){
+			itemLine = s.nextLine();
+			if(itemLine.startsWith("items:")){
+				itemLine = s.nextLine();
+			}
+		}
+		
+		this.level = Integer.valueOf(itemLine.replace("level:",""));
+		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
-		String dialogue = s.nextLine().replace("dialogue: ","");
+		String dialogue = s.nextLine().replace("dialogue:","");
 		this.dialogue.put("Talk",dialogue);
-		String goodbye = s.nextLine().replace("goodbye: ","");
+		String goodbye = s.nextLine().replace("goodbye:","");
 		this.dialogue.put("Bye",goodbye);
 		s.nextLine();
 	}
@@ -71,19 +85,23 @@ public class Friendly extends NPC{
 		return null;
 	}
 	public String follow(){
+		GameState g = GameState.instance();
+		g.setNonPlayerCharacterCurrRoom(g.getAdventurersCurrentRoom(), this);
+		this.follow = true;
 		return "Your companion is now following you.";
 	}
 	public String stay(){
+		this.follow = false;
 		return "Your companion is now staying in the current room.";
 	}
-	public void MakeCompanion(){
+	public void makeCompanion(){
 		this.isCompanion = true;
 	}
 	public void storeState(PrintWriter w){
-		w.println("Name: " + this.properName);
-		w.print("Inventory: ");
+		w.println(this.properName);
 		String inventoryLine = "";
 		if(!this.inventory.isEmpty()){
+		w.print("Inventory: ");
 		for(Item item: this.inventory){
 			inventoryLine += item.getPrimaryName() + ",";
 		}
@@ -91,26 +109,66 @@ public class Friendly extends NPC{
 		w.println(inventoryLine);
 		}
 		Dungeon d = GameState.instance().getDungeon();
-		Room currRoom = null;
-		for (Room room: d.getRooms().values()){
-			if(!room.getNonPlayerCharacters().isEmpty()){
-				for(NPC npc: room.getNonPlayerCharacters()){
-					if(npc.equals(this)){
-						currRoom = room;
-					}
-				}
-			}
+		w.println("isCompanion=" + isCompanion);
+		if(isCompanion){
+			w.println("following=" + follow);
 		}
-		w.println("Current Room: " + currRoom);
 		w.println("---");
 
 
 
 	}
-	public void restoreState(Scanner s){}
+	public void restoreState(Scanner s, Dungeon d){
+		String inventoryLine = s.nextLine();
+		String [] inventoryLineSplit;
+		this.type = "Friendly";
+		if(inventoryLine.startsWith("Inventory:")){
+			inventoryLineSplit = inventoryLine.replace("Inventory: ","").split(",");
+			for(String itemName: inventoryLineSplit){
+				this.inventory.add(d.getItem(itemName));
+			}
+			inventoryLine = s.nextLine();
+		}
+		this.isCompanion = Boolean.valueOf(inventoryLine.substring(inventoryLine.indexOf("=")+1));
+		if(isCompanion){
+			GameState.instance().setCompanion(true,this);
+			String followLine = s.nextLine();
+			this.follow = Boolean.valueOf(followLine.substring(followLine.indexOf("=")+1));
+		}
+		s.nextLine();
+	}
+	boolean isCompanion(){
+		return isCompanion;
+	}
+	void releaseCompanion(){
+		this.isCompanion = false;
+		this.follow = false;
+		GameState.instance().setCompanion(false,this);
+		GameState.instance().releaseCompanion();
+	}
 
 
 	public ArrayList<Item> getInventory(){
 		return this.inventory;
+	}
+	public Hashtable<String,String> getDialogue(){
+		return this.dialogue;
+	}
+	void removeFromInventory(Item item){
+    		int index = this.inventory.indexOf(item);
+		this.inventory.remove(index);    
+	}
+	boolean getFollow(){
+		return follow;
+	}
+	Room getCurrRoom(){
+		GameState g = GameState.instance();
+		Dungeon d = g.getDungeon();
+		for(Room currRoom: d.getRooms().values()){
+			if(currRoom.getNonPlayerCharacters().contains(this)){
+				return currRoom;
+			}
+		}
+		return null;
 	}
 }

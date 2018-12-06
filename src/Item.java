@@ -15,11 +15,13 @@ public class Item{
 
 	private String primaryName;
 	private int weight;
+	private int value;
 
 	//hashtable <verb,messageOfThatVerb> 
 	private Hashtable <String,String> messages;
 	private ArrayList<String> verbs;
 	private Hashtable<String,ArrayList<String>> events;
+
 	//constructor to read items from .zork file
 	
 	/** Constructs a new <tt>Item</tt> object with a scanner object positioned at the beginning of an item entry in a dungeon file. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands.
@@ -37,7 +39,7 @@ public class Item{
 			throw new NoItemException();
 		}
 		this.weight = Integer.valueOf(s.nextLine());
-		
+		this.value = Integer.valueOf(s.nextLine());
 		String currLine = s.nextLine();
 		//array to capture all split up strings in the line
 		String[] tempSplit;
@@ -156,4 +158,7 @@ public class Item{
 	public ArrayList<String> getEvents(String key){
 		return this.events.get(key);
 	}	
+	public int getValue(){
+		return this.value;
+	}
 }//end Item class

@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * An <tt>AttackCommand</tt> represents the command given to attack
  * a NPC. 
@@ -5,16 +6,21 @@
  * @author Matt 
  */
 class AttackCommand extends EngageMenuCommand{
-	private String usableWeaponName;
 	private String command;
+	private Scanner s;
+	private String npcName;
+	private Weapon weapon;
+	private String weaponName;
 
 	/**
 	 * Constructs a new <tt>AttackCommand</tt> object.
 	 *
 	 * @param command the string that was given to attack an NPC
 	 */
-	AttackCommand(String command){
+	AttackCommand(String command, Scanner s, String npcName){
 		super(command);
+		this.s = s;
+		this.npcName = npcName;
 	}
 
 	/**
@@ -24,7 +30,65 @@ class AttackCommand extends EngageMenuCommand{
 	 * @return the string declaring who won the battle.
 	 */
 	public String execute(){
-		return null;
+		GameState g = GameState.instance();
+		Dungeon d = g.getDungeon();
+		Room currRoom = g.getAdventurersCurrentRoom();
+		NPC npc = d.getNPC(npcName);
+		String answer;
+		if(npc.getType().equals("Thief") || npc.getType().equals("Monster")){
+			if(!g.getInventory().isEmpty() || !currRoom.getContents().isEmpty()){
+				System.out.println("What would you like to attack with?");
+                        	System.out.print("> ");
+				answer = s.nextLine();
+				if(g.getItemFromInventoryNamed(answer) != null || g.getItemInVicinityNamed(answer) != null){
+					
+
+					if(compareLevels(npc) == true){
+						attack(weaponName);
+						while(g.getAdventurersHealth() > 0 || npc.getHealth() > 0){
+							npcAttack(npcWeaponName);
+							attack(weaponName);
+						}
+						if(g.getAdventurersHealth() <= 0){
+							System.out.println(npc.getProperName() + " has defeated you!");
+							for(Item i: g.getInventory()){
+								currRoom.add(i);
+							}
+							System.exit(0);
+						}
+						else if(npc.getHealth() <= 0){
+							System.out.println("You have defeated " + npc.getProperName());
+							d.removeNPC(npc);
+							currRoom.removeFromRoom(npc);
+						}
+					}
+
+					else{
+						npcAttack(npcWeaponName);
+                                                while(g.getAdventurersHealth() > 0 || npc.getHealth() > 0){
+                                                        attack(weaponName);
+							npcAttack(npcWeaponName);
+                                                }
+                                                if(g.getAdventurersHealth() <= 0){
+                                                        System.out.println(npc.getProperName() + " has defeated you!");
+                                                        for(Item i: g.getInventory()){
+                                                                currRoom.add(i);
+                                                        }
+                                                        System.exit(0);
+                                                }
+                                                else if(npc.getHealth() <= 0){
+                                                        System.out.println("You have defeated " + npc.getProperName());
+                                                        d.removeNPC(npc);
+                                                        currRoom.removeFromRoom(npc);
+                                                }
+					}		
+
+				}
+				else{
+					System.out.println("You do not have that item with you");
+				}
+			}
+		}
 	}
 
 	/**
@@ -34,8 +98,15 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @param item the weapon to be used in battle.
 	 */
-	private static void selectWeapon(Item item){
-		
+	private void selectWeapon(Item item){
+		GameState g = GameState.instance();
+                Dungeon d = g.getDungeon();
+		Room currRoom = g.getAdventurersCurrentRoom();
+		if(!g.getInventory().contains(item) && !currRoom.getContents().contains(item)){
+			System.out.println("You do not have that item with you. Please type an item that you have.");
+		}
+		weapon = item;
+		weaponName = item.getPrimaryName();
 	}
 
 	/**
@@ -46,8 +117,12 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return boolean marking if the adventurer or NPC has a higher level.
 	 */
-	private static boolean compareLevels(NPC npc){
-		return true;
+	private boolean compareLevels(NPC npc){
+		GameState g = GameState.instance();
+		if(g.getAdventurersScore() >= npc.getLevel()){
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -57,7 +132,7 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return the string responding to the attack.
 	 */
-	private static String NPCAttack(String itemName){
+	private String NPCAttack(String itemName){
 		return null;
 	}
 
@@ -68,7 +143,7 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return String responding to the attack.
 	 */
-	private static String attack(String usableWeaponName){
+	private String attack(String weaponName){
 		return null;
 	}
 }

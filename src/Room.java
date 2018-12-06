@@ -65,7 +65,6 @@ public class Room {
 				this.add(d.getItem(contentSplit[i]));
 				}
 				lineOfDesc = s.nextLine();
-				System.out.println(lineOfDesc);
 			}
 		if(lineOfDesc.startsWith("NPCs")){
 			String [] npcs = lineOfDesc.replace("NPCs: ","").split(",");
@@ -100,6 +99,9 @@ public class Room {
                 if(lineOfDesc.startsWith("Contents:")){
                                 lineOfDesc = s.nextLine();
                 }
+		if(lineOfDesc.startsWith("NPCs:")){
+			lineOfDesc = s.nextLine();
+		}
                 while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
                     !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
                     desc += lineOfDesc + "\n";
@@ -179,9 +181,10 @@ public class Room {
 		    w.print("NPCs: ");
 		    String npcLine = "";
 		    for(NPC npc: this.nonPlayerCharacters){
-			    npcLine += npc.getProperName();
+			    npcLine += npc.getProperName() + ",";
 		    }
-		    w.println(npcLine);
+		    String realNPCLine = npcLine.substring(0, npcLine.length() - 1);
+		    w.println(realNPCLine);
 	    }
 
             w.println(Dungeon.SECOND_LEVEL_DELIM);
@@ -245,7 +248,12 @@ public class Room {
 		description += "There is a(n) " + item.getPrimaryName() + " here.\n";
 	}
 	for(NPC npc: this.nonPlayerCharacters){
+		if(npc.isCompanion() == false){
 		description += "There is a " + npc.getType() + " here named " + npc.getProperName() + "\n";
+		}
+		else{
+			description += "Your companion named " + npc.getProperName() + " is here.\n";
+		}
 	}
 
         for (Exit exit : exits) {
@@ -340,4 +348,8 @@ public class Room {
     	return this.nonPlayerCharacters;
     }
 
+    public void removeFromRoom(NPC npc){
+            int index = this.nonPlayerCharacters.indexOf(npc);
+            this.nonPlayerCharacters.remove(index);
+    }
 }

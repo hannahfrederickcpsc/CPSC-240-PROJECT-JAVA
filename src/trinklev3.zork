@@ -4,11 +4,14 @@ Zork III
 Items:
 magicWand
 5
+50
 ---
 WawaTravelMug,mug
 10
+20
 ---
 DrPepper,can,soda
+10
 10
 kick:The can skitters down the hallway.
 shake:A liquid fizzes menacingly inside the can.
@@ -16,49 +19,60 @@ drink:Gulp, gulp -- that was GOOD!  *belch*
 ---
 StarWarsToy,Yoda
 5
+45
 touch:Yoda says, "Do, or do not! There is no try."
 break:Whoops!
 ---
 chainsaw
 35
+60
 ---
 donut
 7
+10
 eat:You feel mildly guilt-ridden.
 ---
 ===
 NPCs:
-Type: Friendly
+Type:Friendly
 Matt
-items: StarWarsToy
-level: 10
-greeting: Hello!!
-dialogue: NOOOO
-goodbye: bye!!!
+items:can,StarWarsToy
+level:1
+greeting:Hello!!
+dialogue:NOOOO
+goodbye:bye!!!
 ---
-Type: Thief 
+Type:Friendly
 Latt
-items: donut,can
-level: 10
-greeting: Hello!!
-dialogue: NOOOO
-goodbye: bye!!!
+items:Yoda
+level:10
+greeting:Hello!!
+dialogue:NOOOO
+goodbye:bye!!!
+---
+Type:Thief
+John
+items:donut
+level:50
+greeting:HIII
+dialogue:LOLOOL
+goodbye:BYE
 ---
 ===
 Rooms:
 Rotunda
+NPCs: John
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
 Basement hallway
-Contents: DrPepper
 NPCs: Matt
 A long, white hallway stretches to the east and west. It is cold here, and you
 can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
 ---
 Stephen's office
-Contents: StarWarsToy,WawaTravelMug,donut
+Contents: WawaTravelMug
 This is a cluttered office, with many geeky toys sprawling on a desk.
 ---
 Room B6
