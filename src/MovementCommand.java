@@ -58,6 +58,17 @@ class MovementCommand extends Command{
 			
 				
 					g.changeHunger(-2);
+				for(NPC npc: nextRoom.getNonPlayerCharacters())
+				{
+					if(npc.getType().equals("Thief"))
+					{
+						Thief temp = npc;
+						if ((temp.getIfStole() == true) && (!g.getInventory().isEmpty()))
+						{
+							npc.steal();
+						}
+					}
+				}
 				
 
 				if((GameState.instance().getMoves() % 20) == 0){

@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.io.PrintWriter;
+import java.util.Random;
 /**
  * A <tt>Thief</tt> is a NPC that is unfriendly and can only be attacked. 
  * A thief can also take a random item from the adventurers inventory,
@@ -17,6 +18,7 @@ public class Thief extends NPC{
 	private String type;
 	private ArrayList<Item>inventory;
 	private boolean ifStole;
+	private Room currRoom;
 
 
 	public Thief(String type,Scanner s, Dungeon d, boolean initState){
@@ -26,6 +28,7 @@ public class Thief extends NPC{
 		this.inventory = new ArrayList<Item>();
 		this.ifStole = false;
 		this.type = type;
+		this.currRoom = null;
 		
 		this.properName = s.nextLine();
 		String itemLine = "";
@@ -55,7 +58,7 @@ public class Thief extends NPC{
 		this.dialogue.put("Bye",goodbye);
 		s.nextLine();
 	}
-
+	public boolean getIfStole() {return this.ifStole;}
 	
 	/**
 	 * Allows the Thief to steal from the adventurer.
@@ -63,7 +66,19 @@ public class Thief extends NPC{
 	 * @return A phrase mocking the adventurer.
 	 */
 	public String steal(){
-		return 
+		GameState g = GameState.instance();
+		Dungeon d = g.getDungeon();
+		ArrayList<Item> tempInventory = g.getInventory();
+		Random r  = new Random();
+		int random = r.nextInt(tempInventory.size());
+		Item item = tempInventory.get(random);
+		g.removeFromInventory(item);
+		inventory.add(item);
+		Room curRoom = getCurrRoom();
+		currRoom.removeFromRoom(this);
+		Room nextRoom = d.getRandomRoom();
+		nextRoom.addToRoom(this);
+		return this.getProperName() + "has stolen the" + item.getPrimaryName() + "from you!";
 	}
 
 	public String getProperName(){
@@ -141,6 +156,7 @@ public class Thief extends NPC{
 		Dungeon d = g.getDungeon();
 		for(Room currRoom: d.getRooms().values()){
 			if(currRoom.getNonPlayerCharacters().contains(this)){
+				this.currRoom = currRoom;
 				return currRoom;
 			}
 		}
