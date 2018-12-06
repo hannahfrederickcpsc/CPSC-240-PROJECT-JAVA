@@ -116,10 +116,10 @@ writen in a way that the program cannot read in the .zork file.
        try {
             //Instantiate and add items
             while (true){
-                	add(new Item(s));
+                	add(ItemFactory.instance().parse(s));
             }	
         } 
-       catch (Item.NoItemException e) { /* end of items */}
+       catch (ItemFactory.NoItemException e) { /* end of items */}
 	String NPCHeader = s.nextLine();
 	
  	if(!NPCHeader.equals("NPCs:")){
