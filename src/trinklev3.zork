@@ -58,10 +58,17 @@ greeting:HIII
 dialogue:LOLOOL
 goodbye:BYE
 ---
+Type:Monster
+Mark
+level:70
+greeting:HSJFNJWNDNW
+dialogue:Wassup homie
+goodbye:bye
+---
 ===
 Rooms:
 Rotunda
-NPCs: John
+NPCs: John,Mark
 You are in a beautiful round entry chamber, with tall white pillars that
 seemingly reach to the skies. There is an elevator here.
 ---
