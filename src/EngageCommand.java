@@ -82,7 +82,6 @@ class EngageCommand extends Command{
 			return "You have disengaged " + npc.getProperName() + "\n";
 		}
 
-<<<<<<< HEAD
 		if(npc.getType().equals("Thief")|| npc.getType().equals("Monster")){
                         System.out.println("You have engaged " + npc.getProperName() + "\n" +
                                         "You can:\n" +
@@ -107,8 +106,6 @@ class EngageCommand extends Command{
                         }
                         return "You have disengaged " + npc.getProperName() + "\n";
                 }
-=======
->>>>>>> eb40da53b57643079002a50fb4ee977cf8d88d56
 		return null;
 	}
 }

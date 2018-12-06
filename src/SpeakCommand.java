@@ -51,7 +51,7 @@ class SpeakCommand extends EngageMenuCommand{
 		if(npc.getType().equals("Thief")|| npc.getType().equals("Monster")){
                         System.out.println("You can say:" + "\n" + "-Hello" + "\n" + "-Talk" + "\n" + "-Bye");
                         System.out.print("> ");
-                        answer = s.nextLine();
+                        String answer = s.nextLine();
                         while(!answer.equals("Bye")){
                                 if(answer.equals("Hello") || answer.equals("Talk")){
                                         System.out.println(npc.getProperName() + ": " + npc.getDialogue().get(answer));

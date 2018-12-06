@@ -453,18 +453,12 @@ writen in a way that the program cannot read in the .zork file.
     public Hashtable<String,Room> getRooms(){
 	    return this.rooms;
     }
-
-<<<<<<< HEAD
     public void removeNPC(NPC npc){
 		int index = allNonPlayerCharacters.indexOf(npc);
 		allNonPlayerCharacters.remove(index);
     }	    
-=======
     ArrayList<NPC> getAllNonPlayerCharacters(){
 	    return this.allNonPlayerCharacters;
     }
-
-	
->>>>>>> eb40da53b57643079002a50fb4ee977cf8d88d56
 
 }
