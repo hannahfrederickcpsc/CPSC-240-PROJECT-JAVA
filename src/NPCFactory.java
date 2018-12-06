@@ -14,19 +14,19 @@ public class NPCFactory{
 
 	private NPCFactory(){}
 
-	public NPC parse(Scanner s, Dungeon d)throws NoNPCException{
+	public NPC parse(Scanner s, Dungeon d, boolean initState)throws NoNPCException{
 		String type = s.nextLine();
 		if(type.equals("===")){
 			throw new NPCFactory.NoNPCException();
 		}
 		type = type.replace("Type:","");
 		if(type.equals("Friendly")){
-			return new Friendly(type,s,d);
+			return new Friendly(type,s,d, initState);
 		}
 		else if(type.equals("Monster")){
-			return new Monster(type,s,d);
+			return new Monster(type,s,d, initState);
 		}
-		return new Thief(type,s,d);
+		return new Thief(type,s,d, initState);
 
 		
 		

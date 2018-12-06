@@ -128,7 +128,7 @@ writen in a way that the program cannot read in the .zork file.
 
        try{
 	       while(true){
-		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(s, this));
+		       this.allNonPlayerCharacters.add(NPCFactory.instance().parse(s, this, initState));
 		      
 				       
 	       }
@@ -452,6 +452,10 @@ writen in a way that the program cannot read in the .zork file.
 
     public Hashtable<String,Room> getRooms(){
 	    return this.rooms;
+    }
+
+    ArrayList<NPC> getAllNonPlayerCharacters(){
+	    return this.allNonPlayerCharacters;
     }
 
 	

@@ -50,7 +50,7 @@ public abstract class NPC{
 	 *
 	 * @return The level of the NPC.
 	 */
-	public int getLevel(){
+	int getLevel(){
 		return level;
 	}
 	/**
@@ -80,6 +80,13 @@ public abstract class NPC{
 	public abstract Hashtable<String,String> getDialogue();
 	public abstract void storeState(PrintWriter w);
 	public abstract void restoreState(Scanner s, Dungeon d);
+	abstract void makeCompanion();
+	abstract String follow();
+	abstract String stay();
+	abstract boolean getFollow();
+	abstract Room getCurrRoom();
+	abstract boolean isCompanion();
+	abstract void releaseCompanion();
 }
 
 

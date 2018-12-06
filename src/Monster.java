@@ -16,7 +16,7 @@ public class Monster extends NPC{
 	private String type;
 	private ArrayList<Item>inventory;	
 	
-	public Monster(String type,Scanner s, Dungeon d){
+	public Monster(String type,Scanner s, Dungeon d, boolean initState){
 		super(type,s, d);
 		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
@@ -24,7 +24,9 @@ public class Monster extends NPC{
 		this.type = type;
 		
 		this.properName = s.nextLine();
-		String itemLine = s.nextLine();
+		String itemLine = "";
+		if(initState == true){
+		itemLine = s.nextLine();
 		if(itemLine.startsWith("items:")){
 		String [] items = itemLine.replace("items:","").split(",");
 		for (String item: items){
@@ -32,6 +34,14 @@ public class Monster extends NPC{
 		}
 		itemLine = s.nextLine();
 		}
+		}
+		else if(initState == false){
+			itemLine = s.nextLine();
+			if(itemLine.startsWith("items:")){
+				itemLine = s.nextLine();
+			}
+		}
+		
 		this.level = Integer.valueOf(itemLine.replace("level:",""));
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
@@ -40,7 +50,6 @@ public class Monster extends NPC{
 		String goodbye = s.nextLine().replace("goodbye:","");
 		this.dialogue.put("Bye",goodbye);
 		s.nextLine();
-
 	}
 	/**
 	 * Returns the type of the NPC.
@@ -101,4 +110,35 @@ public class Monster extends NPC{
 		int index = this.inventory.indexOf(item);
                 this.inventory.remove(index);
          }  
+	void makeCompanion(){}
+	String follow(){
+		return null;
+	}
+	String stay(){
+		return null;
+	}
+
+	boolean getFollow(){
+		return false;
+	}
+	Room getCurrRoom(){
+		GameState g = GameState.instance();
+		Dungeon d = g.getDungeon();
+		for(Room currRoom: d.getRooms().values()){
+			if(currRoom.getNonPlayerCharacters().contains(this)){
+				return currRoom;
+			}
+		}
+		return null;
+	}
+	boolean isCompanion(){
+		return false;
+	}
+	void releaseCompanion(){}
+	int getLevel(){
+		return this.level;
+	}
+
+
+
 }

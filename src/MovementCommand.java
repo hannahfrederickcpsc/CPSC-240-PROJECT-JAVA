@@ -68,6 +68,12 @@ class MovementCommand extends Command{
 						nextRoom.describe() + "\n";
 					}
 				}
+				if(g.companion() == true && g.getCompanion().getFollow() == true){
+					g.getCompanion().follow();
+				}
+				else if(g.companion() == true && g.getCompanion().getFollow() == false){
+					g.getCompanion().stay();
+				}
 
 				return "\n" + nextRoom.describe() + "\n";
 			}

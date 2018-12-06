@@ -62,15 +62,22 @@ public class CommandFactory {
 	else if(command.equals("pause")){
                 return new PauseCommand(command, commandLine);
         }
-	else if(command.startsWith("engage")){
-                return new EngageCommand(command, commandLine);
+	else if(command.equals("engage companion") && GameState.instance().hasCompanion() == true){
+                return new CompanionCommand(command, GameState.instance().getCompanion(),commandLine);
         }
-	else if(command.equals("speak")){
+	else if(command.startsWith("engage")){
+		return new EngageCommand(command, commandLine);
+	}
+	else if(command.equals("speak") && (GameState.instance().engaged() == true || GameState.instance().getCompanionEngaged() == true)){
                 return new SpeakCommand(command, commandLine, engagedNPCName);
         }
-	else if(command.equals("trade")){
+	else if(command.equals("trade") && (GameState.instance().engaged() == true || GameState.instance().getCompanionEngaged() == true)){
                 return new TradeCommand(command, commandLine, engagedNPCName);
         }
+	else if(command.equals("befriend") && GameState.instance().engaged() == true){
+		return new MakeCompanionCommand(command, engagedNPCName);
+	}
+
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
 		if(specificCommand.length == 2){

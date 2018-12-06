@@ -37,12 +37,12 @@ NPCs:
 Type:Friendly
 Matt
 items:can,StarWarsToy
-level:10
+level:1
 greeting:Hello!!
 dialogue:NOOOO
 goodbye:bye!!!
 ---
-Type:Monster
+Type:Friendly
 Latt
 items:Yoda
 level:10
@@ -52,7 +52,8 @@ goodbye:bye!!!
 ---
 Type:Thief
 John
-level:20
+items:donut
+level:50
 greeting:HIII
 dialogue:LOLOOL
 goodbye:BYE
@@ -71,7 +72,7 @@ can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
 ---
 Stephen's office
-Contents: StarWarsToy,WawaTravelMug,donut
+Contents: WawaTravelMug
 This is a cluttered office, with many geeky toys sprawling on a desk.
 ---
 Room B6

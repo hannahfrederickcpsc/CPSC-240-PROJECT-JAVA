@@ -37,13 +37,17 @@ class EngageCommand extends Command{
 		Dungeon d = g.getDungeon();
 		Room currRoom = g.getAdventurersCurrentRoom();
 		NPC npc = d.getNPC(this.npcName);
-		List<String> answerList = Arrays.asList("speak","trade","befriend","disengage", "pause");
+		List<String> answerList = Arrays.asList("speak","trade","disengage", "pause");
 		if(npc == null || !currRoom.getNonPlayerCharacters().contains(npc)){
 			return "Engage who?\n";
+		}
+		if(npc.equals(g.getCompanion())){
+			return "Use 'engage companion' to engage your companion.\n";
 		}
 		
 		String answer = "";
 		if(npc.getType().equals("Friendly")){
+			g.setEngage(true);
 			System.out.println("You have engaged " + npc.getProperName() + "\n" +
 					"You can:\n" + 
 					"-speak\n" + 
@@ -52,7 +56,7 @@ class EngageCommand extends Command{
 					"-disengage");
 			System.out.print("> ");
 			answer = s.nextLine();
-			while(!answer.equals("disengage")){
+			while(!answer.equals("disengage") && !answer.equals("befriend")){
 				if(answerList.contains(answer)){
 				System.out.println(CommandFactory.instance().parse(answer,s,npcName).execute());
 				System.out.println("What would you like to do?\n" +
@@ -68,8 +72,13 @@ class EngageCommand extends Command{
 				answer = s.nextLine();
 
 			}
+			g.setEngage(false);
+			if(answer.equals("befriend")){
+				return new MakeCompanionCommand(answer,npcName).execute()+ "\n";
+			}
 			return "You have disengaged " + npc.getProperName() + "\n";
 		}
+
 		return null;
 	}
 }
