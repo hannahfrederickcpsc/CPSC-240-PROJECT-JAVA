@@ -352,4 +352,8 @@ public class Room {
             int index = this.nonPlayerCharacters.indexOf(npc);
             this.nonPlayerCharacters.remove(index);
     }
+
+    public void addToRoom(NPC npc){
+	    this.nonPlayerCharacters.add(npc);
+    }
 }

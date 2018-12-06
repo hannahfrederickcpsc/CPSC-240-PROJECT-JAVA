@@ -162,6 +162,9 @@ public class Thief extends NPC{
 		}
 		return null;
 	}
+	void setCurrRoom(){
+		
+	}
 	boolean isCompanion(){
 		return false;
 	}
