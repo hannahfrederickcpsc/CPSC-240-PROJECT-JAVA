@@ -74,10 +74,12 @@ public class CommandFactory {
 	else if(command.equals("trade") && (GameState.instance().engaged() == true || GameState.instance().getCompanionEngaged() == true)){
                 return new TradeCommand(command, commandLine, engagedNPCName);
         }
+	else if(command.equals("attack")){
+                return new AttackCommand(command, commandLine, engagedNPCName);
+        }
 	else if(command.equals("befriend") && GameState.instance().engaged() == true){
 		return new MakeCompanionCommand(command, engagedNPCName);
 	}
-
 	else if(command.contains(" ")){
 		String[] specificCommand = command.split(" ");
 		if(specificCommand.length == 2){

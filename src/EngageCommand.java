@@ -82,6 +82,30 @@ class EngageCommand extends Command{
 			return "You have disengaged " + npc.getProperName() + "\n";
 		}
 
+		if(npc.getType().equals("Thief")|| npc.getType().equals("Monster")){
+                        System.out.println("You have engaged " + npc.getProperName() + "\n" +
+                                        "You can:\n" +
+                                        "-speak\n" +
+                                        "-attack\n" +
+                                        "-disengage");
+                        System.out.print("> ");
+                        answer = s.nextLine();
+                        while(!answer.equals("disengage")){
+                                if(answerList.contains(answer)){
+                                System.out.println(CommandFactory.instance().parse(answer,s,npcName).execute());
+                                System.out.println("What would you like to do?\n" +
+                                                "-speak\n" +
+                                                "-attack\n" +
+                                                "-disengage\n");
+                                }
+                                else{
+                                        System.out.println("Do what?\n");
+                                }
+                                System.out.print("> ");
+                                answer = s.nextLine();
+                        }
+                        return "You have disengaged " + npc.getProperName() + "\n";
+                }
 		return null;
 	}
 }
