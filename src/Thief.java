@@ -22,7 +22,6 @@ public class Thief extends NPC{
 
 	public Thief(String type,Scanner s, Dungeon d, boolean initState){
 		super(type,s, d);
-		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
 		this.ifStole = false;
@@ -47,7 +46,7 @@ public class Thief extends NPC{
 			}
 		}
 		this.level = Integer.parseInt(itemLine.replace("level:",""));
-		System.out.println(level);
+		this.health = level * 10;
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue:","");

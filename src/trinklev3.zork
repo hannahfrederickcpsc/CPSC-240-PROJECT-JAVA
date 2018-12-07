@@ -2,14 +2,17 @@ Trinkle Hall
 Zork III
 ===
 Items:
+category:item
 magicWand
 5
 50
 ---
+category:item
 WawaTravelMug,mug
 10
 20
 ---
+category:item
 DrPepper,can,soda
 10
 10
@@ -17,16 +20,20 @@ kick:The can skitters down the hallway.
 shake:A liquid fizzes menacingly inside the can.
 drink:Gulp, gulp -- that was GOOD!  *belch*
 ---
+category:item
 StarWarsToy,Yoda
 5
 45
 touch:Yoda says, "Do, or do not! There is no try."
 break:Whoops!
 ---
+category:weapon
 chainsaw
+50
 35
 60
 ---
+category:item
 donut
 7
 10

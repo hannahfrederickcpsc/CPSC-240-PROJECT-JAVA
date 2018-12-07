@@ -2,46 +2,80 @@ The Mountains
 Zork II
 ===
 Items:
+category:weapon
 knife,stabbingMachine
+20
 2
+20
 swing:WOOSH! You hit nothing...
 jab:Good form! Too bad nothing happened.
 throw:The knife flies into the ground.. two feet away. Pathetic.
 ---
+category:weapon
 treeBranch,branch,stick
-15
-break:SNAP!
-swing:You swung the branch. 
+4
+10
+2
+break[transform(brokenBranch)]:SNAP! Man.. this things useless now.
 ---
+category:item
+brokenBranch
+10
+1
+---
+category:item
 pebble,smallRock
 1
-throw:The pebble zooms through the air.
+5
+throw[Drop]:The pebble zooms through the air.
 ---
 brick,houseMaterial
 7
-throw:The brick hums through the air, making a loud thump as it hits the ground.
+throw{Drop}:The brick hums through the air, making a loud thump as it hits the ground.
 ---
 flashlight
 4
 use:The light shines on nothing.
 swing:Flashlight swung.
 ---
+category:item
 handgun
-8
+10
+40
 shoot:Oops! No ammo.
-throw:Well that was useless.
-reload:You have no ammo dummy!
+throw[Drop]:Well that was useless.
+reload[transform(loadedGun)]:You have no ammo dummy!
 ---
+category:weapon
+loadedGun
+25
+10
+70
+---
+category:item
 fireworks
 20
-light: Wow! The colors!
-eat: Yuck. That's disgusting!
+30
+light[Disappear]: Wow! The colors!
+eat[Disappear]: Yuck. That's disgusting!
 ---
+category:item
 sodaCan,can
 1
-melt:You need a fire to melt this.
+7
+melt[transform(rawAluminum)]:You need a fire to melt this.
 bend:That didn't do much...
-crush:The can is now crushed.
+crush[transform(crushedCan)]:The can is now crushed.
+---
+category:item
+crushedCan
+1
+5
+---
+category:item
+rawAluminum
+1
+30
 ---
 snorkel
 2
@@ -70,9 +104,57 @@ backpack
 5
 use:Wow! So much more room for items!
 ---
+category:weapon
+axeOfPower
+51
+20
+50
+use[score(10)]:Hoorah! The axe shoots a bolt of lightning off into the sky.
+---
+category:weapon
+swordOfDestiny
+61
+15
+60
+use[score(10)]:This sword.. it has a special power to it...
+---
+category:weapon
+bowOfDarkness
+71
+10
+70
+use[score(10)]:Don't let its power consume you..
+---
+category:weapon
+ancientDagger
+81
+5
+80
+---
+category:weapon
+mysteriousSpear
+91
+20
+90
+use[score(10)]:So mysterious.. lives up to its name.
+---
+===
+NPCs:
+type:Friendly
+Jimbo
+items:pebble
+level:5
+greeting:Hi there friend!
+dialogue:I am from a small town very far away.. well it used to be a town. Now its.. *sobs*
+goodbye:Goodbye friend!
+---
 ===
 Rooms:
 Trail Head
+*Welcome! To win the game, you must defeat all 5 enemies 
+scattered throughout the Dungeon and use their special item 
+they drop when defeated.*
+
 You are at the beginning of a long trail that 
 branches off in many ways. The trees have seemingly 
 all died, creating some bad vibes...

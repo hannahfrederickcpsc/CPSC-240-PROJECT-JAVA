@@ -52,6 +52,9 @@ public class EventFactory{
 		else if(event.startsWith("Drop")){
 			return new DropEvent(event, itemName, currRoom);
 		}
+		else if(event.startsWith("Hunger")){
+			return new HungerEvent(event);
+		}
 		return null;
 
 	}

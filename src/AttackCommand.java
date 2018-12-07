@@ -88,7 +88,7 @@ class AttackCommand extends EngageMenuCommand{
 					System.out.println("You do not have that item with you");
 				}
 			}
-		}
+		}return null;
 	}
 
 	/**

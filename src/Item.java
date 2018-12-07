@@ -11,7 +11,6 @@ public class Item{
 	/** Specifies what happens when the scanner object is not positioned at the start of an item entry, this happens when the scanner has reached the end of the items section of a dungeon file. 
 	 
 	*/
-	class NoItemException extends Exception{}
 
 	private String primaryName;
 	private int weight;
@@ -30,14 +29,11 @@ public class Item{
 	    @throws Dungeon.IllegalDungeonFormatException if the dungeon file is not formatted the way that the item constructor expected it to be, so the item entry did not end with the item delimiter.
 	 
 	*/
-	public Item(Scanner s)throws NoItemException, Dungeon.IllegalDungeonFormatException{
+	public Item(Scanner s){
 		messages = new Hashtable<String,String>();
 		verbs =  new ArrayList<String>();
 		events = new Hashtable<String,ArrayList<String>>();
 		this.primaryName = s.nextLine();
-		if(primaryName.equals("===")){
-			throw new NoItemException();
-		}
 		this.weight = Integer.valueOf(s.nextLine());
 		this.value = Integer.valueOf(s.nextLine());
 		String currLine = s.nextLine();
@@ -91,6 +87,7 @@ public class Item{
 		}
 	
 	}//end Item()
+	Item(){}
 			
 	//returns boolean if a verb "goes by" a specific name
 	/** Determines if the <tt>Item</tt> object has an alias that matches the name that is provided.
