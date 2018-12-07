@@ -16,6 +16,7 @@ public class Friendly extends NPC{
 	private ArrayList<Item>inventory;
 	boolean isCompanion;
 	boolean follow;
+	boolean ifStole;
 
 	
 	public Friendly(String type, Scanner s, Dungeon d, boolean initState){
@@ -24,6 +25,7 @@ public class Friendly extends NPC{
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
 		this.type = type;
+		this.ifStole =false;
 		
 		this.properName = s.nextLine();
 		String itemLine = "";
@@ -178,4 +180,5 @@ public class Friendly extends NPC{
 			this.inventory.remove(this.inventory.get(0));
 		}
 	}
+	public boolean getIfStole() {return this.ifStole;}
 }

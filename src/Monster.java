@@ -15,6 +15,7 @@ public class Monster extends NPC{
 	private int health;
 	private String type;
 	private ArrayList<Item>inventory;	
+	boolean ifStole;	
 	
 	public Monster(String type,Scanner s, Dungeon d, boolean initState){
 		super(type,s, d);
@@ -22,6 +23,7 @@ public class Monster extends NPC{
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
 		this.type = type;
+		this.ifStole = false;
 		
 		this.properName = s.nextLine();
 		String itemLine = "";
@@ -147,6 +149,7 @@ public class Monster extends NPC{
 		}
 	
 	}
+	public boolean getIfStole() {return this.ifStole;}
 
 
 

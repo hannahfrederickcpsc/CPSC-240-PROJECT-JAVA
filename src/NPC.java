@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.PrintWriter;
 import java.util.Hashtable;
+import java.util.Random;
 /**
  * An <tt>NPC</tt> represents a Non player character that is allowed to be
  * interacted with while playing the game.
@@ -32,10 +33,26 @@ public abstract class NPC{
 	 * @throws NoNPCException
 	 */
 	public NPC(String type,Scanner s, Dungeon d){}
-	/**
-	 * Allows the user to interact with an NPC by speaking to them.
-	 *
-	 */
+	
+	public String steal(){
+                GameState g = GameState.instance();
+                Dungeon d = g.getDungeon();
+                ArrayList<Item> tempInventory = g.getInventory();
+                Random r  = new Random();
+                int random = r.nextInt(tempInventory.size());
+                Item item = tempInventory.get(random);
+                g.removeFromInventory(item);
+                inventory.add(item);
+                Room currRoom = getCurrRoom();
+                currRoom.removeFromRoom(this);
+                Room nextRoom = d.getRandomRoom();
+                nextRoom.addToRoom(this);
+                return this.getProperName() + "has stolen the" + item.getPrimaryName() + "from you!";
+        }
+	  /**
+         * Allows the user to interact with an NPC by speaking to them.
+         *
+         */	
 	public abstract String speak();
 	/**
 	 * Returns the health of the NPC.
@@ -88,6 +105,7 @@ public abstract class NPC{
 	abstract boolean isCompanion();
 	abstract void releaseCompanion();
 	abstract void dropAllItems();
+	abstract public boolean getIfStole();
 }
 
 
