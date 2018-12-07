@@ -21,5 +21,13 @@ class ScoreEvent extends Event{
 		String scoreString  = command.substring(startIndex, endIndex);
 		int score = Integer.parseInt(scoreString);
 		g.changeScore(score);
+		if(g.getAdventurersScore() >= 25){
+			System.out.println("You win!\n" + 
+				"Results: \n" + 
+				"Score: " + g.getAdventurersScore() + "\n" +
+				"Health: " + g.getAdventurersHealth());
+			System.exit(1);
+
+		}
 	}
 }

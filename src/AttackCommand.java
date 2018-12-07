@@ -30,7 +30,7 @@ class AttackCommand extends EngageMenuCommand{
 	 * @return the string declaring who won the battle.
 	 */
 	public String execute(){
-		GameState g = GameState.instance();
+		/*GameState g = GameState.instance();
 		Dungeon d = g.getDungeon();
 		Room currRoom = g.getAdventurersCurrentRoom();
 		NPC npc = d.getNPC(npcName);
@@ -88,7 +88,7 @@ class AttackCommand extends EngageMenuCommand{
 					System.out.println("You do not have that item with you");
 				}
 			}
-		}
+		}*/return null;
 	}
 
 	/**
@@ -98,7 +98,7 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @param item the weapon to be used in battle.
 	 */
-	private void selectWeapon(Item item){
+	/*private void selectWeapon(Item item){
 		GameState g = GameState.instance();
                 Dungeon d = g.getDungeon();
 		Room currRoom = g.getAdventurersCurrentRoom();
@@ -107,7 +107,7 @@ class AttackCommand extends EngageMenuCommand{
 		}
 		weapon = item;
 		weaponName = item.getPrimaryName();
-	}
+	}*/
 
 	/**
 	 * Compares the level between the adventurer and the engaged NPC to decide who
@@ -117,13 +117,13 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return boolean marking if the adventurer or NPC has a higher level.
 	 */
-	private boolean compareLevels(NPC npc){
+	/*private boolean compareLevels(NPC npc){
 		GameState g = GameState.instance();
 		if(g.getAdventurersScore() >= npc.getLevel()){
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 	/**
 	 * Carries out the process for the NPC to attack the adventurer.
@@ -132,9 +132,9 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return the string responding to the attack.
 	 */
-	private String NPCAttack(String itemName){
+	/*private String NPCAttack(String itemName){
 		return null;
-	}
+	}*/
 
 	/**
 	 * Carries out the process to allow the adventurer to attack the NPC.
@@ -143,7 +143,7 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @return String responding to the attack.
 	 */
-	private String attack(String weaponName){
+	/*private String attack(String weaponName){
 		return null;
-	}
+	}*/
 }

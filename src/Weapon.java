@@ -76,9 +76,11 @@ public class Weapon extends Item{
 			
 			//adding message to ht, setting verb as reference to message
 			messages.put(verb,message);
+			message = "";
+			currLine = s.nextLine();
 		
 		
-	}
+		}
 	}	
 
 	/** Returns the number of points that are subtracted from a non-player character's health when the user types an {@link AttackCommand} with that specific item while engaged with that non-player character.

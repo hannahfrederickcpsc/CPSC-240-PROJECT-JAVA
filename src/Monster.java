@@ -18,7 +18,6 @@ public class Monster extends NPC{
 	
 	public Monster(String type,Scanner s, Dungeon d, boolean initState){
 		super(type,s, d);
-		this.health = 100;
 		this.dialogue = new Hashtable<String,String>();
 		this.inventory = new ArrayList<Item>();
 		this.type = type;
@@ -43,6 +42,7 @@ public class Monster extends NPC{
 		}
 		
 		this.level = Integer.valueOf(itemLine.replace("level:",""));
+		this.health = this.level * 10;
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue:","");
@@ -141,7 +141,6 @@ public class Monster extends NPC{
 	}
 	void dropAllItems(){
 		while(this.inventory.size() != 0){
-			System.out.println(this.inventory.get(0));
 			getCurrRoom().add(this.inventory.get(0));
 			this.inventory.remove(this.inventory.get(0));
 		}
