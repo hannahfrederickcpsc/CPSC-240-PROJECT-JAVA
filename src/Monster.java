@@ -155,6 +155,10 @@ public class Monster extends NPC{
 	void changeHealth(int numChange){
 		this.health -= numChange;
 	}
+	public String steal()
+	{
+		return null;
+	}
 
 
 }

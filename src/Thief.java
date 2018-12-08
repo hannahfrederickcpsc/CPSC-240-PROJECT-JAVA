@@ -163,4 +163,19 @@ public class Thief extends NPC{
 	void changeHealth(int numChange){
 		this.health -= numChange;
 	}
+	public String steal(){
+                GameState g = GameState.instance();
+                Dungeon d = g.getDungeon();
+                ArrayList<Item> tempInventory = g.getInventory();
+                Random r  = new Random();
+                int random = r.nextInt(tempInventory.size());
+                Item item = tempInventory.get(random);
+                g.removeFromInventory(item);
+                inventory.add(item);
+                Room currRoom = getCurrRoom();
+                currRoom.removeFromRoom(this);
+                Room nextRoom = d.getRandomRoom();
+                nextRoom.addToRoom(this);
+                return this.getProperName() + "has stolen the" + item.getPrimaryName() + "from you!";
+        }
 }

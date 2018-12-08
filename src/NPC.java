@@ -34,21 +34,7 @@ public abstract class NPC{
 	 */
 	public NPC(String type,Scanner s, Dungeon d){}
 	
-	public String steal(){
-                GameState g = GameState.instance();
-                Dungeon d = g.getDungeon();
-                ArrayList<Item> tempInventory = g.getInventory();
-                Random r  = new Random();
-                int random = r.nextInt(tempInventory.size());
-                Item item = tempInventory.get(random);
-                g.removeFromInventory(item);
-                inventory.add(item);
-                Room currRoom = getCurrRoom();
-                currRoom.removeFromRoom(this);
-                Room nextRoom = d.getRandomRoom();
-                nextRoom.addToRoom(this);
-                return this.getProperName() + "has stolen the" + item.getPrimaryName() + "from you!";
-        }
+	public abstract String steal();
 	  /**
          * Allows the user to interact with an NPC by speaking to them.
          *
