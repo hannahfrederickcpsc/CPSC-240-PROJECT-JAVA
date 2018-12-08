@@ -58,13 +58,7 @@ class MovementCommand extends Command{
 			
 				
 					g.changeHunger(-2);
-				for(NPC npc: nextRoom.getNonPlayerCharacters())
-				{
-					if(npc.getType().equals("Thief")&& (npc.getIfStole() == false) && (!g.getInventory().isEmpty()))
-					{
-							System.out.println(npc.steal());
-					}
-				}
+		
 				
 
 				if((GameState.instance().getMoves() % 20) == 0){
@@ -81,7 +75,14 @@ class MovementCommand extends Command{
 				else if(g.companion() == true && g.getCompanion().getFollow() == false){
 					g.getCompanion().stay();
 				}
-
+				for(int i = 0; i < nextRoom.getNonPlayerCharacters().size();i++)
+				{
+					NPC npc = nextRoom.getNonPlayerCharacters().get(i);
+					if(npc.getType().equals("Thief") && npc.getIfStole() == false && !g.getInventory().isEmpty())
+					{
+							System.out.println(npc.steal());
+					}
+				}
 				return "\n" + nextRoom.describe() + "\n";
 			}
 			else{

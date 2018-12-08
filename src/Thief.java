@@ -176,6 +176,6 @@ public class Thief extends NPC{
                 currRoom.removeFromRoom(this);
                 Room nextRoom = d.getRandomRoom();
                 nextRoom.addToRoom(this);
-                return this.getProperName() + "has stolen the" + item.getPrimaryName() + "from you!";
+                return this.getProperName() + "has stolen the " + item.getPrimaryName() + " from you!\n";
         }
 }
