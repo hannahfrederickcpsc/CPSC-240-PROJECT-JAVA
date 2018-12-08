@@ -62,7 +62,7 @@ class MovementCommand extends Command{
 				{
 					if(npc.getType().equals("Thief")&& (npc.getIfStole() == true) && (!g.getInventory().isEmpty()))
 					{
-							npc.steal();
+							System.out.println(npc.steal());
 					}
 				}
 				

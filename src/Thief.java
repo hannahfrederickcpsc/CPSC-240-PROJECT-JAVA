@@ -99,6 +99,7 @@ public class Thief extends NPC{
 		w.println(inventoryLine);
 		}
 		Dungeon d = GameState.instance().getDungeon();
+		w.println("ifStole=" + this.ifStole);
 		w.println("---");
 
 	}
@@ -112,6 +113,8 @@ public class Thief extends NPC{
 			}
 			inventoryLine = s.nextLine();
 		}
+		this.ifStole = Boolean.valueOf(inventoryLine.substring(inventoryLine.indexOf("=") + 1,inventoryLine.length()));
+		s.nextLine();
 	}
 	void removeFromInventory(Item item){
                  int index = this.inventory.indexOf(item);
