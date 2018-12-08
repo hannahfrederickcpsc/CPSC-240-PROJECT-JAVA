@@ -150,7 +150,6 @@ public class Thief extends NPC{
 	}
 	void dropAllItems(){
 		while(this.inventory.size() != 0){
-			System.out.println(this.inventory.get(0));
 			getCurrRoom().add(this.inventory.get(0));
 			this.inventory.remove(this.inventory.get(0));
 		}	
