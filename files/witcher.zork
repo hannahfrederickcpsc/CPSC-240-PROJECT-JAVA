@@ -1,0 +1,625 @@
+The Witcher
+zork ++
+===
+Items:
+category:item
+marble
+10
+10
+throw[Drop]:The marbles drops hopelessly to the ground.
+examine:Throw this marble to send this colorful marble across the area!
+---
+category:item
+branch
+17
+2
+break[Transform(brokenBranch)]:Whoops!
+examine:This tree branch can be snapped easily if broken.
+---
+category:item
+brokenBranch
+12
+1
+examine:Beyond useless broken tree branch.
+---
+category:item
+dimeritiumBomb
+3
+5
+throw[Drop,Die]: Oh NOO! The bomb goes off, killing everything in the area.
+examine:Throw this green glowing bomb if you are feeling adventurous.
+---
+category:item
+portal
+0
+40
+open[Teleport]:Gosh I hate portals..
+examine:Geralt hates portals.. opening this portal teleports you to a random place.
+---
+category:weapon
+swordOfTheWildHunt
+100
+25
+100
+use[Score(5)]:The power in this blade would be too much for a mortal.
+examine:This sword can be used to gain ultimate power.
+---
+category:item
+elderBlood
+5
+90
+use[Score(5)]:The blood starts to glow...
+examine:Use this blood to gain the awesome might of the elders..
+---
+category:weapon
+enchantedDagger
+80
+7
+80
+use[Score(5)]:The dagger has some odd markings on it..
+examine:Use this dagger to gain the power of thieves.
+---
+category:weapon
+horns
+70
+35
+70
+use[Score(5)]:Oh man.. these are meant to kill.
+examine:Use these long and sharp horns to gain the strength of the Manticore.
+---
+category:item
+claws
+20
+50
+use[Score(5)]:These puppies are sharp.
+examine:Use these mightyi, pointy claws to gain the swiftness of the Griffin.
+---
+category:weapon
+zireal
+150
+7
+150
+examine:Silver sword engraved with the word, "Zireal," meaning The Swallow.
+---
+category:weapon
+dagger
+25
+3
+25
+examine:Common dagger used for quick slicing.
+---
+category:weapon
+sword
+41
+15
+47
+examine:Common sword used for optimal strength and dexterity.
+---
+category:weapon
+bow
+29
+12
+67
+examine:Common bow used to gain the range advantage over enemies.
+---
+category:weapon
+axe
+37
+18
+55
+examine:Common axe used by the residents of the Skellige Isles for ages.
+---
+category:weapon
+spear
+32
+14
+42
+examine:Common spear used to gain a length advantage over the enemy.
+---
+category:item
+healthPotion
+3
+50
+consume[Wound(-100),Disappear]:Feeelin good.
+examine:This pink liquid inside of a vile can be consumed to gain health.
+---
+category:item
+apple
+2
+4
+eat[Wound(-25),Hunger(25),Disappear]:Tastes really good.
+examine:Common fruit that can be eaten to fill your stomach.
+---
+category:item
+banana
+3
+6
+eat[Wound(-50),Hunger(50),Disappear]:Yellow and delicious.
+examine:Common fruit that can be eaten to fill your stomach.
+---
+category:item
+bakedApple
+2
+7
+eat[Wound(-50),Hunger(50),Disappear]:I think I prefer baked over the regular stuff.
+examine:Baked fruit that can be eaten to fill your stomach.
+---
+category:item
+cheese
+5
+8
+eat[Wound(-50),Hunger(50),Disappear]:That hits the spot.
+examine:Delicious dairy product aged for years that can be eaten to fill your stomach.
+---
+category:item
+chicken
+10
+15
+eat[Wound(-80),Hunger(80),Disappear]:Chicken is the way to go.
+examine:Cooked chicken breast that can be eaten to fill your stomach.
+---
+category:item
+driedFish
+10
+18
+eat[Wound(-80),Hunger(80),Disappear]:Quit dry.. good nonetheless.
+examine:Fish that has been dried of all moisture and cooked until able to be eaten to fill your stomach.
+---
+category:item
+egg
+5
+3
+eat[Wound(-25),Hunger(25),Disappear]:Not bad..
+examine:Bird egg that can be eaten to fill your stomach.
+---
+category:item
+mushroom
+5
+1
+eat[Wound(-10),Hunger(10),Disappear]:Not my favorite.
+examine:Raw mushroom (not the poisonous kind, I think..) that can be eaten to fill your stomach.
+---
+category:item
+pork
+7
+15
+eat[Wound(-50),Hunger(50),Disappear]:This is amazing!
+examine:Cooked pig that is delicious and can be eaten to fill your stomach.
+---
+category:item
+sweetBun
+10
+8
+eat[Wound(-50),Hunger(50),Disappear]:Little to sweet for my tastes..
+examine:Similar to a donut glazed in honey and can be eaten to fill your stomach.
+---
+===
+NPCs:
+Type:Friendly
+Ciri
+items:zireal,marble
+level:50
+greeting:Geralt!!
+dialogue:I missed you!
+goodbye:Seya later!
+---
+Type:Friendly
+Yennefer
+items:healthPotion,portal
+level:40
+greeting:Hello Geralt.
+dialogue:You look great!
+goodbye:Bye Geralt.
+---
+Type:Monster
+Eredin
+items:swordOfTheWildHunt
+level:100
+greeting:Nice to see you Geralt..
+dialogue:Zireal needs to be destroyed.
+goodbye:Enough of this.. lets fight!
+---
+Type:Monster
+TheCrones
+items:elderBlood
+level:90
+greeting:Hello Geralt..
+dialogue:We knew you would be back.
+goodbye:Mmmm... You wont make it much longer.
+---
+Type:Thief
+TheKingOfThieves
+items:enchantedDagger
+level:80
+greeting:Ah.. Geralt. Greetings.
+dialogue:I have heard of your efforts to stop the Witch Hunters.
+goodbye:So long Geralt..
+---
+Type:Monster
+TheManticore
+items:horns
+level:70
+greeting:Gwahhhhh!
+dialogue:*snorts*
+goodbye:Gwahhhhhhh!
+---
+Type:Monster
+TheGriffin
+items:claws
+level:60
+greeting:*Screeching noises*
+dialouge:*Flaps his wings*
+goodbye:Graaaaaaa!
+---
+===
+Rooms:
+White Orchard
+Contents: dagger,apple
+NPCs: Yennefer
+*Welcome! To win the game, you must defeat all 5 enemy bosses, 
+using their special item they drop upon defeat.*
+
+You are in a small town with a few inns and minimal people..
+Lots of farmers here.
+---
+Sawmill
+Contents: sword,healthPotion
+White Orchard is known for not only their premium fruit,
+but also their lumber harvested from the Vulpine Woods.
+---
+Ford
+Before the war, merchants and travelers would cross the river
+here.. Now only Nilfgaardian soldiers traverse this path.
+---
+Mill
+Carts haul grain from all the surrounding villages to White Orchard's
+mill.
+---
+Cackler Bridge
+NPCs: TheGriffin
+Bridge named in honor of a woman who went mad from unfulfilled 
+love. After her heart snapped, she spent all of her days up
+and down this bridge.
+---
+Nilfgaardian Garrison
+Contents: apple,bow
+This strategic point gaurds White Orchard's main river crossing.
+Nilfgaardian troops have taken it over.
+---
+Crossroads
+The road splits here.
+---
+Velen
+You arrive at Velen, a mysterious land that is mainly a bog, 
+filled with water heavy areas.
+---
+Hanged Man's Tree
+During the war, both side committed acts of exorbitant cruelty meant
+to keep the conquered population in check.. The tree has many innocent 
+deceased beings that were hanged on the branches.
+---
+Inn At The Crossroads
+Contents: mushroom,bakedApple
+A sizeable establishment to accomidate the crowd of travelers and revelers.
+---
+Midcopse
+Contents: egg
+Typical farming settlement which the worst of the fighting has left
+untouched, but which famine now grips all the same.
+---
+Fyke Isle
+Contents: spear
+Contains a ruined tower which is said to be afflicted by a terrible curse.
+---
+Crookback Bog
+Contents: branch
+NPCs: TheCrones
+Mostly abandoned swamp covered in fog and drowners.
+This place is not for the average man.
+---
+Bald Mountain
+NPCs: TheManticore
+The place where the crones of Crookback Bog are worshipped.
+The locals worship the crones for crops in return.
+---
+Novigrad
+One of the most populated cities in all of the world. Watch
+out for thieves...
+---
+Hierarch Square
+Contents: sweetBun,banana,healthPotion
+The free city of Novigrad's main square. Merchants sell their merchandise 
+here, there are lots of places to eat, OH! This is where people are hanged 
+as well.
+---
+Novigrad Docks
+NPCs: TheKingOfThieves
+Contents: dimeritiumBomb,healthPotion
+A den of dirt and depravity and is also the shadiest part of Novigrad.
+All one will find here at night are drunks and thieves.
+---
+Oxenfurt Gate
+In the times of dispute between Novigrad and Oxenfurt, this gate went
+through several name changes until finally when the dispute ended, the 
+name stuck as 'Oxenfurt Gate.'
+---
+Vegelbud Residence
+Contents: pork,healthPotion,chicken
+Mansion of a prominent Novigrad family whose line can be traced back
+to the earlies settlers of this land.
+---
+Novigrad Gate
+During Oxenfurt Academy exam sessions, this gate would be closed to keep
+the students temptations to travel to Novigrad at bay.
+---
+Oxenfurt
+Above average sized city with many intellectuals that were alumni
+at the famous Oxenfurt accademy.
+---
+Oxenfurt Harbor
+Contents: cheese,pork
+Oxenfurt's picturesque port that holds many performances done by the 
+famous actors and actresses of Oxenfurt. A really nice play to enjoy
+the Oxenfurt nightlife.
+---
+Crossroads #2
+A small crossroads in the woods.
+---
+Skellige Isles
+NPCs: Ciri
+A beautiful island miles off the coast of Novigrad. This place has it all: 
+picture perfect mountains, peaceful coastline, many caverns to explore, oh 
+and also TONS of monsters. Watch your step!
+---
+Kaer Trolde Harbor
+Contents: chicken,banana
+One of the busiest ports in Skellige. Goods from all over are brought here 
+to be dispersed.
+---
+Kaer Trolde
+Contents: driedFish,axe,pork
+Biggest city/town in all of the Skellige isles.
+There is a huge castle here that contains a bridge that was 
+carved single handedly by the original founder of the 
+Clan an Craite.
+---
+Larvik
+NPCs: Eredin
+Largest village on the island of Hindarsfjall and home seat to Donar,
+head of Clan an Hindar.
+---
+===
+Exits:
+White Orchard
+e
+Ford
+---
+White Orchard
+w
+Sawmill
+---
+Sawmill
+n
+Nilfgaardian Garrison
+---
+Mill
+e
+Cackler Bridge
+---
+Nilfgaardian Garrison
+e
+Mill
+---
+Ford
+w
+White Orchard
+---
+Sawmill
+e
+White Orchard
+---
+Nilfgaardian Garrison
+s
+Sawmill
+---
+Cackler Bridge
+w
+Mill
+---
+Mill
+w
+Nilfgaardian Garrison
+---
+Ford
+e
+Crossroads
+---
+Crossroads
+w
+Ford
+---
+Velen
+s
+Crossroads
+---
+Velen
+w
+Hanged Man's Tree
+---
+Hanged Man's Tree
+e
+Velen
+---
+Hanged Man's Tree
+w
+Inn At The Crossroads
+---
+Inn At The Crossroads
+e
+Hanged Man's Tree
+---
+Inn At The Crossroads
+s
+Midcopse
+---
+Midcopse
+n
+Inn At The Crossroads
+---
+Midcopse
+e
+Fyke Isle
+---
+Fyke Isle
+w
+Midcopse
+---
+Fyke Isle
+e
+Crookback Bog
+---
+Crookback Bog
+w
+Fyke Isle
+---
+Crookback Bog
+e
+Bald Mountain
+---
+Bald Mountain
+w
+Crookback Bog
+---
+Crookback Bog
+s
+Velen
+---
+Velen
+n
+Crookback Bog
+---
+Inn At The Crossroads
+n
+Novigrad
+---
+Novigrad
+s
+Inn At The Crossroads
+---
+Novigrad
+n
+Hierarch Square
+---
+Hierarch Square
+s
+Novigrad
+---
+Novigrad
+w
+Novigrad Docks
+---
+Hierarch Square
+e
+Oxenfurt Gate
+---
+Oxenfurt Gate
+w
+Hierarch Square
+---
+Oxenfurt Gate
+e
+Vegelbud Residence
+---
+Vegelbud Residence
+w
+Oxenfurt Gate
+---
+Vegelbud Residence
+s
+Novigrad Gate
+---
+Novigrad Gate
+n
+Vegelbud Residence
+---
+Novigrad Gate
+w
+Oxenfurt
+---
+Oxenfurt
+e
+Novigrad Gate
+---
+Oxenfurt
+w
+Oxenfurt Harbor
+---
+Oxenfurt Harbor
+e
+Oxenfurt
+---
+Oxenfurt
+s
+Crossroads #2
+---
+Crossroads #2
+n
+Oxenfurt
+---
+Crossroads #2
+w
+Velen
+---
+Velen
+e
+Crossroads #2
+---
+Novigrad Docks
+w
+Skellige Isles
+---
+Skellige Isles
+e
+Novigrad Docks
+---
+Skellige Isles
+w
+Kaer Trolde Harbor
+---
+Kaer Trolde Harbor
+e
+Skellige Isles
+---
+Kaer Trolde Harbor
+n
+Kaer Trolde
+---
+Kaer Trolde
+s
+Kaer Trolde Harbor
+---
+Skellige Isles
+s
+Larvik
+---
+Larvik
+n
+Skellige Isles
+---
+Novigrad Docks
+e
+Novigrad
+---
+===
+Weather Events:
+Storm
+Crossroads
+n
+Velen
+Winds howling...
+Looks like its going to rain.
+A landslide occured after the storm,
+opening the path to Velen.
+---
+===
+

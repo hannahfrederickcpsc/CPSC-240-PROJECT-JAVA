@@ -81,8 +81,10 @@ class EngageCommand extends Command{
 			}
 			return "You have disengaged " + npc.getProperName() + "\n";
 		}
+		List<String>enemyList = Arrays.asList("attack","speak","pause");
 
 		if(npc.getType().equals("Thief")|| npc.getType().equals("Monster")){
+			g.setEngage(true);
                         System.out.println("You have engaged " + npc.getProperName() + "\n" +
                                         "You can:\n" +
                                         "-speak\n" +
@@ -91,19 +93,26 @@ class EngageCommand extends Command{
                         System.out.print("> ");
                         answer = s.nextLine();
                         while(!answer.equals("disengage")){
-                                if(answerList.contains(answer)){
+                                if(answer.equals("attack")){
+					System.out.println(CommandFactory.instance().parse(answer,s,npcName).execute());
+					answer = "disengage";
+				}
+				else if (enemyList.contains(answer)){
                                 System.out.println(CommandFactory.instance().parse(answer,s,npcName).execute());
                                 System.out.println("What would you like to do?\n" +
                                                 "-speak\n" +
                                                 "-attack\n" +
                                                 "-disengage\n");
+				answer = s.nextLine();
                                 }
                                 else{
                                         System.out.println("Do what?\n");
-                                }
+                                
                                 System.out.print("> ");
                                 answer = s.nextLine();
+				}
                         }
+			g.setEngage(false);
                         return "You have disengaged " + npc.getProperName() + "\n";
                 }
 		return null;

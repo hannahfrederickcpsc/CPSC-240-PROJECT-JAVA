@@ -80,9 +80,9 @@ class TradeCommand extends EngageMenuCommand{
 								System.out.println(npc.getProperName() + " doesn't want to trade this.");
 							}
 							else{
-								g.removeFromInventory(d.getItem(answerSplit[1]));
+								g.getInventory().remove(d.getItem(answerSplit[1]));
 								npc.getInventory().add(d.getItem(answerSplit[1]));
-								npc.removeFromInventory(d.getItem(answerSplit[2]));
+								npc.getInventory().remove(d.getItem(answerSplit[2]));
 								g.getInventory().add(d.getItem(answerSplit[2]));
 								return "you have swapped " + answerSplit[1] + " for " + answerSplit[2];
 							}

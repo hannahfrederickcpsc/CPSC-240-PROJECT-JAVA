@@ -15,6 +15,11 @@ public class Weapon extends Item{
 	private Hashtable<String,String> messages;
 	private ArrayList<String> verbs;
 	private Hashtable<String,ArrayList<String>> events;
+	public Weapon(String name, int damage){
+		super();
+		this.damage = damage;
+		this.primaryName = name;
+	}
 
 	/** Constructs a new <tt>Weapon</tt> object with a scanner object positioned at the beginning of an item entry in a dungeon file. Each item entry in a dungeon file lists the category of the item, the aliases of the item, the weight of the item, and the commands for the item with the messages to be printed for the commands. If the category is equal to weapon then this item has all the qualities of other items, but it also has a damage quantity, so that when the weapon is used against a non-player character it decreases their health by that number.
             @param s the scanner object that reads an item entry of a dungeon file to instantiate an item object in that dungeon.
@@ -122,5 +127,15 @@ public class Weapon extends Item{
 	}
 	public int getWeight(){
 		return this.weight;
+	}
+	public String getType(){
+		return this.type;
+	}
+	public String toString(){
+		return "WeaponName: " + this.primaryName + "\n" +
+			"Damage: " + damage;
+	}
+	int getDamage(){
+		return this.damage;
 	}
 }

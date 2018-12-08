@@ -59,7 +59,7 @@ public abstract class NPC{
 	 *
 	 * @return Health of the NPC.
 	 */
-	public int getHealth(){
+	int getHealth(){
 		return health;
 	}
 	/**
@@ -106,6 +106,7 @@ public abstract class NPC{
 	abstract void releaseCompanion();
 	abstract void dropAllItems();
 	abstract public boolean getIfStole();
+	abstract void changeHealth(int numChange);
 }
 
 

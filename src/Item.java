@@ -158,4 +158,10 @@ public class Item{
 	public int getValue(){
 		return this.value;
 	}
+	public String getType(){
+		return "item";
+	}
+	int getDamage(){
+		return 0;
+	}
 }//end Item class

@@ -249,7 +249,7 @@ public class Room {
 	}
 	for(NPC npc: this.nonPlayerCharacters){
 		if(npc.isCompanion() == false){
-		description += "There is a " + npc.getType() + " here named " + npc.getProperName() + "\n";
+		description += "There is a level " + npc.getLevel() + " " +  npc.getType() + " here named " + npc.getProperName() + "\n";
 		}
 		else{
 			description += "Your companion named " + npc.getProperName() + " is here.\n";

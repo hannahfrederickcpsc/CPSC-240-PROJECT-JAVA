@@ -44,7 +44,7 @@ public class Monster extends NPC{
 		}
 		
 		this.level = Integer.valueOf(itemLine.replace("level:",""));
-		this.health = this.level * 10;
+		this.health = this.level * 2;
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue:","");
@@ -149,7 +149,12 @@ public class Monster extends NPC{
 	
 	}
 	public boolean getIfStole() {return this.ifStole;}
-
+	int getHealth(){
+		return this.health;
+	}
+	void changeHealth(int numChange){
+		this.health -= numChange;
+	}
 
 
 }

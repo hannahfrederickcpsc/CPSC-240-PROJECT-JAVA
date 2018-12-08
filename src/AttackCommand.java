@@ -35,60 +35,32 @@ class AttackCommand extends EngageMenuCommand{
 		Room currRoom = g.getAdventurersCurrentRoom();
 		NPC npc = d.getNPC(npcName);
 		String answer;
+		Item weapon;
+		String winner = "";
+		weapon = selectWeapon(this.s);
 		if(npc.getType().equals("Thief") || npc.getType().equals("Monster")){
-			if(!g.getInventory().isEmpty() || !currRoom.getContents().isEmpty()){
-				System.out.println("What would you like to attack with?");
-                        	System.out.print("> ");
-				answer = s.nextLine();
-				if(g.getItemFromInventoryNamed(answer) != null || g.getItemInVicinityNamed(answer) != null){
-					
-
-					if(compareLevels(npc) == true){
-						attack(weaponName);
-						while(g.getAdventurersHealth() > 0 || npc.getHealth() > 0){
-							npcAttack(npcWeaponName);
-							attack(weaponName);
-						}
-						if(g.getAdventurersHealth() <= 0){
-							System.out.println(npc.getProperName() + " has defeated you!");
-							for(Item i: g.getInventory()){
-								currRoom.add(i);
-							}
-							System.exit(0);
-						}
-						else if(npc.getHealth() <= 0){
-							System.out.println("You have defeated " + npc.getProperName());
-							d.removeNPC(npc);
-							currRoom.removeFromRoom(npc);
-						}
-					}
-
-					else{
-						npcAttack(npcWeaponName);
-                                                while(g.getAdventurersHealth() > 0 || npc.getHealth() > 0){
-                                                        attack(weaponName);
-							npcAttack(npcWeaponName);
-                                                }
-                                                if(g.getAdventurersHealth() <= 0){
-                                                        System.out.println(npc.getProperName() + " has defeated you!");
-                                                        for(Item i: g.getInventory()){
-                                                                currRoom.add(i);
-                                                        }
-                                                        System.exit(0);
-                                                }
-                                                else if(npc.getHealth() <= 0){
-                                                        System.out.println("You have defeated " + npc.getProperName());
-                                                        d.removeNPC(npc);
-                                                        currRoom.removeFromRoom(npc);
-                                                }
-					}		
-
+			while(g.getAdventurersHealth() > 0 && npc.getHealth() > 0){
+				if(weapon == null){
+					System.out.println("That weapon does not exist.");
+					weapon = selectWeapon(this.s);
+				}
+				else if(!g.getInventory().contains(weapon) && !weapon.getPrimaryName().equals("Fists")){
+					System.out.println("You do not own this weapon.");
+					weapon = selectWeapon(this.s);
 				}
 				else{
-					System.out.println("You do not have that item with you");
+					attack(npc, weapon);
 				}
 			}
-		}return null;
+		}
+		if(g.getAdventurersHealth() <= 0){
+			g.die();
+			return npc.getProperName() + " is the winner!\n";
+		}
+		else{
+			System.out.println(g.die(npc));
+			return "You win!\n";
+		}
 	}
 
 	/**
@@ -98,15 +70,27 @@ class AttackCommand extends EngageMenuCommand{
 	 *
 	 * @param item the weapon to be used in battle.
 	 */
-	private void selectWeapon(Item item){
+	private Item selectWeapon(Scanner s){
 		GameState g = GameState.instance();
                 Dungeon d = g.getDungeon();
 		Room currRoom = g.getAdventurersCurrentRoom();
-		if(!g.getInventory().contains(item) && !currRoom.getContents().contains(item)){
-			System.out.println("You do not have that item with you. Please type an item that you have.");
+		Item w;
+		System.out.println("Weapons:");
+		int count = 0;
+		for(Item item: g.getInventory()){
+			if(item.getType().equals("weapon")){
+				System.out.println(item);
+				count++;
+			}
 		}
-		weapon = item;
-		weaponName = item.getPrimaryName();
+		if(count == 0){
+			System.out.println("You do not have any weapons.. I guess you will have to punch your way out.");
+			return new Weapon("Fists",10);
+		}
+		System.out.println("What item would you like to use?");
+		String answer = s.nextLine();
+		return d.getItem(answer);
+
 	}
 
 	/**
@@ -126,24 +110,23 @@ class AttackCommand extends EngageMenuCommand{
 	}
 
 	/**
-	 * Carries out the process for the NPC to attack the adventurer.
-	 *
-	 * @param itemName the item name of what the NPC is attacking with.
-	 *
-	 * @return the string responding to the attack.
-	 */
-	private String NPCAttack(String itemName){
-		return null;
-	}
-
-	/**
 	 * Carries out the process to allow the adventurer to attack the NPC.
 	 *
 	 * @param usableWeaponName name of the weapon selected for the battle.
 	 *
 	 * @return String responding to the attack.
 	 */
-	private String attack(String weaponName){
-		return null;
+	private void attack(NPC npc,Item weapon){
+		int damage = weapon.getDamage();
+		GameState g = GameState.instance();
+		if(compareLevels(npc) == true){
+			npc.changeHealth(damage);
+			g.changeHealth(npc.getLevel()/2);
+		}
+		else{
+			g.changeHealth(npc.getLevel()/2);
+			npc.changeHealth(damage);
+		}
+
 	}
 }

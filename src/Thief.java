@@ -46,7 +46,7 @@ public class Thief extends NPC{
 			}
 		}
 		this.level = Integer.parseInt(itemLine.replace("level:",""));
-		this.health = level * 10;
+		this.health = level * 2;
 		String greeting  = s.nextLine().replace("greeting:","");
 		this.dialogue.put("Hello",greeting);
 		String dialogue = s.nextLine().replace("dialogue:","");
@@ -154,5 +154,11 @@ public class Thief extends NPC{
 			getCurrRoom().add(this.inventory.get(0));
 			this.inventory.remove(this.inventory.get(0));
 		}	
+	}
+	int getHealth(){
+		return this.health;
+	}
+	void changeHealth(int numChange){
+		this.health -= numChange;
 	}
 }

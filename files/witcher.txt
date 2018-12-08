@@ -1,0 +1,4 @@
+To win this game, you must find and defeat all 5 bosses. After you defeat
+a boss, you must type 'use itemName'
+Do NOT actually type out itemName, type the name of the Item that 
+the boss drops.

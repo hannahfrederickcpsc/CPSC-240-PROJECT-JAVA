@@ -320,7 +320,8 @@ public class GameState {
 *@return the string of the output of the program when the adventurer dies.
 */
     public String die(){
-    		return null;
+	    return "You have died.";
+    		
     	}
 /**
 *Returns the output of the program when the specified NonPlayerCharacter dies.
