@@ -2,3 +2,15 @@ To win this game, you must find and defeat all 5 bosses. After you defeat
 a boss, you must type 'use itemName'
 Do NOT actually type out itemName, type the name of the Item that 
 the boss drops.
+First, you need to move around rooms til you find a good enough weapon. 
+Eat all food items along the way, building health. To use a potion, use
+the command 'consume' instead of 'eat' like food items.
+Once you have enough health, go find the first boss. (Should be level 50)
+Type 
+"engage 'name'" (name being the bosses name) to engage them. Then follow 
+the menu to attack if you like, hopefully defeating them.Dont forget
+to use the item they drop. And MAKE SURE you 
+have a weapon in your inventory before attacking.
+After some time moving around the area, a path should open up from the 
+crossroads going north. Then you just repeat the same steps for each area,
+hopefully defeating the final boss and winning the game.
