@@ -7,6 +7,6 @@ Engage Combat (revised up to 50XP) The adventurer can attack a Thief or Monster 
 
 Replenish Hunger (10XP) The adventurer's hunger will decrease with every move, so he has to eat food items to replenish his hunger or else he will die.
 
-Weather Events (10XP) The dungeon will open a new room with every 5 moves as long as there are still hidden rooms in the dungeon.
+Weather Events (10XP) The dungeon will open a new room with every 20 moves as long as there are still hidden rooms in the dungeon.
 
 Pause Game (10XP) The adventurer can pause the game by typing 'pause', and the program will print the pause menu with the options to leave the menu. The program prints the score, health, hunger, moves, carry weight, and inventory of the adventurer. The options to leave the menu are resume, save, and quit. The adventurer can resume the game by typing 'resume', can save and resume the game by typing 'save', and can quit the game by typing 'quit'.

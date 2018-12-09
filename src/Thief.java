@@ -173,9 +173,9 @@ public class Thief extends NPC{
                 g.removeFromInventory(item);
                 inventory.add(item);
                 Room currRoom = getCurrRoom();
-                currRoom.removeFromRoom(this);
                 Room nextRoom = d.getRandomRoom();
-                nextRoom.addToRoom(this);
-                return this.getProperName() + " has stolen the " + item.getPrimaryName() + " from you!\n";
+                g.setNonPlayerCharacterCurrRoom(nextRoom,this);
+		this.ifStole = true;
+                return this.getProperName() + " has stolen the " + item.getPrimaryName() + " from you, disappearing from the area!\n";
         }
 }
