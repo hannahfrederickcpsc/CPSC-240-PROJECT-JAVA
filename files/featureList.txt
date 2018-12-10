@@ -1,6 +1,6 @@
 Engage Non-Player Character (+50XP) The adventurer can engage with a non-player character (NPC) in the adventurer's current room. When the adventurer enters a room with an NPC in it, the program will print "There is a 'NPC type' here named 'NPC name'". The adventurer can engage with the NPC by typing "engage 'NPC name', and the program will print the engage menu with the options to engage with the NPC.
 
-You can test engage Non-Player Character by when you begin the game, type the command "engage Jim"
+You can test engage Non-Player Character by when you begin the game, type the command "engage Jim" and following further instructions to either trade(if friendly), befriend(if friendyly), attack(if monster/thief), etc.
 ---
 
 	If the NPC is a Friendly, then the engage options are speak, trade, befriend, release, and disengage. The adventurer can speak with the NPC by typing 'speak', and the program will the print the speak menu with the options to speak with the NPC: hello, talk, and bye. The adventurer can get the NPC's greeting by typing 'Hello', get the NPC's dialogue by typing 'Talk', and get the NPC's salutation by typing 'Bye'. When the adventurer types 'Bye', he is out of the speak menu but still in the engage menu. The adventurer can trade with the NPC by typing 'trade', and the program will print the adventurer's inventory and the NPC's inventory. The adventurer types "swap 'adventurer's item' 'NPC's item' to swap an item in his inventory for an item in the NPC's inventory. If the value of the NPC's item is 10 units greater than the value of the adventurer's item, then he cannot trade these items. If this is not the case, then the adventurer and the NPC have swapped items and the adventurer is now in the engage menu. The adventurer can make the NPC his companion by typing 'befriend' and the companion will follow the adventurer wherever he goes. The adventurer can stop the NPC from being his companion by typing 'release' and the NPC will stay in the adventurer's current room. The adventurer can leave the NPC by typing 'disengage', and he is now out of the engage menu.
@@ -24,15 +24,15 @@ To test Engage Combat when you enter the game type the command "d" to go to the 
 Are you sure you want to continue with this?(y/n)
 Type "y" and Matt should win the fight. The screen will display: Jim has died, dropping all of his/her items.
 ---
-Hunger (10XP) The adventurer's hunger will decrease by 2 with every move, so he has to eat food items to replenish his hunger or else he will die. After the adventurer's hunger decreses to 50 an additional hunger point will be substracted from the adventurer's hunger. After the adventurer's hunger decreaes to 30, 3 more additioanl hunger points will be substracted from the adventurer's hunger. Finally, after the adventurer's hunger decreases to 10, 5 more additional hunger points will be subtracted from the adventurer's hunger.
+Hunger (10XP) The adventurer's hunger will decrease by 2 with every move, so he has to eat food items to replenish his hunger or else he will die. After the adventurer's hunger decreses to 50, the adventurer will now lose 1 health point every single move they make. After the adventurer's hunger decreaes to 30, the health penalty is up to 3 points. Finally, after the adventurer's hunger decreases to 10, 5 health points are taken away from the adventurer every move. Gotta eat!
 
-To test Hunger use the following commands to go to Stephen's Office (d, w). In Stephen's office "play" withe Yoda and your hunger will decrease by 50, thus decreasing your health at 3 after everymove.
+To test Hunger use the following commands to go to Stephen's Office (d, w). In Stephen's office "play" with Yoda and your hunger will decrease by 50, thus decreasing your health at 3 after everymove.
 ---
 Weather Events (10XP) The dungeon will open a new room with every 20 moves as long as there are still hidden rooms in the dungeon.
 
-To test Weather Events in any direction 20 times. After the 20th move into another room, a new exit to the east (e) and room (Some place) will open in the Rotunda balcony due to the weather event of tornado.
+To test Weather Events in any direction 20 times. After the 20th move into another room, a new exit to the east (e) and room (Some place) will open in the Rotunda balcony due to the weather event of tornado. Also after another 20 moves, a new exit will be opened.. well leave that for you to find by yourself;) (Hint: The game will tell you, pay attention)
 ---
 Pause Game (10XP) The adventurer can pause the game by typing 'pause', and the program will print the pause menu with the options to leave the menu. The program prints the score, health, hunger, moves, carry weight, and inventory of the adventurer. The options to leave the menu are resume, save, and quit. The adventurer can resume the game by typing 'resume', can save and resume the game by typing 'save', and can quit the game by typing 'quit'.
 
-To test pause menu chose any point in the game to type the command "pause". 
+To test pause menu chose any point in the game (besides when attacking) to type the command "pause". 
 ---
