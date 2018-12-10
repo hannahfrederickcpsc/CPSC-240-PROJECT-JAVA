@@ -85,7 +85,6 @@ goodbye:Bye
 ---
 Type:Monster
 Mark
-items:Yoda
 level:70
 greeting:I am the monster Mark
 dialogue:Leave my lair, or die.
@@ -114,7 +113,7 @@ can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
 ---
 Stephen's office
-Contents: mug
+Contents: mug, Yoda
 This is a cluttered office, with many geeky toys sprawling on a desk.
 ---
 Room B6
