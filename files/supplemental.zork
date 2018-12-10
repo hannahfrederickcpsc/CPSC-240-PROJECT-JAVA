@@ -1,0 +1,164 @@
+Trinkle Hall
+Zork III
+===
+Items:
+category:item
+magicWand
+5
+50
+wave[Teleport,Score(50)]
+---
+category:item
+WawaTravelMug,mug
+10
+20
+
+---
+category:item
+DrPepper,can,soda
+10
+10
+kick[Drop]:The can skitters down the hallway.
+shake[Disappear,Wound(-10)]:A liquid fizzes menacingly inside the can.
+drink[Transform(emptyCan)]:Gulp, gulp -- that was GOOD!  *belch*
+---
+category:item
+emptyCan
+5
+15
+---
+category:item
+StarWarsToy,Yoda
+5
+45
+touch[Die]:Yoda says, "Do, or do not! There is no try."
+break:Whoops!
+play[Disappear,Hunger(-50)]:The 
+---
+category:weapon
+chainsaw
+50
+35
+60
+---
+category:item
+donut
+7
+10
+eat[Win]:You feel mildly guilt-ridden.
+---
+===
+NPCs:
+Type:Friendly
+Matt
+items:can,mug
+level:200
+greeting:Hello! My name is Matt.
+dialogue:
+goodbye:Bye!It was nice meeting you!
+---
+Type:Friendly
+Latt
+level:10
+greeting:Hello!!
+dialogue:NOOOO
+goodbye:bye!!!
+---
+Type:Thief
+John
+items:donut,chainsaw
+level:50
+greeting:HIII
+dialogue:LOLOOL
+goodbye:BYE
+---
+Type:Monster
+Mark
+items:Yoda,mug
+level:70
+greeting:HSJFNJWNDNW
+dialogue:Wassup homie
+goodbye:bye
+---
+Type:Thief
+Jim
+level:80
+greeting:lol
+dialogue:lololol
+goodbye:bye
+---
+===
+Rooms:
+Rotunda
+NPCs: John,Mark,Jim
+You are in a beautiful round entry chamber, with tall white pillars that
+seemingly reach to the skies. There is an elevator here.
+---
+Basement hallway
+NPCs: Matt
+A long, white hallway stretches to the east and west. It is cold here, and you
+can detect the faint smell of body odor. A vending machine hums softly in the
+corner.
+---
+Stephen's office
+This is a cluttered office, with many geeky toys sprawling on a desk.
+---
+Room B6
+NPCs: Latt
+Sunlight streams through tall windows and illuminates a brilliant classroom.
+---
+Rotunda balcony
+Contents: chainsaw
+You stand on a circular white balcony overlooking an entry hall.
+Columnar bannisters in ancient Grecian style stand between you and the
+precipice.
+---
+Some place
+Some place that is Some place.
+---
+===
+Exits:
+Rotunda
+u
+Rotunda balcony
+---
+Rotunda balcony
+d
+Rotunda
+---
+Rotunda
+d
+Basement hallway
+---
+Basement hallway
+u
+Rotunda
+---
+Room B6
+w
+Basement hallway
+---
+Basement hallway
+e
+Room B6
+---
+Basement hallway
+w
+Stephen's office
+---
+Stephen's office
+e
+Basement hallway
+---
+===
+Weather Events:
+Tornado
+Rotunda balcony
+e
+Some place
+The tornado has came,
+opening Some place,
+lol.
+---
+===
+
