@@ -43,7 +43,7 @@ chainsaw
 category:weapon
 sword
 50
-45
+20
 80
 ---
 category:weapon
@@ -56,10 +56,23 @@ category:item
 donut
 7
 10
-eat[Teleport,Hunger(10),Wound(-20)]:You feel mildly guilt-ridden.
+eat[Teleport,Hunger(10),Wound(-20),Disappear]:You feel mildly guilt-ridden.
+---
+category:item
+burger
+8
+10
+eat[Disappear,Hunger(20),Wound(-20)]:Mmm tasty.
 ---
 ===
 NPCs:
+Type:Friendly
+Bella
+level:50
+greeting:Hola
+dialogue:Wassuh dude
+goodbye:Bye!
+---
 Type:Friendly
 Matt
 items:can
@@ -117,6 +130,7 @@ Contents: mug, Yoda
 This is a cluttered office, with many geeky toys sprawling on a desk.
 ---
 Room B6
+Contents: burger
 NPCs: Latt
 Sunlight streams through tall windows and illuminates a brilliant classroom.
 ---
@@ -130,8 +144,16 @@ Some place
 Contents: magicWand
 Some place that is Some place.
 ---
+Some Other Place
+NPCs: Bella
+Some other place lol.
+---
 ===
 Exits:
+Some Other Place
+w
+Rotunda
+---
 Rotunda
 u
 Rotunda balcony
@@ -175,6 +197,14 @@ Rotunda balcony
 e
 Some place
 The tornado has came, 
-opening Some place.
+opening Some place from Rotunda Balcony.
+---
+Earthquake
+Rotunda
+e
+Some Other Place
+AHHHHH EARTHQUAKEEEEE
+AHHHHHH
+Some Other Place opened from Rotunda.
 ---
 ===
