@@ -6,7 +6,7 @@ category:item
 magicWand
 5
 50
-wave[Teleport,Score(50)]
+wave[Win,Score(50)]
 ---
 category:item
 WawaTravelMug,mug
@@ -18,7 +18,7 @@ DrPepper,can,soda
 10
 10
 kick[Drop]:The can skitters down the hallway.
-shake[Disappear,Wound(-10)]:A liquid fizzes menacingly inside the can.
+shake[Disappear,Wound(10)]:A liquid fizzes menacingly inside the can.
 drink[Transform(emptyCan)]:Gulp, gulp -- that was GOOD!  *belch*
 ---
 category:item
@@ -32,7 +32,7 @@ StarWarsToy,Yoda
 45
 touch[Die]:Yoda says, "Do, or do not! There is no try."
 break:Whoops!
-play[Disappear,Hunger(-50)]:The 
+play[Disappear,Hunger(-50)]:The toy starts to walk on its own across the floor.
 ---
 category:weapon
 chainsaw
@@ -56,13 +56,13 @@ category:item
 donut
 7
 10
-eat[Win]:You feel mildly guilt-ridden.
+eat[Teleport,Hunger(10),Wound(-20)]:You feel mildly guilt-ridden.
 ---
 ===
 NPCs:
 Type:Friendly
 Matt
-items:can,mug
+items:can
 level:200
 greeting:Hello! My name is Matt.
 dialogue:I can help you on your adventure!
@@ -77,7 +77,7 @@ goodbye:Goodbye!I had fun being your friend!
 ---
 Type:Thief
 John
-items:donut,chainsaw
+items:donut
 level:50
 greeting:My name is John.
 dialogue:You should hide your items from me.
@@ -85,7 +85,7 @@ goodbye:Bye
 ---
 Type:Monster
 Mark
-items:Yoda,mug
+items:Yoda
 level:70
 greeting:I am the monster Mark
 dialogue:Leave my lair, or die.
@@ -101,30 +101,35 @@ goodbye:Bye.
 ===
 Rooms:
 Rotunda
+Contents:flamethrower
 NPCs: John,Mark,Jim
 You are in a beautiful round entry chamber, with tall white pillars that
-seemingly reach to the skies. There is an elevator here.
+sndeemingly reach to the skies. There is an elevator here.
 ---
 Basement hallway
+Contents:sword
 NPCs: Matt
 A long, white hallway stretches to the east and west. It is cold here, and you
 can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
 ---
 Stephen's office
+Contents:mug
 This is a cluttered office, with many geeky toys sprawling on a desk.
 ---
 Room B6
+Contents:
 NPCs: Latt
 Sunlight streams through tall windows and illuminates a brilliant classroom.
 ---
 Rotunda balcony
-Contents: chainsaw
+Contents:chainsaw
 You stand on a circular white balcony overlooking an entry hall.
 Columnar bannisters in ancient Grecian style stand between you and the
 precipice.
 ---
 Some place
+Contents:magicWand
 Some place that is Some place.
 ---
 ===
@@ -160,6 +165,10 @@ Stephen's office
 Stephen's office
 e
 Basement hallway
+---
+Some place
+w
+Rotunda balcony
 ---
 ===
 Weather Events:
