@@ -49,7 +49,7 @@ sword
 category:weapon
 flamethrower
 65
-60
+20
 90
 ---
 category:item
@@ -101,35 +101,34 @@ goodbye:Bye.
 ===
 Rooms:
 Rotunda
-Contents:flamethrower
+Contents: flamethrower
 NPCs: John,Mark,Jim
 You are in a beautiful round entry chamber, with tall white pillars that
 sndeemingly reach to the skies. There is an elevator here.
 ---
 Basement hallway
-Contents:sword
+Contents: sword
 NPCs: Matt
 A long, white hallway stretches to the east and west. It is cold here, and you
 can detect the faint smell of body odor. A vending machine hums softly in the
 corner.
 ---
 Stephen's office
-Contents:mug
+Contents: mug
 This is a cluttered office, with many geeky toys sprawling on a desk.
 ---
 Room B6
-Contents:
 NPCs: Latt
 Sunlight streams through tall windows and illuminates a brilliant classroom.
 ---
 Rotunda balcony
-Contents:chainsaw
+Contents: chainsaw
 You stand on a circular white balcony overlooking an entry hall.
 Columnar bannisters in ancient Grecian style stand between you and the
 precipice.
 ---
 Some place
-Contents:magicWand
+Contents: magicWand
 Some place that is Some place.
 ---
 ===
@@ -180,4 +179,3 @@ The tornado has came,
 opening Some place.
 ---
 ===
-
