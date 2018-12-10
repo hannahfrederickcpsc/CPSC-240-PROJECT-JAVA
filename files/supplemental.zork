@@ -54,38 +54,38 @@ Matt
 items:can,mug
 level:200
 greeting:Hello! My name is Matt.
-dialogue:
+dialogue:I can help you on your adventure!
 goodbye:Bye!It was nice meeting you!
 ---
 Type:Friendly
 Latt
 level:10
-greeting:Hello!!
-dialogue:NOOOO
-goodbye:bye!!!
+greeting:Hi! My name is Latt!
+dialogue:I am here to aid you on your adventure!
+goodbye:Goodbye!I had fun being your friend!
 ---
 Type:Thief
 John
 items:donut,chainsaw
 level:50
-greeting:HIII
-dialogue:LOLOOL
-goodbye:BYE
+greeting:My name is John.
+dialogue:You should hide your items from me.
+goodbye:Bye
 ---
 Type:Monster
 Mark
 items:Yoda,mug
 level:70
-greeting:HSJFNJWNDNW
-dialogue:Wassup homie
-goodbye:bye
+greeting:I am the monster Mark
+dialogue:Leave my lair, or die.
+goodbye:Bye I hope you get lost in the dungeon.
 ---
 Type:Thief
 Jim
 level:80
-greeting:lol
-dialogue:lololol
-goodbye:bye
+greeting:My name is John.
+dialogue:You should hide your items from me.
+goodbye:Bye.
 ---
 ===
 Rooms:
@@ -156,9 +156,8 @@ Tornado
 Rotunda balcony
 e
 Some place
-The tornado has came,
-opening Some place,
-lol.
+The tornado has came, 
+opening Some place.
 ---
 ===
 
